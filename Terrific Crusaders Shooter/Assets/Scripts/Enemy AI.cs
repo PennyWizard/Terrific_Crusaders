@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("---Enemy Stats--")]
+    [Range(0,100)][SerializeField] int HP;
+    [Range(0,20)][SerializeField] int facePlayerspeed;
+    [SerializeField] int sightDist;
     
-    // Start is called before the first frame update
+    [Header("--- Gun Stats---")]
+    [Range(1, 25)][SerializeField] int shootDMG;
+    [Range(0, 10)][SerializeField] int enemySpeed;
     void Start()
     {
         
@@ -15,5 +21,13 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         
+    }
+    public void takeDamage(int damage)
+    {
+        HP -= damage;
+        if (HP <=0)
+        {
+
+        }
     }
 }
