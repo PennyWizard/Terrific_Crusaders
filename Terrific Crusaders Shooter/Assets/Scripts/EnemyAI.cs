@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
     [Header("--- Component ---")]
+    [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
 
     [Header("---Enemy Stats--")]
@@ -17,6 +20,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(0, 10)][SerializeField] int enemySpeed;
     void Start()
     {
+        GameManager.instance.enemyAmount++;
 
     }
 

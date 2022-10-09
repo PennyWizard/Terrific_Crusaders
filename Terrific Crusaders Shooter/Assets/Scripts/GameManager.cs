@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int enemyNumber;
+    public int enemyAmount;
 
     [Header("---Player Stuff---")]
     public GameObject player;
@@ -81,10 +81,10 @@ public class GameManager : MonoBehaviour
 
     public void checkEnemyTotal()
     {
-        enemyNumber--;
-        enemyCountTexy.text = enemyNumber.ToString("F0");
+        enemyAmount--;
+        enemyCountTexy.text = enemyAmount.ToString("F0");
 
-        if (enemyNumber <= 0)
+        if (enemyAmount <= 0)
         {
             winMenu.SetActive(true);
             curserLockPause();
