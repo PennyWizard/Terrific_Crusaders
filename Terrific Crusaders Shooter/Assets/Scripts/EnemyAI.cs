@@ -5,27 +5,27 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour, IDamage
 {
     [Header("---Enemy Stats--")]
-    [Range(0,100)][SerializeField] int HP;
-    [Range(0,20)][SerializeField] int facePlayerspeed;
+    [Range(0, 100)][SerializeField] int HP;
+    [Range(0, 20)][SerializeField] int facePlayerspeed;
     [SerializeField] int sightDist;
-    
+
     [Header("--- Gun Stats---")]
     [Range(1, 25)][SerializeField] int shootDMG;
     [Range(0, 10)][SerializeField] int enemySpeed;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void takeDamage(int damage)
     {
         HP -= damage;
-        if (HP <=0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
         }
