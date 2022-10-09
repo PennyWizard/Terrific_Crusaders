@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
                 //Creat Cube
                 //
-                Instantiate(cube, hit.point, cube.transform.rotation);
+                //Instantiate(cube, hit.point, cube.transform.rotation);
 
                 //
                 //Instantiate(cube, hit.point, Camera.main.transform.rotation);
