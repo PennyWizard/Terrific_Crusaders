@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IDamage
 {
     [Header("---Enemy Stats--")]
     [Range(0,100)][SerializeField] int HP;
@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
         HP -= damage;
         if (HP <=0)
         {
-
+            Destroy(gameObject);
         }
     }
 }
