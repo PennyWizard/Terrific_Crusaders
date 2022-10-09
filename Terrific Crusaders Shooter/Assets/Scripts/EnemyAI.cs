@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
+    [Header("--- Component ---")]
+    [SerializeField] Renderer model;
+
     [Header("---Enemy Stats--")]
     [Range(0, 100)][SerializeField] int HP;
     [Range(0, 20)][SerializeField] int facePlayerspeed;
@@ -25,9 +28,16 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void takeDamage(int damage)
     {
         HP -= damage;
+       
         if (HP <= 0)
         {
             Destroy(gameObject);
         }
+    }
+    IEnumerator damageFeedback()
+    {
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        model.material.color = Color.white;
     }
 }
