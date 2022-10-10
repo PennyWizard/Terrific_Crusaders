@@ -53,7 +53,14 @@ MonoBehaviour:
   playerSpeed: 5
   jumpHeight: 10
   gravityValue: 20
-  jumpMax: 1
+  jumpsMax: 1
+  HP: 10
+  shootRate: 5
+  shootDist: 5
+  shootDmg: 2
+  gunModel: {fileID: 0}
+  gunStat: []
+  cube: {fileID: 0}
 --- !u!143 &8913967691672376409
 CharacterController:
   m_ObjectHideFlags: 0
