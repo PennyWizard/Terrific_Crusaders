@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
 
     public bool isPaused;
-
+    public bool isMenuOpen;
 
     //    // Start is called before the first frame update
     void Awake()
@@ -41,9 +41,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && !isMenuOpen)
         {
             isPaused = !isPaused;
+            isMenuOpen = !isMenuOpen;
+
             Menu.SetActive(isPaused);
 
             if (isPaused)
@@ -81,15 +83,15 @@ public class GameManager : MonoBehaviour
 
     //    }
 
-    // public void checkEnemyTotal()
-    //{
-    //enemyAmount--;
-    //enemyCountTexy.text = enemyAmount.ToString("F0");
+    public void checkEnemyTotal()
+    {
+        enemyAmount--;
+        enemyCountText.text = enemyAmount.ToString("F0");
 
-    //if (enemyAmount <= 0)
-    //{
-    //    winMenu.SetActive(true);
-    //    curserLockPause();
-    //}
-    //}
+        if (enemyAmount <= 0)
+        {
+            Menu.SetActive(true);
+            curserLock();
+        }
+    }
 }
