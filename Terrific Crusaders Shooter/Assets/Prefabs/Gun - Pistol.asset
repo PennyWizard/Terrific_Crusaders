@@ -16,7 +16,7 @@ MonoBehaviour:
   shootDist: 35
   shootDmg: 1
   ammoCount: 10
-  gunModel: {fileID: 0}
+  gunModel: {fileID: 1425814443739648, guid: b8472c75b2bc2ee4b98e87869dace24f, type: 3}
   sound: {fileID: 0}
   hitEffect: {fileID: 0}
   muzzleEffect: {fileID: 0}
