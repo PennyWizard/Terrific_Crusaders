@@ -7,14 +7,14 @@ public class buttonFuction : MonoBehaviour
 {
     public void resume()
     {
-        //gameManager.instance.cursorUnLockPause();
-        //gameManager.instance.pauseMenu.SetActive(false);
-        //gameManager.instance.isPaused = false;
+        GameManager.instance.curserUnlock();
+        GameManager.instance.Menu.SetActive(false);
+        GameManager.instance.isPaused = false;
     }
 
     public void restart()
     {
-        //gameManager.instance.cursorUnLockPause();
+        GameManager.instance.curserUnlock();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

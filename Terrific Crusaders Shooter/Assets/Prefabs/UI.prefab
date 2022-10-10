@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 42593581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1891960352999495288}
+        m_TargetAssemblyTypeName: buttonFuction, Assembly-CSharp
+        m_MethodName: resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891960352999495288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +429,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7741503486441663009}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1891960352999495285}
+        m_TargetAssemblyTypeName: buttonFuction, Assembly-CSharp
+        m_MethodName: quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891960352999495285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +809,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2337881413429550810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1891960352999495287}
+        m_TargetAssemblyTypeName: buttonFuction, Assembly-CSharp
+        m_MethodName: respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891960352999495287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,7 +1299,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3540542777614533297}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1891960352999495286}
+        m_TargetAssemblyTypeName: buttonFuction, Assembly-CSharp
+        m_MethodName: restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891960352999495286
 MonoBehaviour:
   m_ObjectHideFlags: 0
