@@ -41,8 +41,8 @@ public class EnemyAI : MonoBehaviour, IDamage
        
         if (HP <= 0)
         {
+            GameManager.instance.checkEnemyTotal();
             Destroy(gameObject);
-            GameManager.instance.enemyAmount--;
         }
     }
     IEnumerator damageFeedback()
