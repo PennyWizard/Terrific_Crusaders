@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 42593582}
   - component: {fileID: 42593581}
   - component: {fileID: 42593580}
+  - component: {fileID: 1891960352999495288}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -122,6 +123,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1891960352999495288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42593578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd7bfc495b35f345b550574fa4e2612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &911889243
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +307,7 @@ GameObject:
   - component: {fileID: 3572772638453875201}
   - component: {fileID: 7741503486441663009}
   - component: {fileID: 112347755366072010}
+  - component: {fileID: 1891960352999495285}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -404,6 +418,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1891960352999495285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211426700341761118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd7bfc495b35f345b550574fa4e2612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1457436697583906319
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +543,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 5}
+  m_SizeDelta: {x: 7, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3429507213833705479
 CanvasRenderer:
@@ -649,6 +675,7 @@ GameObject:
   - component: {fileID: 7772429863764943214}
   - component: {fileID: 2337881413429550810}
   - component: {fileID: 4942061624139604145}
+  - component: {fileID: 1891960352999495287}
   m_Layer: 5
   m_Name: Respawn
   m_TagString: Untagged
@@ -759,6 +786,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1891960352999495287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2947645577335249416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd7bfc495b35f345b550574fa4e2612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3182200398065948172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2760554815437450162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1114,6 +1153,7 @@ GameObject:
   - component: {fileID: 2623259059599424449}
   - component: {fileID: 3540542777614533297}
   - component: {fileID: 5959940127378157011}
+  - component: {fileID: 1891960352999495286}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -1224,6 +1264,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1891960352999495286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055816104553738952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd7bfc495b35f345b550574fa4e2612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4137805961654932023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613631934332283208}
+  - component: {fileID: 1181284300}
   m_Layer: 5
   m_Name: GameManger
   m_TagString: Untagged
@@ -1410,6 +1463,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1181284300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232533660206690150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cae5156b2869945aecac54f3a9929c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAmount: 0
+  player: {fileID: 0}
+  playerScript: {fileID: 0}
+  Menu: {fileID: 3970533204320542224}
+  playerDamageFlash: {fileID: 0}
+  playerHPBar: {fileID: 715303339028106910}
+  enemyCountText: {fileID: 6125083196220377874}
+  resumButton: {fileID: 42593578}
+  respawnButton: {fileID: 2947645577335249416}
+  isPaused: 0
 --- !u!1 &6609163609672792325
 GameObject:
   m_ObjectHideFlags: 0
