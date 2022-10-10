@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public bool playerInRange;
     void Start()
     {
-        GameManager.instance.enemyAmount++;
+        //GameManager.instance.enemyAmount++;
 
     }
 
@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour, IDamage
        
         if (HP <= 0)
         {
-            GameManager.instance.checkEnemyTotal();
+           // GameManager.instance.checkEnemyTotal();
             Destroy(gameObject);
         }
     }
