@@ -80,15 +80,15 @@ public class GameManager : MonoBehaviour
 
     //    }
 
-    //    public void checkEnemyTotal()
-    //    {
-    //        enemyAmount--;
-    //        enemyCountTexy.text = enemyAmount.ToString("F0");
+    public void checkEnemyTotal()
+    {
+        enemyAmount--;
+        //enemyCountTexy.text = enemyAmount.ToString("F0");
 
-    //        if (enemyAmount <= 0)
-    //        {
-    //            winMenu.SetActive(true);
-    //            curserLockPause();
-    //        }
-    //    }
+        //if (enemyAmount <= 0)
+        //{
+        //    winMenu.SetActive(true);
+        //    curserLockPause();
+        //}
+    }
 }
