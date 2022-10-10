@@ -297,10 +297,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
-      propertyPath: playerDamageFlash
-      value: 
-      objectReference: {fileID: 1142620375}
     - target: {fileID: 3905510910591297555, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: m_Name
       value: UI
@@ -391,11 +387,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
---- !u!1 &1142620375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2403039247231779267, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
-  m_PrefabInstance: {fileID: 1142620374}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1352211886
 PrefabInstance:
   m_ObjectHideFlags: 0
