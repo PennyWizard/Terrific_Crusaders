@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void takeDamage(int damage)
     {
         HP -= damage;
-       
+        StartCoroutine(damageFeedback());
         if (HP <= 0)
         {
            // GameManager.instance.checkEnemyTotal();

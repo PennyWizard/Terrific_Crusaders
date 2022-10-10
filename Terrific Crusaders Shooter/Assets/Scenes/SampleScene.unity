@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5950893310427458907, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 1819055233}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
 --- !u!1 &705507993
@@ -321,6 +325,13 @@ MonoBehaviour:
   enemyAmount: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  Menu: {fileID: 0}
+  playerDamageFlash: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  enemyCountText: {fileID: 0}
+  resumButton: {fileID: 0}
+  respawnButton: {fileID: 0}
+  isPaused: 0
 --- !u!114 &1139917527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,8 +599,13 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &1819055233 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 5950893310427458905, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+  m_PrefabInstance: {fileID: 72010188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1819055235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5950893310427458904, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
@@ -833,6 +849,13 @@ MonoBehaviour:
   enemyAmount: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  Menu: {fileID: 0}
+  playerDamageFlash: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  enemyCountText: {fileID: 0}
+  resumButton: {fileID: 0}
+  respawnButton: {fileID: 0}
+  isPaused: 0
 --- !u!1001 &7768503789437248683
 PrefabInstance:
   m_ObjectHideFlags: 0
