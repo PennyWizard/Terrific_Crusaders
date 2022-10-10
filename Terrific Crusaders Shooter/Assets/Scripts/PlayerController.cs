@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
         HP -= dmg;
         updatePlayerHUD();
 
-        StartCoroutine(GameManager.instance.playerDamage());
+        //StartCoroutine(GameManager.instance.playerDamage());
 
         if (HP <= 0)
         {
