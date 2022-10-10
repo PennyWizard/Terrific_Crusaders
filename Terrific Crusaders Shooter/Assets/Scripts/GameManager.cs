@@ -16,17 +16,16 @@ public class GameManager : MonoBehaviour
 
     //public GameObject spawnPosition;
 
-    //    [Header("---UI---")]
-    //    public GameObject pauseMenu;
-    //    public GameObject playerDeadMenu;
-    //    public GameObject winMenu;
-    //    public GameObject menuCurrentlyOpen;
-    //    public GameObject playerDamageFlash;
-    //    public Image playerHPBar;
-    //    public TextMeshProUGUI enemyCountTexy;
+    [Header("---UI---")]
+    public GameObject Menu;
+    public GameObject playerDamageFlash;
+    public Image playerHPBar;
+    public Text enemyCountText;
+    public GameObject resumButton;
+    public GameObject respawnButton;
 
 
-    //    public bool isPaused;
+    public bool isPaused;
 
 
     //    // Start is called before the first frame update
@@ -39,38 +38,40 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //    // Update is called once per frame
-    //    void Update()
-    //    {
-    //        if (Input.GetButtonDown("Cancel") && !playerDeadMenu.activeSelf)
-    //        {
-    //            isPaused = !isPaused;
-    //            pauseMenu.SetActive(isPaused);
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            isPaused = !isPaused;
+            Menu.SetActive(isPaused);
 
-    //            if (isPaused)
-    //            {
-    //                curserLockPause();
-    //            }
-    //            else
-    //            {
-    //                curserUnlockUnpause();
-    //            }
-    //        }
-    //    }
+            if (isPaused)
+            {
+                curserLock();
+                resumButton.SetActive(true);
+            }
+            else
+            {
+                curserUnlock();
+                resumButton.SetActive(false);
+            }
+        }
+    }
 
-    //    public void curserLockPause()
-    //    {
-    //        Time.timeScale = 0;
-    //        Cursor.visible = true;
-    //        Cursor.lockState = CursorLockMode.Confined;
-    //    }
+    public void curserLock()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
-    //    public void curserUnlockUnpause()
-    //    {
-    //        Time.timeScale = 1;
-    //        Cursor.visible = false;
-    //        Cursor.lockState = CursorLockMode.Locked;
-    //    }
+    public void curserUnlock()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     //    public IEnumerator playerDamage()
     //    {
@@ -80,15 +81,15 @@ public class GameManager : MonoBehaviour
 
     //    }
 
-   // public void checkEnemyTotal()
+    // public void checkEnemyTotal()
     //{
-        //enemyAmount--;
-        //enemyCountTexy.text = enemyAmount.ToString("F0");
+    //enemyAmount--;
+    //enemyCountTexy.text = enemyAmount.ToString("F0");
 
-        //if (enemyAmount <= 0)
-        //{
-        //    winMenu.SetActive(true);
-        //    curserLockPause();
-        //}
+    //if (enemyAmount <= 0)
+    //{
+    //    winMenu.SetActive(true);
+    //    curserLockPause();
+    //}
     //}
 }
