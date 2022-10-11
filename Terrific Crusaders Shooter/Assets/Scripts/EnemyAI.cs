@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         StartCoroutine(damageFeedback());
         if (HP <= 0)
         {
-           // GameManager.instance.checkEnemyTotal();
+           GameManager.instance.checkEnemyTotal();
             Destroy(gameObject);
         }
     }
@@ -86,4 +86,4 @@ public class EnemyAI : MonoBehaviour, IDamage
             playerInRange = false;
         }
     }
-}
+   }
