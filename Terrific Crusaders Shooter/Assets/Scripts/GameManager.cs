@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerController playerScript;
 
-    //public GameObject spawnPosition;
+    public GameObject spawnPosition;
 
     [Header("---UI---")]
     public GameObject Menu;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
-        //spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
+        spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
        
     }
 
