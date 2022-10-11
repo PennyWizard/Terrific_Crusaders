@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         if (enemyAmount <= 0)
         {
             GameManager.instance.youWinText.SetActive(true);
+            isMenuOpen = true;
             Menu.SetActive(true);
             curserLock();
         }
