@@ -25,7 +25,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     public bool isShooting;
     void Start()
     {
-        //GameManager.instance.enemyAmount++;
+        GameManager.instance.enemyAmount++;
+       
 
     }
 
