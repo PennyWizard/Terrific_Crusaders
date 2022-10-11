@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Header("--- Component ---")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
+    [SerializeField] GameObject shootPosition;
+    [SerializeField] GameObject bullet;
 
     [Header("---Enemy Stats--")]
     [Range(0, 100)][SerializeField] int HP;
@@ -17,9 +19,10 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("--- Gun Stats---")]
     [Range(1, 25)][SerializeField] int shootDMG;
-    [Range(0, 10)][SerializeField] int enemySpeed;
+    [Range(0, 10)][SerializeField] int rateOfFire;
 
     public bool playerInRange;
+    public bool isShooting;
     void Start()
     {
         //GameManager.instance.enemyAmount++;
@@ -32,6 +35,11 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (agent.enabled && playerInRange)
         {
             agent.SetDestination(GameManager.instance.player.transform.position);
+            if (!isShooting)
+            {
+                
+                StartCoroutine(shoot());
+            }
         }
 
     }
@@ -48,8 +56,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     IEnumerator damageFeedback()
     {
         model.material.color = Color.red;
+        agent.enabled = false;
+
         yield return new WaitForSeconds(0.1f);
+
         model.material.color = Color.white;
+        agent.enabled = true;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -64,5 +76,14 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             playerInRange = false;
         }
+    }
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+
+        yield return new WaitForSeconds(rateOfFire);
+        isShooting = false;
     }
 }
