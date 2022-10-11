@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public Text enemyCountText;
     public GameObject resumButton;
     public GameObject respawnButton;
-
+    public GameObject youWinText;
 
     public bool isPaused;
     public bool isMenuOpen;
@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel") && !isMenuOpen)
         {
             isPaused = !isPaused;
-            isMenuOpen = !isMenuOpen;
 
             Menu.SetActive(isPaused);
 
