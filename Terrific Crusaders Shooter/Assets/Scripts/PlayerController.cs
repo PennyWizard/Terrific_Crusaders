@@ -140,8 +140,10 @@ public class PlayerController : MonoBehaviour
 
         if (HP <= 0)
         {
-            //GameManager.instance.playerDeadMenu.SetActive(true);
-            //GameManager.instance.curserLockPause();
+            GameManager.instance.Menu.SetActive(true);
+            GameManager.instance.respawnButton.SetActive(true);
+            GameManager.instance.curserLock();
+            GameManager.instance.isMenuOpen = true;
 
             /*Commented out above coed to clear up code to work with the code.
         without some of the UI elements Unity will not let the player move*/
@@ -151,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
     public void updatePlayerHUD()
     {
-        //GameManager.instance.playerHPBar.fillAmount = (float)HP / (float)hpOringal;
+        GameManager.instance.playerHPBar.fillAmount = (float)HP / (float)hpOringal;
 
         /*Commented out above coed to clear up code to work with the code.
         without some of the UI elements Unity will not let the player move*/
@@ -160,8 +162,7 @@ public class PlayerController : MonoBehaviour
     public void Respawm()
     {
         controller.enabled = false;
-        //GameManager.instance.playerDeadMenu.SetActive(false);
-        
+       
         /*Commented out above coed to clear up code to work with the code.
          without some of the UI elements Unity will not let the player move*/
 
