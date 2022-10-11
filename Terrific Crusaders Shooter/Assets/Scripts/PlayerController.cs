@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private void Start()
     {
+        hpOringal = HP;
         Respawm();
     }
 
@@ -144,6 +145,7 @@ public class PlayerController : MonoBehaviour, IDamage
             GameManager.instance.respawnButton.SetActive(true);
             GameManager.instance.curserLock();
             GameManager.instance.isMenuOpen = true;
+            
 
             /*Commented out above coed to clear up code to work with the code.
         without some of the UI elements Unity will not let the player move*/
@@ -155,18 +157,14 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         GameManager.instance.playerHPBar.fillAmount = (float)HP / (float)hpOringal;
 
-        /*Commented out above coed to clear up code to work with the code.
-        without some of the UI elements Unity will not let the player move*/
+        
     }
 
     public void Respawm()
     {
         controller.enabled = false;
-       
-        /*Commented out above coed to clear up code to work with the code.
-         without some of the UI elements Unity will not let the player move*/
 
-        hpOringal = HP;
+        HP = hpOringal;
         updatePlayerHUD();
         //transform.position = GameManager.instance.spawnPosition.transform.position;
         controller.enabled = true;
