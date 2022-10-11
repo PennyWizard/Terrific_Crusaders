@@ -74,13 +74,13 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    //    public IEnumerator playerDamage()
-    //    {
-    //        playerDamageFlash.SetActive(true);
-    //        yield return new WaitForSeconds(0.1f);
-    //        playerDamageFlash.SetActive(false);
+    public IEnumerator playerDamage()
+    {
+        playerDamageFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        playerDamageFlash.SetActive(false);
 
-    //    }
+    }
 
     public void checkEnemyTotal()
     {
@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
 
         if (enemyAmount <= 0)
         {
+            GameManager.instance.youWinText.SetActive(true);
             Menu.SetActive(true);
             curserLock();
         }

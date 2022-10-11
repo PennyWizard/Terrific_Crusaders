@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(8, 15)] [SerializeField] float jumpHeight;
     [Range(15, 35)] [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
-    [SerializeField] int HP;
+    [Range(1, 20)] [SerializeField] int HP;
 
     [Header("---Gun Stats---")]
     [SerializeField] float shootRate;
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour, IDamage
         HP -= dmg;
         updatePlayerHUD();
 
-        //StartCoroutine(GameManager.instance.playerDamage());
+        StartCoroutine(GameManager.instance.playerDamage());
 
         if (HP <= 0)
         {
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour, IDamage
         /*Commented out above coed to clear up code to work with the code.
          without some of the UI elements Unity will not let the player move*/
 
-        HP = hpOringal;
+        hpOringal = HP;
         updatePlayerHUD();
         //transform.position = GameManager.instance.spawnPosition.transform.position;
         controller.enabled = true;
