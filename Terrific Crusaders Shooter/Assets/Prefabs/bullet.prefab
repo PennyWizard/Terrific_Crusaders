@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1342483715715620535}
   - component: {fileID: 3336280733641482934}
   - component: {fileID: 448340698214021483}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   rb: {fileID: 448340698214021483}
   speed: 25
   damage: 1
-  destroyTime: 5
+  destroyTime: 3
 --- !u!33 &758681160027741668
 MeshFilter:
   m_ObjectHideFlags: 0

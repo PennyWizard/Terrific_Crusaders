@@ -63,6 +63,15 @@ public class EnemyAI : MonoBehaviour, IDamage
         model.material.color = Color.white;
         agent.enabled = true;
     }
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+
+        yield return new WaitForSeconds(rateOfFire);
+        isShooting = false;
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -76,14 +85,5 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             playerInRange = false;
         }
-    }
-    IEnumerator shoot()
-    {
-        isShooting = true;
-
-        Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-
-        yield return new WaitForSeconds(rateOfFire);
-        isShooting = false;
     }
 }
