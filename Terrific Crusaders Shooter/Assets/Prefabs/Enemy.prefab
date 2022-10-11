@@ -818,12 +818,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2278268419255659559}
   model: {fileID: 2278268419250349957}
+  shootPosition: {fileID: 2278268419255626483}
+  bullet: {fileID: 4699189130003273600, guid: aff1579e55325484ab927bb4d53e7eb7, type: 3}
   HP: 3
   facePlayerspeed: 0
   sightDist: 0
-  shootDMG: 0
-  enemySpeed: 0
+  shootDMG: 1
+  rateOfFire: 1
   playerInRange: 0
+  isShooting: 0
 --- !u!95 &2278268419246233925
 Animator:
   serializedVersion: 4
@@ -917,7 +920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2278268419255626483}
   m_LocalRotation: {x: -0.079513475, y: 0.663656, z: 0.74313986, w: -0.031328555}
-  m_LocalPosition: {x: -0.22053517, y: 0.024589777, z: 0.14772435}
+  m_LocalPosition: {x: 0.9, y: -0.12, z: 0.83}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
