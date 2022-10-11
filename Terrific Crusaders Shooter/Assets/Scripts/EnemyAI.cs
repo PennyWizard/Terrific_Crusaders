@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("--- Gun Stats---")]
     [Range(1, 25)][SerializeField] int shootDMG;
-    [Range(0, 10)][SerializeField] int rateOfFire;
+    [Range(0, 10)][SerializeField] float rateOfFire;
 
     public bool playerInRange;
     public bool isShooting;
