@@ -820,7 +820,7 @@ MonoBehaviour:
   model: {fileID: 2278268419250349957}
   shootPosition: {fileID: 2278268419255626483}
   bullet: {fileID: 4699189130003273600, guid: aff1579e55325484ab927bb4d53e7eb7, type: 3}
-  HP: 3
+  HP: 10
   facePlayerspeed: 0
   sightDist: 0
   shootDMG: 1

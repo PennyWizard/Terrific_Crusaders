@@ -6,7 +6,7 @@ public class walls : MonoBehaviour, IDamage
 {
     [SerializeField] bool penetrable;
     [SerializeField] GameObject wall;
-    int HP = 10;
+    int HP = 6;
     // Start is called before the first frame update
     void Start()
     {
