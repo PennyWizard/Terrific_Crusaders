@@ -20,6 +20,7 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.isMenuOpen = false;
         GameManager.instance.youWinText.SetActive(false);
         GameManager.instance.resumButton.SetActive(false);
+        GameManager.instance.respawnButton.SetActive(false);
     }
 
     public void quit()
@@ -34,5 +35,6 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.Menu.SetActive(false);
         GameManager.instance.isMenuOpen = false;
         GameManager.instance.resumButton.SetActive(false);
+        GameManager.instance.respawnButton.SetActive(false);
     }
 }
