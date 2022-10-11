@@ -35,7 +35,12 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         //spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
-        enemyCountText.text = enemyAmount.ToString("F0");
+       
+    }
+
+    void Start()
+    {
+        StartCoroutine(enemyCountWait()); 
     }
 
     // Update is called once per frame
@@ -80,6 +85,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         playerDamageFlash.SetActive(false);
 
+    }
+
+    public IEnumerator enemyCountWait()
+    {
+        yield return new WaitForSeconds(0.1f);
+        enemyCountText.text = enemyAmount.ToString();
     }
 
     public void checkEnemyTotal()
