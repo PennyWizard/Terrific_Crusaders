@@ -647,7 +647,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 7, y: 7}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3429507213833705479
 CanvasRenderer:
@@ -1690,7 +1690,7 @@ MonoBehaviour:
   enemyCountText: {fileID: 6125083196220377874}
   resumButton: {fileID: 42593578}
   respawnButton: {fileID: 2947645577335249416}
-  youWinText: {fileID: 0}
+  youWinText: {fileID: 1385762365364321231}
   isPaused: 0
   isMenuOpen: 0
 --- !u!1 &6609163609672792325

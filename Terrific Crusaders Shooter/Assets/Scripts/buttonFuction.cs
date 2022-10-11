@@ -18,12 +18,12 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.curserUnlock();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.isMenuOpen = false;
+        GameManager.instance.youWinText.SetActive(false);
     }
 
     public void quit()
     {
         Application.Quit();
-        GameManager.instance.isMenuOpen = false;
     }
 
     public void respawn()
