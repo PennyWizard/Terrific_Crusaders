@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         //spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
-
+        enemyCountText.text = enemyAmount.ToString("F0");
     }
 
     // Update is called once per frame
