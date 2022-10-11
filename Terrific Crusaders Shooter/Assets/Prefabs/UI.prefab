@@ -1684,6 +1684,7 @@ MonoBehaviour:
   enemyAmount: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  spawnPosition: {fileID: 0}
   Menu: {fileID: 3970533204320542224}
   playerDamageFlash: {fileID: 2403039247231779267}
   playerHPBar: {fileID: 715303339028106910}

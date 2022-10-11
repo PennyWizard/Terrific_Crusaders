@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         HP = hpOringal;
         updatePlayerHUD();
-        //transform.position = GameManager.instance.spawnPosition.transform.position;
+        transform.position = GameManager.instance.spawnPosition.transform.position;
         controller.enabled = true;
     }
 

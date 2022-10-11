@@ -36,7 +36,6 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.isMenuOpen = false;
         GameManager.instance.resumButton.SetActive(false);
         GameManager.instance.respawnButton.SetActive(false);
-        
-        GameManager.instance.player.transform.position = GameManager.instance.spawnPosition.transform.position;
+        GameManager.instance.playerScript.Respawm();
     }
 }
