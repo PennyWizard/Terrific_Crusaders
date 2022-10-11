@@ -83,14 +83,7 @@ public class PlayerController : MonoBehaviour
                     hit.collider.GetComponent<IDamage>().takeDamage(shootDmg);
                 }
 
-                //Creat Cube
-                //
-                //Instantiate(cube, hit.point, cube.transform.rotation);
-
-                //
-                //Instantiate(cube, hit.point, Camera.main.transform.rotation);
-                //
-                //Instantiate(cube, hit.point, transform.parent.rotation);
+                
             }
 
             yield return new WaitForSeconds(shootRate);
@@ -107,7 +100,7 @@ public class PlayerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
-        //gunStat.Add(stats);
+        gunStat.Add(stats);
     }
 
     public void gunSelect()
@@ -148,7 +141,7 @@ public class PlayerController : MonoBehaviour
         if (HP <= 0)
         {
             //GameManager.instance.playerDeadMenu.SetActive(true);
-            // GameManager.instance.curserLockPause();
+            //GameManager.instance.curserLockPause();
 
             /*Commented out above coed to clear up code to work with the code.
         without some of the UI elements Unity will not let the player move*/
