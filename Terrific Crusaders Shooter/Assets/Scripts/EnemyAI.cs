@@ -14,8 +14,11 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("---Enemy Stats--")]
     [Range(0, 100)][SerializeField] int HP;
-    [Range(0, 20)][SerializeField] int facePlayerspeed;
+    [Range(0, 20)][SerializeField] int facePlayerSpeed;
     [SerializeField] int sightDist;
+
+    [Header("---Roam info---")]
+    [Range(0, 100)][SerializeField] int roamDistance;
 
     [Header("--- Gun Stats---")]
     [Range(1, 25)][SerializeField] int shootDMG;
@@ -23,11 +26,18 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     public bool playerInRange;
     public bool isShooting;
+    Vector3 playerDirection;
+    Vector3 startingPosition;
+    float stoppingDistanceOrgin;
+    float angle;
+    float patrolSpeed;
     void Start()
     {
         GameManager.instance.enemyAmount++;
-       
-
+        stoppingDistanceOrgin = agent.stoppingDistance;
+        startingPosition = transform.position;
+        patrolSpeed = agent.speed;
+        roam();
     }
 
     // Update is called once per frame
@@ -87,4 +97,30 @@ public class EnemyAI : MonoBehaviour, IDamage
             playerInRange = false;
         }
     }
-   }
+    void roam()
+    {
+        agent.stoppingDistance = 0;
+        agent.speed = patrolSpeed;
+
+        Vector3 randomDirection = Random.insideUnitSphere * roamDistance;
+        randomDirection += startingPosition;
+
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, 1, 1);
+        NavMeshPath path = new NavMeshPath();
+
+        if (hit.position != null)
+        {
+            agent.CalculatePath(hit.position, path);
+            agent.SetPath(path);
+        }
+
+    }
+    void facePlayer()
+    {
+        playerDirection.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(playerDirection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * facePlayerSpeed);
+        
+    }
+}
