@@ -22,7 +22,15 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] GameObject gunModel;
     [SerializeField] List<gunStats> gunStat = new List<gunStats>();
 
-    [SerializeField] GameObject cube;
+    [Header("---Audeo---")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] playerHurtAud;
+    [Range(0, 1)] [SerializeField] float playerHurtAudVol;
+    [SerializeField] AudioClip gunShootSound;
+    [Range(0, 1)] [SerializeField] float playerShootAudVol;
+    [SerializeField] AudioClip[] playerStepsAud;
+    [Range(0, 1)] [SerializeField] float playerStepsAudVol;
+
     private Vector3 playerVelocity;
     private int timesJumped;
     bool isShoot;
