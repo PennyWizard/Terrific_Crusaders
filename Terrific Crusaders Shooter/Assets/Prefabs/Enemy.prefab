@@ -825,7 +825,7 @@ MonoBehaviour:
   facePlayerSpeed: 5
   sightDist: 50
   viewAngle: 45
-  roamDistance: 5
+  roamDistance: 50
   shootDMG: 1
   rateOfFire: 0.75
   playerInRange: 0

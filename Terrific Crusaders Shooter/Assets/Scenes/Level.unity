@@ -325,14 +325,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (14)
       objectReference: {fileID: 0}
-    - target: {fileID: 2278268419255626481, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2278268419255659559, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2278268419256055441, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: m_RootOrder
       value: 3
