@@ -74,7 +74,7 @@ MonoBehaviour:
   gunShootSound: {fileID: 0}
   playerShootAudVol: 0.441
   playerStepsAud: {fileID: 8300000, guid: 0c5f4eaff60bb85499030e73dc899678, type: 3}
-  playerStepsAudVol: 0.079
+  playerStepsAudVol: 0.07
   playerRespawnAud: {fileID: 8300000, guid: 4a7a7658efd38cb41831caf3d0a10b60, type: 3}
   playerRespawnAudVol: 0.455
 --- !u!143 &8913967691672376409
