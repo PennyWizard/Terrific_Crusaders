@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer model;
     [SerializeField] GameObject shootPosition;
+    [SerializeField] GameObject headPos;
     [SerializeField] GameObject bullet;
 
     [Header("---Enemy Stats--")]
@@ -43,13 +44,19 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (agent.enabled && playerInRange)
+        if (agent.enabled)
         {
             agent.SetDestination(GameManager.instance.player.transform.position);
-            if (!isShooting)
+            if (playerInRange)
             {
+                playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
+                angle = Vector3.Angle(playerDirection, transform.forward);
+                canSeePlayer();
                 
-                StartCoroutine(shoot());
+            }
+            if(agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
+            {
+                roam();
             }
         }
 
@@ -122,5 +129,21 @@ public class EnemyAI : MonoBehaviour, IDamage
         Quaternion rotation = Quaternion.LookRotation(playerDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * facePlayerSpeed);
         
+    }
+    void canSeePlayer()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
+        {
+            Debug.DrawRay(headPos.transform.position, playerDirection);
+            if (agent.remainingDistance < agent.stoppingDistance)
+            {
+                facePlayer();
+            }
+            if (!isShooting)
+            {
+                StartCoroutine(shoot());
+            }
+        }
     }
 }
