@@ -825,6 +825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659560, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: HP
       value: 10

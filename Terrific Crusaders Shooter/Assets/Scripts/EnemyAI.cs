@@ -47,15 +47,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (agent.enabled)
         {
-            agent.SetDestination(GameManager.instance.player.transform.position);
+            
             if (playerInRange)
             {
                 playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
                 angle = Vector3.Angle(playerDirection, transform.forward);
                 canSeePlayer();
-                
+
             }
-            if(agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
+            if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
             {
                 roam();
             }
@@ -91,20 +91,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(rateOfFire);
         isShooting = false;
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }
+    
     void roam()
     {
         agent.stoppingDistance = 0;
@@ -137,20 +124,38 @@ public class EnemyAI : MonoBehaviour, IDamage
         if(Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
         {
             Debug.DrawRay(headPos.transform.position, playerDirection);
-          if(hit.collider.CompareTag("Player")&& angle <= viewAngle)
-          {
 
-            if (agent.remainingDistance < agent.stoppingDistance)
+            if (hit.collider.CompareTag("Player") && angle <= viewAngle)
             {
-                facePlayer();
+                agent.stoppingDistance = stoppingDistanceOrgin;
+                agent.SetDestination(GameManager.instance.player.transform.position);
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    facePlayer();
+                }
+
+                if (!isShooting)
+                {
+                    StartCoroutine(shoot());
+                }
+
             }
-            if (!isShooting)
-            {
-                StartCoroutine(shoot());
-            }
-          
-          }
+            
         
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
 }
