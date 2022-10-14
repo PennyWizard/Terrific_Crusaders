@@ -121,11 +121,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     void canSeePlayer()
     {
         RaycastHit hit;
-        if(Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
+        if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
         {
             Debug.DrawRay(headPos.transform.position, playerDirection);
 
-            if (hit.collider.CompareTag("Player") && angle <= viewAngle)
+            if (hit.collider.CompareTag("Player") && angle <= viewAngle && playerInRange)
             {
                 agent.stoppingDistance = stoppingDistanceOrgin;
                 agent.SetDestination(GameManager.instance.player.transform.position);
@@ -140,9 +140,10 @@ public class EnemyAI : MonoBehaviour, IDamage
                 }
 
             }
-            
-        
+
+
         }
+        
     }
     void OnTriggerEnter(Collider other)
     {
