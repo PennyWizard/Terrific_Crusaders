@@ -147,7 +147,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 612344290}
     - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: sightDist
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: viewAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: roamDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: facePlayerSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2278268419256055441, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}

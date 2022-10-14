@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(0, 100)][SerializeField] int HP;
     [Range(0, 20)][SerializeField] int facePlayerSpeed;
     [SerializeField] int sightDist;
+    [Range(0, 90)][SerializeField] int viewAngle;
 
     [Header("---Roam info---")]
     [Range(0, 100)][SerializeField] int roamDistance;
@@ -136,6 +137,9 @@ public class EnemyAI : MonoBehaviour, IDamage
         if(Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
         {
             Debug.DrawRay(headPos.transform.position, playerDirection);
+          if(hit.collider.CompareTag("Player")&& angle <= viewAngle)
+          {
+
             if (agent.remainingDistance < agent.stoppingDistance)
             {
                 facePlayer();
@@ -144,6 +148,9 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(shoot());
             }
+          
+          }
+        
         }
     }
 }
