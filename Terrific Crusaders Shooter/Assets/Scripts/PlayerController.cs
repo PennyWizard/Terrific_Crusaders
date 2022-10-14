@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     [Header("---Player Stats---")]
     [Range(1, 5)] [SerializeField] float playerSpeed;
+    [SerializeField] float sprintMod;
     [Range(8, 15)] [SerializeField] float jumpHeight;
     [Range(15, 35)] [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
@@ -28,14 +29,19 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)] [SerializeField] float playerHurtAudVol;
     [SerializeField] AudioClip gunShootSound;
     [Range(0, 1)] [SerializeField] float playerShootAudVol;
-    [SerializeField] AudioClip[] playerStepsAud;
+    [SerializeField] AudioClip playerStepsAud;
     [Range(0, 1)] [SerializeField] float playerStepsAudVol;
+    [SerializeField] AudioClip playerRespawnAud;
+    [Range(0, 1)] [SerializeField] float playerRespawnAudVol;
 
     private Vector3 playerVelocity;
     private int timesJumped;
     bool isShoot;
     int selectedgun;
     int hpOringal;
+    bool isSprinting;
+    bool isPlayingSteps;
+    Vector3 move;
 
     private void Start()
     {
@@ -46,6 +52,8 @@ public class PlayerController : MonoBehaviour, IDamage
     void Update()
     {
         movement();
+        StartCoroutine(playSteps());
+        sprint();
         StartCoroutine(shoot());
         gunSelect();
     }
@@ -60,7 +68,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
         //first-person get inputs for ground movement
-        Vector3 move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+        move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         // Jumping
@@ -75,12 +83,48 @@ public class PlayerController : MonoBehaviour, IDamage
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    void sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            playerSpeed *= sprintMod;
+            isSprinting = true;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            playerSpeed /= sprintMod;
+            isSprinting = false;
+        }
+    }
+
+    IEnumerator playSteps()
+    {
+        if (move.magnitude > 0.3f && !isPlayingSteps && controller.isGrounded)
+        {
+            isPlayingSteps = true;
+            aud.PlayOneShot(playerStepsAud, playerStepsAudVol);
+
+            if (isSprinting)
+            {
+                yield return new WaitForSeconds(0.3f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.6f);
+            }
+            
+            isPlayingSteps = false;
+        }
+    }
+
     //
     IEnumerator shoot()
     {
         if(Input.GetButton("Shoot") && !isShoot)
         {
             isShoot = true;
+
+            aud.PlayOneShot(gunShootSound, playerShootAudVol);
 
             RaycastHit hit;
 
@@ -106,6 +150,8 @@ public class PlayerController : MonoBehaviour, IDamage
         shootRate = stats.shootRate;
         shootDist = stats.shootDist;
         shootDmg = stats.shootDmg;
+        gunShootSound = stats.sound;
+
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
@@ -134,6 +180,7 @@ public class PlayerController : MonoBehaviour, IDamage
         shootRate = gunStat[selectedgun].shootRate;
         shootDist = gunStat[selectedgun].shootDist;
         shootDmg = gunStat[selectedgun].shootDmg;
+        gunShootSound = gunStat[selectedgun].sound;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedgun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedgun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
@@ -143,6 +190,9 @@ public class PlayerController : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+
+        aud.PlayOneShot(playerHurtAud[Random.Range(0, playerHurtAud.Length - 1)], playerHurtAudVol);
+
         updatePlayerHUD();
 
         StartCoroutine(GameManager.instance.playerDamage());
@@ -153,10 +203,6 @@ public class PlayerController : MonoBehaviour, IDamage
             GameManager.instance.respawnButton.SetActive(true);
             GameManager.instance.curserLock();
             GameManager.instance.isMenuOpen = true;
-            
-
-            /*Commented out above coed to clear up code to work with the code.
-        without some of the UI elements Unity will not let the player move*/
 
         }
     }
@@ -170,11 +216,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void Respawm()
     {
-        controller.enabled = false;
+        //controller.enabled = false;
 
         HP = hpOringal;
+
+        aud.PlayOneShot(playerRespawnAud, playerRespawnAudVol);
+
         updatePlayerHUD();
         transform.position = GameManager.instance.spawnPosition.transform.position;
+
         controller.enabled = true;
     }
 
