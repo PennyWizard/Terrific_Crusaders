@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject shootPosition;
     [SerializeField] GameObject headPos;
     [SerializeField] GameObject bullet;
+    [SerializeField] Animator animator;
+    [SerializeField] int animationLerpSpeed;
 
     [Header("---Enemy Stats--")]
     [Range(0, 100)][SerializeField] int HP;
@@ -47,7 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (agent.enabled)
         {
-            
+            animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));   
             if (playerInRange)
             {
                 playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
