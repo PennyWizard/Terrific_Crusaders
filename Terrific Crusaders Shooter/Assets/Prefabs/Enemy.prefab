@@ -821,6 +821,8 @@ MonoBehaviour:
   shootPosition: {fileID: 2278268419255626483}
   headPos: {fileID: 2278268419255626369}
   bullet: {fileID: 4699189130003273600, guid: aff1579e55325484ab927bb4d53e7eb7, type: 3}
+  animator: {fileID: 2278268419246233925}
+  animationLerpSpeed: 3
   HP: 10
   facePlayerSpeed: 5
   sightDist: 50
@@ -840,7 +842,7 @@ Animator:
   m_GameObject: {fileID: 2278268419255626481}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c6acf3f29c109e4439950c8f6a85cb2b, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67a32e6c7e02b204495d98717acdb809, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
