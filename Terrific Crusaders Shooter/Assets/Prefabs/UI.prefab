@@ -1201,7 +1201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 785, y: -420}
+  m_AnchoredPosition: {x: -790, y: -420}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2281069662841831679
@@ -2265,7 +2265,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Rescue all cilivions
+  m_Text: 'Rescue all civilians
 
 
     or
@@ -2274,8 +2274,8 @@ MonoBehaviour:
     kill all enemies
 
 
-    Press "P" to
-    start'
+    Press"Enter"
+    to start'
 --- !u!1 &4555274999777736590
 GameObject:
   m_ObjectHideFlags: 0

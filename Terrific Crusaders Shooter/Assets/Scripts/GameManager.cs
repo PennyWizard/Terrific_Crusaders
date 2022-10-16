@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                 resumButton.SetActive(false);
             }
         }
-        if (Input.GetButtonDown("Play"))
+        if (Input.GetButtonDown("Submit"))
         {
             Introduction.SetActive(false);
         }
