@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour, IDamage
     //
     IEnumerator shoot()
     {
-        if(Input.GetButton("Shoot") && !isShoot)
+        if(Input.GetButton("Shoot") && !isShoot && !isReloading)
         {
             isShoot = true;
 
@@ -162,9 +162,10 @@ public class PlayerController : MonoBehaviour, IDamage
     IEnumerator ReloadGun()
     {
         Debug.Log("Reload...");
+        isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = ammoMax;
-
+        isReloading = false;
     }
 
     public void gunPickup(gunStats stats)
