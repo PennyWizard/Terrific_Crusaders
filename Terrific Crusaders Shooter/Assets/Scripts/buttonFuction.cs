@@ -39,4 +39,5 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.respawnButton.SetActive(false);
         GameManager.instance.playerScript.Respawm();
     }
+
 }

@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject resumButton;
     public GameObject respawnButton;
     public GameObject youWinText;
+    public GameObject Introduction;
 
     public bool isPaused;
     public bool isMenuOpen;
@@ -63,6 +64,11 @@ public class GameManager : MonoBehaviour
                 resumButton.SetActive(false);
             }
         }
+        if (Input.GetButtonDown("Play"))
+        {
+            Introduction.SetActive(false);
+        }
+
     }
 
     public void curserLock()
