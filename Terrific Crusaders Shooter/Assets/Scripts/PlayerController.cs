@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [SerializeField] int shootDmg;
-    [SerializeField] int ammoMax;
     [SerializeField] GameObject gunModel;
     [SerializeField] List<gunStats> gunStat = new List<gunStats>();
 
@@ -38,6 +37,7 @@ public class PlayerController : MonoBehaviour, IDamage
     private Vector3 playerVelocity;
     private int timesJumped;
     public int currentAmmo;
+    public int ammoMax;
     public float reloadTime = 2f;
     bool isShoot;
     int selectedgun;
