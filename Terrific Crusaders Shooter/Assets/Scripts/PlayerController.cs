@@ -36,11 +36,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private Vector3 playerVelocity;
     private int timesJumped;
+    public int currentAmmo;
+    public int ammoMax;
+    public float reloadTime = 2f;
     bool isShoot;
     int selectedgun;
     int hpOringal;
     bool isSprinting;
     bool isPlayingSteps;
+    bool isReloading;
     Vector3 move;
 
     private void Start()
@@ -54,8 +58,16 @@ public class PlayerController : MonoBehaviour, IDamage
         movement();
         StartCoroutine(playSteps());
         sprint();
-        StartCoroutine(shoot());
         gunSelect();
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(ReloadGun());
+        }
+        else
+        {
+            StartCoroutine(shoot());
+        }
     }
 
     void movement()
@@ -124,6 +136,8 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             isShoot = true;
 
+            currentAmmo--;
+
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
 
             RaycastHit hit;
@@ -145,11 +159,21 @@ public class PlayerController : MonoBehaviour, IDamage
 
     }
 
+    IEnumerator ReloadGun()
+    {
+        Debug.Log("Reload...");
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = ammoMax;
+
+    }
+
     public void gunPickup(gunStats stats)
     {
         shootRate = stats.shootRate;
         shootDist = stats.shootDist;
         shootDmg = stats.shootDmg;
+        ammoMax = stats.ammoMax;
+        currentAmmo = ammoMax;
         gunShootSound = stats.sound;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
@@ -181,6 +205,7 @@ public class PlayerController : MonoBehaviour, IDamage
         shootDist = gunStat[selectedgun].shootDist;
         shootDmg = gunStat[selectedgun].shootDmg;
         gunShootSound = gunStat[selectedgun].sound;
+        ammoMax = gunStat[selectedgun].ammoMax;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedgun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedgun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;

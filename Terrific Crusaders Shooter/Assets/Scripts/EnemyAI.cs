@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (agent.enabled)
         {
-            animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));   
+            //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));   
             if (playerInRange)
             {
                 playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
