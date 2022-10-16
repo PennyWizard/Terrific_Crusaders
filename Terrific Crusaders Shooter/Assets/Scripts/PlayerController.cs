@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private Vector3 playerVelocity;
     private int timesJumped;
-    private int currentAmmo;
+    public int currentAmmo;
     public float reloadTime = 2f;
     bool isShoot;
     int selectedgun;
@@ -205,6 +205,7 @@ public class PlayerController : MonoBehaviour, IDamage
         shootDist = gunStat[selectedgun].shootDist;
         shootDmg = gunStat[selectedgun].shootDmg;
         gunShootSound = gunStat[selectedgun].sound;
+        ammoMax = gunStat[selectedgun].ammoMax;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedgun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedgun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
