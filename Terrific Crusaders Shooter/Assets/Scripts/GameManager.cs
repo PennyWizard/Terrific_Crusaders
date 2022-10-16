@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject respawnButton;
     public GameObject youWinText;
     public GameObject Introduction;
+    public Text ammoCurrent;
+    public Text ammoMax;
 
     public bool isPaused;
     public bool isMenuOpen;
@@ -64,10 +66,14 @@ public class GameManager : MonoBehaviour
                 resumButton.SetActive(false);
             }
         }
+
         if (Input.GetButtonDown("Submit"))
         {
             Introduction.SetActive(false);
         }
+
+        ammoCurrent.text = playerScript.currentAmmo.ToString();
+        ammoMax.text = playerScript.ammoMax.ToString();
 
     }
 
