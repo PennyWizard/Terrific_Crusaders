@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [SerializeField] int shootDmg;
+    [SerializeField] int ammoMax;
     [SerializeField] GameObject gunModel;
     [SerializeField] List<gunStats> gunStat = new List<gunStats>();
 
@@ -36,11 +37,14 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private Vector3 playerVelocity;
     private int timesJumped;
+    private int currentAmmo;
+    public float reloadTime = 2f;
     bool isShoot;
     int selectedgun;
     int hpOringal;
     bool isSprinting;
     bool isPlayingSteps;
+    bool isReloading;
     Vector3 move;
 
     private void Start()
@@ -54,8 +58,16 @@ public class PlayerController : MonoBehaviour, IDamage
         movement();
         StartCoroutine(playSteps());
         sprint();
-        StartCoroutine(shoot());
         gunSelect();
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(ReloadGun());
+        }
+        else
+        {
+            StartCoroutine(shoot());
+        }
     }
 
     void movement()
@@ -124,6 +136,8 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             isShoot = true;
 
+            currentAmmo--;
+
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
 
             RaycastHit hit;
@@ -145,11 +159,21 @@ public class PlayerController : MonoBehaviour, IDamage
 
     }
 
+    IEnumerator ReloadGun()
+    {
+        Debug.Log("Reload...");
+        yield return new WaitForSeconds(reloadTime);
+        currentAmmo = ammoMax;
+
+    }
+
     public void gunPickup(gunStats stats)
     {
         shootRate = stats.shootRate;
         shootDist = stats.shootDist;
         shootDmg = stats.shootDmg;
+        ammoMax = stats.ammoMax;
+        currentAmmo = ammoMax;
         gunShootSound = stats.sound;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
