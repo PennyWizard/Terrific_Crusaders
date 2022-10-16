@@ -173,8 +173,10 @@ public class PlayerController : MonoBehaviour, IDamage
         shootDist = stats.shootDist;
         shootDmg = stats.shootDmg;
         ammoMax = stats.ammoMax;
-        currentAmmo = ammoMax;
+        stats.currentAmmo = stats.ammoMax;
+        currentAmmo = stats.currentAmmo;
         gunShootSound = stats.sound;
+
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
@@ -188,11 +190,13 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedgun < gunStat.Count - 1)
             {
+                gunStat[selectedgun].currentAmmo = currentAmmo;
                 selectedgun++;
                 changeGun();
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedgun > 0)
             {
+                gunStat[selectedgun].currentAmmo = currentAmmo;
                 selectedgun--;
                 changeGun();
             }
@@ -206,6 +210,8 @@ public class PlayerController : MonoBehaviour, IDamage
         shootDmg = gunStat[selectedgun].shootDmg;
         gunShootSound = gunStat[selectedgun].sound;
         ammoMax = gunStat[selectedgun].ammoMax;
+        currentAmmo = gunStat[selectedgun].currentAmmo;
+        
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedgun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedgun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;

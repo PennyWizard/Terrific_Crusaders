@@ -10,6 +10,7 @@ public class gunStats : ScriptableObject
     public int shootDist;
     public int shootDmg;
     public int ammoMax;
+    public int currentAmmo;
     public GameObject gunModel;
     public AudioClip sound;
     public GameObject hitEffect;
