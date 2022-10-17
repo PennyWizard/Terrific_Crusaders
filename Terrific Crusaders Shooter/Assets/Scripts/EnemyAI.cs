@@ -47,22 +47,26 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (agent.enabled)
+        if (!animator.GetBool("Dead"))
         {
-            animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));   
-            if (playerInRange)
-            {
-                playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
-                angle = Vector3.Angle(playerDirection, transform.forward);
-                canSeePlayer();
 
-            }
-            if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
-            {
-                roam();
-            }
+             if (agent.enabled)
+             {
+                 animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));   
+                 if (playerInRange)
+                 {
+                     playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
+                     angle = Vector3.Angle(playerDirection, transform.forward);
+                     canSeePlayer();
+
+                 }
+                 if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
+                 {
+                     roam();
+                 }
+             }
+
         }
-
     }
     public void takeDamage(int damage)
     {
@@ -71,12 +75,25 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
            GameManager.instance.checkEnemyTotal();
-            Destroy(gameObject);
+            agent.enabled = false;
+            animator.SetBool("Dead", true);
         }
     }
     IEnumerator damageFeedback()
     {
+        animator.SetTrigger("Damage");
         model.material.color = Color.red;
+        agent.enabled = false;
+
+        yield return new WaitForSeconds(0.1f);
+
+        model.material.color = Color.white;
+        agent.enabled = true;
+    }
+    IEnumerator healFeedback()
+    {
+        animator.SetTrigger("Damage");
+        model.material.color = Color.green;
         agent.enabled = false;
 
         yield return new WaitForSeconds(0.1f);
@@ -88,6 +105,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         isShooting = true;
 
+        animator.SetTrigger("Shoot");
         Instantiate(bullet, shootPosition.transform.position, transform.rotation);
 
         yield return new WaitForSeconds(rateOfFire);
