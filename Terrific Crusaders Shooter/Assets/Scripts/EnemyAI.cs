@@ -28,6 +28,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(1, 25)][SerializeField] int shootDMG;
     [Range(0, 10)][SerializeField] float rateOfFire;
 
+    [Header("--- Audio ---")]
+    [SerializeField] AudioSource audio;
+    [SerializeField] AudioClip[] enemyHurt;
+    [SerializeField] AudioClip[] enemySteps;
+    [SerializeField] AudioClip[] enemyShots;
+    [Range(0,1)][SerializeField] float enemyGunVol;
+    [Range(0, 1)][SerializeField] float enemyStepsVol;
+    [Range(0, 1)][SerializeField] float enemyHurtVol;
+
     public bool playerInRange;
     public bool isShooting;
     Vector3 playerDirection;
@@ -177,6 +186,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+        }
+    }
+    IEnumerator enemyPlaySteps()
+    {
+        if(agent.speed > 0)
+        {
+            
         }
     }
 }

@@ -32,7 +32,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Damage
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4432485758562406210}
   m_Solo: 0
@@ -172,7 +175,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Shoot
     m_StateMachine: {fileID: 8685455651824451420}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 1ccfa63e26d66404b8c168688e6352e7, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
