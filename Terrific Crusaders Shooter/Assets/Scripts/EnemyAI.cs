@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(0, 10)][SerializeField] float rateOfFire;
 
     [Header("--- Audio ---")]
-    [SerializeField] AudioSource audio;
+    [SerializeField] AudioSource enemyAudio;
     [SerializeField] AudioClip[] enemyHurt;
     [SerializeField] AudioClip[] enemySteps;
     [SerializeField] AudioClip[] enemyShots;
@@ -192,7 +192,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if(agent.speed > 0)
         {
-            
+            enemyAudio.PlayOneShot(enemySteps[Random.Range(0, enemySteps.Length - 1)], enemyStepsVol);
+            yield return new WaitForSeconds(0.4f);
         }
     }
 }
