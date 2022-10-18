@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour, IDamage
     private int timesJumped;
     public int currentAmmo;
     public int ammoMax;
-    public float reloadTime = 0.5f;
+    public float reloadTime = 0.000001f;
     bool isShoot;
     int selectedgun;
     int hpOringal;
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour, IDamage
         StartCoroutine(playSteps());
         sprint();
         gunSelect();
-        StartCoroutine(ReloadGun());
+        ReloadGun();
 
         if (currentAmmo > 0)
         {
@@ -183,14 +183,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
     }
 
-    IEnumerator ReloadGun()
+    void ReloadGun()
     {
         if (Input.GetButtonDown("Reload") && !isReloading)
         {
             //gunAnimator.SetBool("Reloading", true);
-            aud.PlayOneShot(playerReloadAud, playerReloadAudVol);
+            
             isReloading = true;
-            yield return new WaitForSeconds(reloadTime);
+            //yield return new WaitForSeconds(reloadTime);
+            aud.PlayOneShot(playerReloadAud, playerReloadAudVol);
             currentAmmo = ammoMax;
             //gunAnimator.SetBool("Reloading", false);
             isReloading = false;
@@ -207,7 +208,7 @@ public class PlayerController : MonoBehaviour, IDamage
         stats.currentAmmo = stats.ammoMax;
         currentAmmo = stats.currentAmmo;
         gunShootSound = stats.sound;
-
+        gunEmptyAud = stats.empty;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
