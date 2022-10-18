@@ -83,9 +83,9 @@ public class EnemyAI : MonoBehaviour, IDamage
         StartCoroutine(damageFeedback());
         if (HP <= 0)
         {
-           GameManager.instance.checkEnemyTotal();
-            agent.enabled = false;
             animator.SetBool("Dead", true);
+            agent.enabled = false;
+           GameManager.instance.checkEnemyTotal();
         }
     }
     IEnumerator damageFeedback()
