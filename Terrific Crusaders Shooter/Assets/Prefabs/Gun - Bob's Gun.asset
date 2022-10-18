@@ -16,8 +16,9 @@ MonoBehaviour:
   shootDist: 35
   shootDmg: -1
   ammoMax: 6
-  currentAmmo: 4
+  currentAmmo: 6
   gunModel: {fileID: 919132149155446097, guid: 4df3ce82db8e66645afd54ab1d5b0262, type: 3}
   sound: {fileID: 8300000, guid: 73313e9dd0a29334fb5cfee1f502170e, type: 3}
+  empty: {fileID: 8300000, guid: 834f1998b3487064ba5360aa8a8cc535, type: 3}
   hitEffect: {fileID: 0}
   muzzleEffect: {fileID: 0}
