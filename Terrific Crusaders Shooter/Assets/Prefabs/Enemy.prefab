@@ -823,6 +823,7 @@ MonoBehaviour:
   bullet: {fileID: 4699189130003273600, guid: aff1579e55325484ab927bb4d53e7eb7, type: 3}
   animator: {fileID: 2278268419246233925}
   animationLerpSpeed: 3
+  col: {fileID: 2278268419255659561}
   HP: 10
   facePlayerSpeed: 5
   sightDist: 50
@@ -830,6 +831,13 @@ MonoBehaviour:
   roamDistance: 50
   shootDMG: 1
   rateOfFire: 0.75
+  enemyAudio: {fileID: 0}
+  enemyHurt: []
+  enemySteps: []
+  enemyShots: []
+  enemyGunVol: 0
+  enemyStepsVol: 0
+  enemyHurtVol: 0
   playerInRange: 0
   isShooting: 0
 --- !u!95 &2278268419246233925
@@ -899,7 +907,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2278268419255626483
 GameObject:

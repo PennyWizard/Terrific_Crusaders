@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] Animator animator;
     [SerializeField] int animationLerpSpeed;
+    [SerializeField] Collider col;
 
     [Header("---Enemy Stats--")]
     [Range(0, 100)][SerializeField] int HP;
@@ -85,6 +86,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             animator.SetBool("Dead", true);
             agent.enabled = false;
+            col.enabled = false;
            GameManager.instance.checkEnemyTotal();
         }
     }
@@ -98,6 +100,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         model.material.color = Color.white;
         agent.enabled = true;
+        agent.SetDestination(GameManager.instance.player.transform.position);
     }
     IEnumerator healFeedback()
     {

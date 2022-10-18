@@ -325,6 +325,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemyStepsVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemyShots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemyShots.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a6a9fa2c4c02a93419ad946151bca6ba, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1417836765df73b409c55c858cc57dcf, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8181f24b6e5938d4a8971489d2e30f75, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f6ac709294a46f4d9ca39596defa413, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 60d42d9d457411943bec8bc45cbec754, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c5f4eaff60bb85499030e73dc899678, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23a8f380c6797a5498fc330ffe8f83d5, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: eb810030e4331f840848be829fc27765, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 87aca5d1e58d9094baa02d3ab598041e, type: 3}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: enemySteps.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dfff375c1520034292431d29335c529, type: 3}
     - target: {fileID: 2278268419256055441, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: m_RootOrder
       value: 3
