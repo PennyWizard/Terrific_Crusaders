@@ -80,7 +80,7 @@ MonoBehaviour:
   playerRespawnAudVol: 0.455
   playerReloadAud: {fileID: 8300000, guid: 9d9ff7bbbfbe519418346b76cb8efc98, type: 3}
   playerReloadAudVol: 0.352
-  gunEmptyAud: {fileID: 8300000, guid: 834f1998b3487064ba5360aa8a8cc535, type: 3}
+  gunEmptyAud: {fileID: 0}
   gunEmptyAudVol: 0.82
   currentAmmo: 0
   ammoMax: 0
