@@ -83,8 +83,17 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     public void takeDamage(int damage)
     {
-        HP -= damage;
-        StartCoroutine(damageFeedback());
+        if (damage > 0)
+        {
+            HP -= damage;
+            StartCoroutine(damageFeedback());
+
+        }
+        else if (damage < 0)
+        {
+            HP -= damage;
+            StartCoroutine(healFeedback());
+        }
         if (HP <= 0)
         {
             animator.SetBool("Dead", true);
@@ -111,7 +120,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         animator.SetTrigger("Damage");
         model.material.color = Color.green;
         agent.enabled = false;
-
+        enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
         yield return new WaitForSeconds(0.1f);
 
         model.material.color = Color.white;
