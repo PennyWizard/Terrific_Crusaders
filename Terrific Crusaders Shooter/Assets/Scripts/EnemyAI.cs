@@ -126,31 +126,24 @@ public class EnemyAI : MonoBehaviour, IDamage
             enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
             Instantiate(bullet, shootPosition.transform.position, transform.rotation);
         }
+        else
+        {
+            animator.SetTrigger("Burst");
+            for (int i = 0; i < 3; i++)
+            {
+                enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
+                Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+                new WaitForSeconds(enemyBurstSpeed);
 
-        
+            }
+        }
+
 
         yield return new WaitForSeconds(rateOfFire);
         isShooting = false;
     }
     
-    IEnumerator burst()
-    {
-        
-        
-            isShooting=true;
-            animator.SetTrigger("Burst");
-            enemyAudio.PlayOneShot(enemyBurst, enemyGunVol);
-            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-            new WaitForSeconds(enemyBurstSpeed);
-            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-            new WaitForSeconds(enemyBurstSpeed);
-            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-
-            yield return new WaitForSeconds(rateOfFire);
-            isShooting = false;
-
-        
-    }
+   
     
     void roam()
     {
@@ -194,11 +187,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
                 
-                if (burstEnemy && !isShooting)
-                {
-                    StartCoroutine(burst());
-                }
-                else if (!isShooting)
+                if (!isShooting)
                 {
                     StartCoroutine(shoot());
                 }
