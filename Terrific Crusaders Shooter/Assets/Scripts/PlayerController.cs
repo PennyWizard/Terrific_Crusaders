@@ -283,7 +283,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void Respawm()
     {
-        //controller.enabled = false;
+        controller.enabled = false;
 
         HP = hpOringal;
 
