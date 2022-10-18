@@ -14,6 +14,7 @@ public class Hostage : MonoBehaviour
         {
             GameManager.instance.hostageCurrent++;
             Destroy(gameObject);
+            GameManager.instance.updateText();
         }
             
     }

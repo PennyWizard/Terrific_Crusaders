@@ -42,17 +42,18 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
-        hostageCurrent = hostageAmount;
     }
 
     void Start()
     {
-        StartCoroutine(enemyHostageCountWait()); 
+        StartCoroutine(enemyHostageCountWait());
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (Input.GetButtonDown("Cancel") && !isMenuOpen)
         {
             isPaused = !isPaused;
@@ -110,6 +111,11 @@ public class GameManager : MonoBehaviour
         hostageCountText.text = hostageAmount.ToString();
         hostageCurrentText.text = hostageCurrent.ToString();
 
+    }
+
+    public void updateText()
+    {
+        StartCoroutine(enemyHostageCountWait());
     }
 
     public void checkEnemyTotal()
