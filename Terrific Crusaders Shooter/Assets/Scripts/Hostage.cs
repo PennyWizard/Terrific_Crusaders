@@ -12,7 +12,7 @@ public class Hostage : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.hostageCurrent--;
+            GameManager.instance.hostageCurrent++;
             Destroy(gameObject);
         }
             
