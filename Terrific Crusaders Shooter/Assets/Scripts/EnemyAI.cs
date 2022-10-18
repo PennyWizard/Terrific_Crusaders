@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioSource enemyAudio;
     [SerializeField] AudioClip[] enemyHurt;
     [SerializeField] AudioClip[] enemySteps;
-    [SerializeField] AudioClip[] enemyShots;
+    [SerializeField] AudioClip enemyShots;
     [Range(0,1)][SerializeField] float enemyGunVol;
     [Range(0, 1)][SerializeField] float enemyStepsVol;
     [Range(0, 1)][SerializeField] float enemyHurtVol;
@@ -94,6 +94,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         animator.SetTrigger("Damage");
         model.material.color = Color.red;
+        enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
         agent.enabled = false;
 
         yield return new WaitForSeconds(0.1f);
@@ -118,6 +119,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         isShooting = true;
 
         animator.SetTrigger("Shoot");
+        enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
         Instantiate(bullet, shootPosition.transform.position, transform.rotation);
 
         yield return new WaitForSeconds(rateOfFire);
