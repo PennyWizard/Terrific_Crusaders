@@ -47,7 +47,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     float patrolSpeed;
     void Start()
     {
-        GameManager.instance.enemyAmount++;
+        //GameManager.instance.enemyAmount++;
         stoppingDistanceOrgin = agent.stoppingDistance;
         startingPosition = transform.position;
         patrolSpeed = agent.speed;
