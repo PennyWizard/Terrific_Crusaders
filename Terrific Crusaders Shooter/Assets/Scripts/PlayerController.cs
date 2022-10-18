@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] int shootDist;
     [SerializeField] int shootDmg;
     [SerializeField] GameObject gunModel;
+    //[SerializeField] Animator gunAnimator;
     [SerializeField] List<gunStats> gunStat = new List<gunStats>();
 
     [Header("---Audeo---")]
@@ -33,12 +34,16 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)] [SerializeField] float playerStepsAudVol;
     [SerializeField] AudioClip playerRespawnAud;
     [Range(0, 1)] [SerializeField] float playerRespawnAudVol;
+    [SerializeField] AudioClip playerReloadAud;
+    [Range(0, 1)] [SerializeField] float playerReloadAudVol;
+    [SerializeField] AudioClip gunEmptyAud;
+    [Range(0, 1)] [SerializeField] float gunEmptyAudVol;
 
     private Vector3 playerVelocity;
     private int timesJumped;
     public int currentAmmo;
     public int ammoMax;
-    public float reloadTime = 1f;
+    public float reloadTime = 0.5f;
     bool isShoot;
     int selectedgun;
     int hpOringal;
@@ -61,9 +66,13 @@ public class PlayerController : MonoBehaviour, IDamage
         gunSelect();
         StartCoroutine(ReloadGun());
 
-        if (currentAmmo >0)
+        if (currentAmmo > 0)
         {
             StartCoroutine(shoot());
+        }
+        else
+        {
+            StartCoroutine(gunEmpty());
         }
        
         
@@ -140,7 +149,7 @@ public class PlayerController : MonoBehaviour, IDamage
             currentAmmo--;
 
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
-
+            
             RaycastHit hit;
 
 
@@ -160,14 +169,30 @@ public class PlayerController : MonoBehaviour, IDamage
 
     }
 
+    IEnumerator gunEmpty()
+    {
+        if (Input.GetButton("Shoot") && !isShoot && !isReloading)
+        {
+            isShoot = true;
+
+            aud.PlayOneShot(gunEmptyAud, gunEmptyAudVol);
+
+            yield return new WaitForSeconds(shootRate);
+            isShoot = false;
+        }
+
+    }
+
     IEnumerator ReloadGun()
     {
         if (Input.GetButtonDown("Reload") && !isReloading)
         {
-            Debug.Log("Reload...");
+            //gunAnimator.SetBool("Reloading", true);
+            aud.PlayOneShot(playerReloadAud, playerReloadAudVol);
             isReloading = true;
             yield return new WaitForSeconds(reloadTime);
             currentAmmo = ammoMax;
+            //gunAnimator.SetBool("Reloading", false);
             isReloading = false;
         }
         
