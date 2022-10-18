@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8913967691672376415}
   - component: {fileID: 8913967691672376414}
   - component: {fileID: 971516350}
+  - component: {fileID: 227281896}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -56,7 +57,7 @@ MonoBehaviour:
   jumpHeight: 10
   gravityValue: 20
   jumpsMax: 1
-  HP: 2
+  HP: 7
   shootRate: 0.5
   shootDist: 25
   shootDmg: 0
@@ -77,6 +78,10 @@ MonoBehaviour:
   playerStepsAudVol: 0.07
   playerRespawnAud: {fileID: 8300000, guid: 4a7a7658efd38cb41831caf3d0a10b60, type: 3}
   playerRespawnAudVol: 0.455
+  playerReloadAud: {fileID: 8300000, guid: 9d9ff7bbbfbe519418346b76cb8efc98, type: 3}
+  playerReloadAudVol: 0.352
+  gunEmptyAud: {fileID: 8300000, guid: 834f1998b3487064ba5360aa8a8cc535, type: 3}
+  gunEmptyAudVol: 0.82
   currentAmmo: 0
   ammoMax: 0
   reloadTime: 2
@@ -258,6 +263,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &227281896
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913967691672376412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8913967691876914661
 GameObject:
   m_ObjectHideFlags: 0
