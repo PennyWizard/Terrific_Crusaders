@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int enemyAmount;
-
     [Header("---Player Stuff---")]
     public GameObject player;
     public PlayerController playerScript;
@@ -27,9 +25,15 @@ public class GameManager : MonoBehaviour
     public GameObject Introduction;
     public Text ammoCurrent;
     public Text ammoMax;
+    public Text hostageCountText;
+    public Text hostageCurrentText;
 
     public bool isPaused;
     public bool isMenuOpen;
+
+    public int enemyAmount;
+    public int hostageAmount;
+    public int hostageCurrent;
 
     //    // Start is called before the first frame update
     void Awake()
@@ -38,12 +42,12 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
-       
+        hostageCurrent = hostageAmount;
     }
 
     void Start()
     {
-        StartCoroutine(enemyCountWait()); 
+        StartCoroutine(enemyHostageCountWait()); 
     }
 
     // Update is called once per frame
@@ -99,10 +103,13 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public IEnumerator enemyCountWait()
+    public IEnumerator enemyHostageCountWait()
     {
         yield return new WaitForSeconds(0.1f);
         enemyCountText.text = enemyAmount.ToString();
+        hostageCountText.text = hostageAmount.ToString();
+        hostageCurrentText.text = hostageCurrent.ToString();
+
     }
 
     public void checkEnemyTotal()

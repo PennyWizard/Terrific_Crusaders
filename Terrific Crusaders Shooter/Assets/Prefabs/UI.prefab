@@ -2489,7 +2489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cae5156b2869945aecac54f3a9929c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAmount: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
   spawnPosition: {fileID: 0}
@@ -2503,8 +2502,13 @@ MonoBehaviour:
   Introduction: {fileID: 883649781782834368}
   ammoCurrent: {fileID: 6061442610636101657}
   ammoMax: {fileID: 3858121374357314206}
+  hostageCountText: {fileID: 5769578064529060811}
+  hostageCurrentText: {fileID: 977896701542832700}
   isPaused: 0
   isMenuOpen: 0
+  enemyAmount: 0
+  hostageAmount: 0
+  hostageCurrent: 0
 --- !u!1 &6244020179018392362
 GameObject:
   m_ObjectHideFlags: 0
