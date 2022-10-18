@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour, IDamage
     private int timesJumped;
     public int currentAmmo;
     public int ammoMax;
-    public float reloadTime = 2f;
+    public float reloadTime = 1f;
     bool isShoot;
     int selectedgun;
     int hpOringal;
