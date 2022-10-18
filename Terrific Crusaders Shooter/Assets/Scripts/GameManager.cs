@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     public Text ammoMax;
     public Text hostageCountText;
     public Text hostageCurrentText;
-    public Text ReloadText;
 
     public bool isPaused;
     public bool isMenuOpen;
