@@ -133,7 +133,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             {
                 enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
                 Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-                new WaitForSeconds(enemyBurstSpeed);
+                yield return new WaitForSeconds(enemyBurstSpeed);
 
             }
         }
