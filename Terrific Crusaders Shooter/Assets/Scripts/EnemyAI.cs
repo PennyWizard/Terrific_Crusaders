@@ -21,6 +21,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(0, 20)][SerializeField] int facePlayerSpeed;
     [SerializeField] int sightDist;
     [Range(0, 90)][SerializeField] int viewAngle;
+    [SerializeField] bool burstEnemy;
+    [Range(0, 1)][SerializeField] float enemyBurstSpeed;
 
     [Header("---Roam info---")]
     [Range(0, 100)][SerializeField] int roamDistance;
@@ -34,6 +36,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] enemyHurt;
     [SerializeField] AudioClip[] enemySteps;
     [SerializeField] AudioClip enemyShots;
+    [SerializeField] AudioClip enemyBurst;
     [Range(0,1)][SerializeField] float enemyGunVol;
     [Range(0, 1)][SerializeField] float enemyStepsVol;
     [Range(0, 1)][SerializeField] float enemyHurtVol;
@@ -117,13 +120,36 @@ public class EnemyAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
+        if (!burstEnemy)
+        {
+            animator.SetTrigger("Shoot");
+            enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
+            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+        }
 
-        animator.SetTrigger("Shoot");
-        enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
-        Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+        
 
         yield return new WaitForSeconds(rateOfFire);
         isShooting = false;
+    }
+    
+    IEnumerator burst()
+    {
+        
+        
+            isShooting=true;
+            animator.SetTrigger("Burst");
+            enemyAudio.PlayOneShot(enemyBurst, enemyGunVol);
+            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+            new WaitForSeconds(enemyBurstSpeed);
+            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+            new WaitForSeconds(enemyBurstSpeed);
+            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+
+            yield return new WaitForSeconds(rateOfFire);
+            isShooting = false;
+
+        
     }
     
     void roam()
@@ -167,8 +193,12 @@ public class EnemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-
-                if (!isShooting)
+                
+                if (burstEnemy && !isShooting)
+                {
+                    StartCoroutine(burst());
+                }
+                else if (!isShooting)
                 {
                     StartCoroutine(shoot());
                 }
