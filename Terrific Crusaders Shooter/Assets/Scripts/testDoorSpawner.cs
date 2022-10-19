@@ -33,11 +33,11 @@ public class testDoorSpawner : MonoBehaviour, IDamage
             HP -= DMG;
             if (HP <= 0)
             {
-                while(enemiesSpawned < maxEnemies)
-                {
+                
                     Instantiate(enemy, new Vector3(4.2f, 2, 7.11f), Quaternion.identity);
+                    Instantiate(enemy, new Vector3(5.2f, 2, 8.11f), Quaternion.identity);
                     enemiesSpawned++;
-                }
+                
 
                 Destroy(wall);
             }
