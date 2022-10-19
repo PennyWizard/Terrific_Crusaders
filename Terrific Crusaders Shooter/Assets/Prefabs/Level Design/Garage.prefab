@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4878964269334840500
 Transform:
@@ -44,6 +44,10 @@ PrefabInstance:
     - target: {fileID: 928419350200646589, guid: 98b8cd4f63566254fbfd5a98e253f4fc, type: 3}
       propertyPath: m_Name
       value: Garage wall door side
+      objectReference: {fileID: 0}
+    - target: {fileID: 928419350200646589, guid: 98b8cd4f63566254fbfd5a98e253f4fc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1813418077850771368, guid: 98b8cd4f63566254fbfd5a98e253f4fc, type: 3}
       propertyPath: m_RootOrder
@@ -168,6 +172,10 @@ PrefabInstance:
     - target: {fileID: 1924641740736337702, guid: bb3058b5c8201c94d88b264bef2277b5, type: 3}
       propertyPath: m_Name
       value: Garage Inside
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924641740736337702, guid: bb3058b5c8201c94d88b264bef2277b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8170448911338272653, guid: bb3058b5c8201c94d88b264bef2277b5, type: 3}
       propertyPath: m_RootOrder
