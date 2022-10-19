@@ -8,7 +8,7 @@ public class testDoorSpawner : MonoBehaviour, IDamage
     [SerializeField] GameObject wall;
 
     [SerializeField] GameObject enemy;
-    [SerializeField] int maxEnemies;
+    [SerializeField] int maxEnemies = 2;
 
     int HP = 1;
     int enemiesSpawned;
