@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_Text: 'Rescue all civilians
 
 
-    or
+    and
 
 
     kill all enemies
@@ -2505,7 +2505,6 @@ MonoBehaviour:
   ammoMax: {fileID: 3858121374357314206}
   hostageCountText: {fileID: 5769578064529060811}
   hostageCurrentText: {fileID: 977896701542832700}
-  ReloadText: {fileID: 0}
   isPaused: 0
   isMenuOpen: 0
   enemyAmount: 0

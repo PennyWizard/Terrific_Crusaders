@@ -21,6 +21,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(0, 20)][SerializeField] int facePlayerSpeed;
     [SerializeField] int sightDist;
     [Range(0, 90)][SerializeField] int viewAngle;
+    [SerializeField] bool burstEnemy;
+    [Range(0, 1)][SerializeField] float enemyBurstSpeed;
 
     [Header("---Roam info---")]
     [Range(0, 100)][SerializeField] int roamDistance;
@@ -34,6 +36,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] enemyHurt;
     [SerializeField] AudioClip[] enemySteps;
     [SerializeField] AudioClip enemyShots;
+    [SerializeField] AudioClip enemyBurst;
     [Range(0,1)][SerializeField] float enemyGunVol;
     [Range(0, 1)][SerializeField] float enemyStepsVol;
     [Range(0, 1)][SerializeField] float enemyHurtVol;
@@ -47,7 +50,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     float patrolSpeed;
     void Start()
     {
-        GameManager.instance.enemyAmount++;
+        //GameManager.instance.enemyAmount++;
         stoppingDistanceOrgin = agent.stoppingDistance;
         startingPosition = transform.position;
         patrolSpeed = agent.speed;
@@ -80,8 +83,17 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     public void takeDamage(int damage)
     {
-        HP -= damage;
-        StartCoroutine(damageFeedback());
+        if (damage > 0)
+        {
+            HP -= damage;
+            StartCoroutine(damageFeedback());
+
+        }
+        else if (damage < 0)
+        {
+            HP -= damage;
+            StartCoroutine(healFeedback());
+        }
         if (HP <= 0)
         {
             animator.SetBool("Dead", true);
@@ -108,7 +120,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         animator.SetTrigger("Damage");
         model.material.color = Color.green;
         agent.enabled = false;
-
+        enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
         yield return new WaitForSeconds(0.1f);
 
         model.material.color = Color.white;
@@ -117,14 +129,30 @@ public class EnemyAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
+        if (!burstEnemy)
+        {
+            animator.SetTrigger("Shoot");
+            enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
+            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+        }
+        else
+        {
+            animator.SetTrigger("Burst");
+            for (int i = 0; i < 3; i++)
+            {
+                enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
+                Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+                yield return new WaitForSeconds(enemyBurstSpeed);
 
-        animator.SetTrigger("Shoot");
-        enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
-        Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+            }
+        }
+
 
         yield return new WaitForSeconds(rateOfFire);
         isShooting = false;
     }
+    
+   
     
     void roam()
     {
@@ -167,7 +195,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-
+                
                 if (!isShooting)
                 {
                     StartCoroutine(shoot());
