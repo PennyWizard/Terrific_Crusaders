@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Introduction.SetActive(true);
         StartCoroutine(enemyHostageCountWait());
     }
 
