@@ -187,13 +187,9 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         if (Input.GetButtonDown("Reload") && !isReloading)
         {
-            //gunAnimator.SetBool("Reloading", true);
-            
             isReloading = true;
-            //yield return new WaitForSeconds(reloadTime);
             aud.PlayOneShot(playerReloadAud, playerReloadAudVol);
             currentAmmo = ammoMax;
-            //gunAnimator.SetBool("Reloading", false);
             isReloading = false;
         }
         
@@ -223,13 +219,13 @@ public class PlayerController : MonoBehaviour, IDamage
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedgun < gunStat.Count - 1)
             {
                 gunStat[selectedgun].currentAmmo = currentAmmo;
-                selectedgun++;
+                ++selectedgun;
                 changeGun();
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedgun > 0)
             {
                 gunStat[selectedgun].currentAmmo = currentAmmo;
-                selectedgun--;
+                --selectedgun;
                 changeGun();
             }
         }

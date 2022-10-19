@@ -624,7 +624,7 @@ MonoBehaviour:
   penetrable: 1
   wall: {fileID: 2029762814}
   enemy: {fileID: 2278268419255626481, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
-  maxEnemies: 1
+  maxEnemies: 2
 --- !u!4 &2029762819
 Transform:
   m_ObjectHideFlags: 0
