@@ -104,16 +104,24 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     IEnumerator damageFeedback()
     {
-        animator.SetTrigger("Damage");
-        model.material.color = Color.red;
-        enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
-        agent.enabled = false;
+       
+        
 
-        yield return new WaitForSeconds(0.1f);
+            animator.SetTrigger("Damage");
+            model.material.color = Color.red;
+            enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
+            agent.enabled = false;
 
-        model.material.color = Color.white;
-        agent.enabled = true;
-        agent.SetDestination(GameManager.instance.player.transform.position);
+            yield return new WaitForSeconds(0.1f);
+
+            model.material.color = Color.white;
+        if (!animator.GetBool("Dead"))
+        {
+            agent.enabled = true;
+            agent.SetDestination(GameManager.instance.player.transform.position);
+        }
+          
+        
     }
     IEnumerator healFeedback()
     {

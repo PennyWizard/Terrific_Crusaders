@@ -829,6 +829,8 @@ MonoBehaviour:
   facePlayerSpeed: 5
   sightDist: 50
   viewAngle: 45
+  burstEnemy: 1
+  enemyBurstSpeed: 0.05
   roamDistance: 50
   shootDMG: 1
   rateOfFire: 0.75
@@ -851,6 +853,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 87aca5d1e58d9094baa02d3ab598041e, type: 3}
   - {fileID: 8300000, guid: 8dfff375c1520034292431d29335c529, type: 3}
   enemyShots: {fileID: 8300000, guid: a6a9fa2c4c02a93419ad946151bca6ba, type: 3}
+  enemyBurst: {fileID: 0}
   enemyGunVol: 0.487
   enemyStepsVol: 0.5
   enemyHurtVol: 0.528
