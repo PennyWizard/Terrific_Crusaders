@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: enemyBurstSpeed
-      value: 0.25
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2278268419256055441, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: m_RootOrder
