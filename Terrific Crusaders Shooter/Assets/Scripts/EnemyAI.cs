@@ -29,7 +29,8 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("--- Gun Stats---")]
     [Range(1, 25)][SerializeField] int shootDMG;
-    [Range(0, 10)][SerializeField] float rateOfFire;
+    [Range(0, 1)][SerializeField] float rateOfFire;
+    [Range(0, 1)][SerializeField] float shootPause;
 
     [Header("--- Audio ---")]
     [SerializeField] AudioSource enemyAudio;
@@ -140,8 +141,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (!burstEnemy)
         {
             animator.SetTrigger("Shoot");
-            enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
-            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+            for (int i = 0; i < 7; i++)
+            {
+                enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
+                Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+                yield return new WaitForSeconds(rateOfFire);
+            }
+            yield return new WaitForSeconds(shootPause);
         }
         else
         {

@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 2278268419255659560}
   - component: {fileID: 2088961167}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Burst Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
