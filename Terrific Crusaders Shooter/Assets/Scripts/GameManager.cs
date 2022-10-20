@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public bool isMenuOpen;
 
     public int enemyAmount;
-    public int hostageAmount;
+    public int hostageAmount = 1;
     public int hostageCurrent;
 
     //    // Start is called before the first frame update
@@ -111,7 +111,13 @@ public class GameManager : MonoBehaviour
         enemyCountText.text = enemyAmount.ToString();
         hostageCountText.text = hostageAmount.ToString();
         hostageCurrentText.text = hostageCurrent.ToString();
-
+        if (hostageCurrent == hostageAmount)
+        {
+            GameManager.instance.youWinText.SetActive(true);
+            isMenuOpen = true;
+            Menu.SetActive(true);
+            curserLock();
+        }
     }
 
     public void updateText()
