@@ -405,6 +405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hostage
       objectReference: {fileID: 0}
+    - target: {fileID: 8331666671199316632, guid: d6fde7eb14e9fab4999e9127d7ceae67, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 78418e7a1b0c2b249b0a9d8e986def7c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6fde7eb14e9fab4999e9127d7ceae67, type: 3}
 --- !u!1001 &1859349143
