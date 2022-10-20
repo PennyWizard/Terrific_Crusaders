@@ -825,7 +825,7 @@ MonoBehaviour:
   animator: {fileID: 2278268419246233925}
   animationLerpSpeed: 3
   col: {fileID: 2278268419255659561}
-  HP: 10
+  HP: 3
   facePlayerSpeed: 5
   sightDist: 50
   viewAngle: 45
