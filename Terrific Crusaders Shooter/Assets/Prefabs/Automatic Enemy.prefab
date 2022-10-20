@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 2278268419255659560}
   - component: {fileID: 2088961167}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Automatic Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,11 +829,12 @@ MonoBehaviour:
   facePlayerSpeed: 5
   sightDist: 50
   viewAngle: 45
-  burstEnemy: 1
-  enemyBurstSpeed: 0.05
+  burstEnemy: 0
+  enemyBurstSpeed: 0
   roamDistance: 50
   shootDMG: 1
-  rateOfFire: 0.75
+  rateOfFire: 0.5
+  shootPause: 0.75
   enemyAudio: {fileID: 2088961167}
   enemyHurt:
   - {fileID: 8300000, guid: 02af3547dde424348893f508d97bdd9c, type: 3}
