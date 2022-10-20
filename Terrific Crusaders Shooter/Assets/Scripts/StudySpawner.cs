@@ -9,7 +9,7 @@ public class StudySpawner : MonoBehaviour, IDamage
 
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject enemy2;
-    [SerializeField] int maxEnemies = 2;
+    [SerializeField] int maxEnemies;
 
     int HP = 1;
     int enemiesSpawned;
@@ -35,9 +35,10 @@ public class StudySpawner : MonoBehaviour, IDamage
             if (HP <= 0)
             {
 
-                Instantiate(enemy, new Vector3(4.2f, 2, 7.11f), Quaternion.identity);
-                Instantiate(enemy2, new Vector3(5.2f, 2, 8.11f), Quaternion.identity);
-                enemiesSpawned++;
+                Instantiate(enemy, new Vector3(-134.16f, 3, 100.22f), Quaternion.identity);
+                Instantiate(enemy2, new Vector3(-134.16f, 3, 102.92f), Quaternion.identity);
+
+                enemiesSpawned += 2;
 
 
                 Destroy(wall);
