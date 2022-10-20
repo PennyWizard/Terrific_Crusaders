@@ -69,13 +69,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2278268419246233925, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
     - target: {fileID: 2278268419250349957, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2278268419255626481, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: m_Name
-      value: Commander
+      value: Enemy (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: HP
@@ -88,6 +92,10 @@ PrefabInstance:
     - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: shootDMG
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
+      propertyPath: burstEnemy
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2278268419255659562, guid: ea41986cddf1feb4eb38ec5ec3e6e2e8, type: 3}
       propertyPath: rateOfFire
