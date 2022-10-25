@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 108
+  controlID: 98
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 109
+  controlID: 19
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 110
+  controlID: 20
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -346,23 +346,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Textures
+    - Assets/Scenes/Workspaces
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
-  m_StartGridSize: 37
+  m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Textures
-  m_LastFoldersGridSize: 37
+  - Assets/Scenes/Workspaces
+  m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\stewa\Documents\GitHub\Terrific_Crusaders\Terrific
     Crusaders Shooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22c00300
-    m_LastClickedID: 245794
-    m_ExpandedIDs: 00000000dcbf0300debf0300e0bf0300e2bf0300e4bf0300e6bf0300e8bf0300eabf0300ecbf0300eebf0300f0bf0300f2bf0300f4bf0300f6bf0300fabf030000ca9a3b
+    m_SelectedIDs: 4e5b0000
+    m_LastClickedID: 23374
+    m_ExpandedIDs: 000000007e5a0000805a0000825a0000845a0000865a0000885a00008a5a00008c5a00008e5a0000905a0000925a0000945a0000965a0000985a00009a5a0000c65a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -390,7 +390,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000dcbf0300debf0300e0bf0300e2bf0300e4bf0300e6bf0300e8bf0300eabf0300ecbf0300eebf0300f0bf0300f2bf0300f4bf0300f6bf0300f8bf0300fabf0300
+    m_ExpandedIDs: 000000007e5a0000805a0000825a0000845a0000865a0000885a00008a5a00008c5a00008e5a0000905a0000925a0000945a0000965a0000985a00009a5a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -417,22 +417,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Workspaces
+      m_OriginalName: Workspaces
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 23374
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -443,7 +443,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 37
+    m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 294
 --- !u!114 &14
@@ -518,9 +518,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 32b60300
+      m_SelectedIDs: 3c5b0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 06e1ffff82ebffff36fbffff
+      m_ExpandedIDs: 5af5ffffa6f5ffffeaf5ffff36f6ffff36fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -769,9 +769,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.803322, y: -5.975506, z: -0.23066187}
+    m_Target: {x: -0.5667267, y: 0.0139045715, z: 38.007847}
     speed: 2
-    m_Value: {x: 5.803322, y: -5.975506, z: -0.23066187}
+    m_Value: {x: -0.5667267, y: 0.0139045715, z: 38.007847}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -818,13 +818,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.24534948, y: -0.6844124, z: 0.26514494, w: 0.63332933}
+    m_Target: {x: 0.24948354, y: -0.6682215, z: 0.25542018, w: 0.65270483}
     speed: 2
-    m_Value: {x: 0.24494848, y: -0.6853532, z: 0.26550943, w: 0.63229424}
+    m_Value: {x: 0.25045916, y: -0.6678292, z: 0.25641903, w: 0.6523217}
   m_Size:
-    m_Target: 47.169994
+    m_Target: 53.0704
     speed: 2
-    m_Value: 45.138752
+    m_Value: 53.0704
   m_Ortho:
     m_Target: 0
     speed: 2
