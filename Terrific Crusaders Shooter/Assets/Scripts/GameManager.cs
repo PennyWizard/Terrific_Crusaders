@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Introduction.SetActive(true);
-        StartCoroutine(enemyHostageCountWait());
+        //Introduction.SetActive(true);
+        //StartCoroutine(enemyHostageCountWait());
     }
 
     // Update is called once per frame
@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Submit"))
-        {
-            Introduction.SetActive(false);
-        }
+        //if (Input.GetButtonDown("Submit"))
+        //{
+        //    Introduction.SetActive(false);
+        //}
 
         ammoCurrent.text = playerScript.currentAmmo.ToString();
         ammoMax.text = playerScript.ammoMax.ToString();
