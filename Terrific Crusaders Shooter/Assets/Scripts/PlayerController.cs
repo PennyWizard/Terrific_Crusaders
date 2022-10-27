@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(15, 35)] [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
     [Range(1, 20)] [SerializeField] int HP;
+    public bool hasKey;
 
     [Header("---Gun Stats---")]
     [SerializeField] float shootRate;

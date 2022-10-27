@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableBase : MonoBehaviour, IInertatable
+public abstract class InteractableBase : MonoBehaviour, IInertatable
 {
     public float holdDuration;
     public bool holdInterat;
@@ -17,8 +17,5 @@ public class InteractableBase : MonoBehaviour, IInertatable
 
     public bool IsIteractalbe => isIneractable;
 
-    public void OnInteract()
-    {
-        Debug.Log("Interact: " + gameObject);
-    }
+    public abstract void OnInteract();
 }
