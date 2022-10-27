@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     [Header("---Component---")]
     [SerializeField] CharacterController controller;
+    
 
     [Header("---Player Stats---")]
     [Range(1, 5)] [SerializeField] float playerSpeed;
@@ -51,12 +52,14 @@ public class PlayerController : MonoBehaviour, IDamage
     bool isPlayingSteps;
     bool isReloading;
     
+
     Vector3 move;
 
     private void Start()
     {
         hpOringal = HP;
         Respawm();
+        
     }
 
     void Update()
@@ -66,6 +69,7 @@ public class PlayerController : MonoBehaviour, IDamage
         sprint();
         gunSelect();
         ReloadGun();
+        
 
         if (currentAmmo > 0)
         {
@@ -80,6 +84,8 @@ public class PlayerController : MonoBehaviour, IDamage
             
         
     }
+
+    
 
     void movement()
     {

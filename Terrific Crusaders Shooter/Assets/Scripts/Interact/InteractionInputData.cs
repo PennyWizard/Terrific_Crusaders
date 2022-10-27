@@ -11,7 +11,7 @@ public class InteractionInputData : ScriptableObject
     private bool m_interactedReleased;
 
     public bool InteractedClicked { get => m_interactedClicked; set => m_interactedClicked = value; }
-    public bool Interactedreleased { get => m_interactedClicked; set => m_interactedClicked = value; }
+    public bool Interactedreleased { get => m_interactedReleased; set => m_interactedReleased = value; }
 
     public void Reset()
     {

@@ -19,6 +19,6 @@ public class InteractableBase : MonoBehaviour, IInertatable
 
     public void OnInteract()
     {
-        Debug.Log("Interacted: " + gameObject.name);
+        Debug.Log("Interact: " + gameObject);
     }
 }
