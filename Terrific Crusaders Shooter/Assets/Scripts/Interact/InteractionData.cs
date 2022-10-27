@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Interaction Data", menuName = "InteractionSystem/InteractionData")]
 
-public class InteractableData : ScriptableObject
+public class InteractionData : ScriptableObject
 {
     private InteractableBase m_interactable;
 
