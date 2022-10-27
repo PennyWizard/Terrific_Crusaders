@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public Text hostageCountText;
     public Text hostageCurrentText;
 
+    public InteractionInputData interactionInputData;
+
     public bool isPaused;
     public bool isMenuOpen;
 
@@ -46,8 +48,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Introduction.SetActive(true);
-        //StartCoroutine(enemyHostageCountWait());
+        interactionInputData.Reset();
     }
 
     // Update is called once per frame
@@ -73,10 +74,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //if (Input.GetButtonDown("Submit"))
-        //{
-        //    Introduction.SetActive(false);
-        //}
+        interactionInputData.InteractedClicked = Input.GetButtonDown("Fire2");
+        interactionInputData.Interactedreleased = Input.GetButtonUp("Fire2");
 
         ammoCurrent.text = playerScript.currentAmmo.ToString();
         ammoMax.text = playerScript.ammoMax.ToString();

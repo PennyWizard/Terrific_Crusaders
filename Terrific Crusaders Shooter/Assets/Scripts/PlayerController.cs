@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IDamage
     bool isSprinting;
     bool isPlayingSteps;
     bool isReloading;
+    
     Vector3 move;
 
     private void Start()
