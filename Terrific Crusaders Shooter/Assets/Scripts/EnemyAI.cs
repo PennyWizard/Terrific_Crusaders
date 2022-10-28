@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Animator animator;
     [SerializeField] int animationLerpSpeed;
     [SerializeField] Collider col;
+    [SerializeField] Transform[] waypoints;
+
 
     [Header("---Enemy Stats--")]
     [Range(0, 100)][SerializeField] int HP;
@@ -44,17 +46,24 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     public bool playerInRange;
     public bool isShooting;
+
     Vector3 playerDirection;
     Vector3 startingPosition;
+
     float stoppingDistanceOrgin;
     float angle;
     float patrolSpeed;
+    float waypointDistance;
+
+    int waypointIndex;
+
     void Start()
     {
-       
+        transform.LookAt(waypoints[waypointIndex].position);
         stoppingDistanceOrgin = agent.stoppingDistance;
         startingPosition = transform.position;
         patrolSpeed = agent.speed;
+        waypointIndex = 0;
         roam();
     }
 
@@ -242,5 +251,18 @@ public class EnemyAI : MonoBehaviour, IDamage
             enemyAudio.PlayOneShot(enemySteps[Random.Range(0, enemySteps.Length - 1)], enemyStepsVol);
             yield return new WaitForSeconds(0.4f);
         }
+    }
+    void Patrol()
+    {
+        transform.Translate(Vector3.forward * patrolSpeed * Time.deltaTime);
+    }
+    void increaceIndex()
+    {
+        waypointIndex = 0;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
     }
 }
