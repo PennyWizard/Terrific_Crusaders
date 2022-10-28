@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyPickup : MonoBehaviour
+public class KeyPickup : InteractableBase
 {
-    private void OnTriggerEnter(Collider other)
+    public override void OnInteract()
     {
         GameManager.instance.playerScript.hasKey = true;
         Destroy(gameObject);
