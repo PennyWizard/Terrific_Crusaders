@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8913967691672376408}
   - component: {fileID: 8913967691672376410}
+  - component: {fileID: 7230417502530284651}
   - component: {fileID: 8913967691672376409}
   - component: {fileID: 8913967691672376413}
   - component: {fileID: 8913967691672376415}
@@ -84,6 +85,25 @@ MonoBehaviour:
   gunEmptyAudVol: 0.82
   currentAmmo: 0
   ammoMax: 0
+--- !u!114 &7230417502530284651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913967691672376412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d9633638225aa42b427ddea472d40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionInputData: {fileID: 11400000, guid: 7785f881bf5444148a564bfabd5f692a, type: 2}
+  interactionData: {fileID: 11400000, guid: 1c9007ac8ea02014cba6cc09cd63e340, type: 2}
+  rayDistance: 1
+  raySphereRadius: 0.3
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!143 &8913967691672376409
 CharacterController:
   m_ObjectHideFlags: 0

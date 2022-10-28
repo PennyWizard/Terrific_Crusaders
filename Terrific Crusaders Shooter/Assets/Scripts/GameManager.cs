@@ -7,6 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public InteractionInputData interactionInputData;
 
     [Header("---Player Stuff---")]
     public GameObject player;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
     public Text hostageCountText;
     public Text hostageCurrentText;
 
+    
+
     public bool isPaused;
     public bool isMenuOpen;
 
@@ -46,14 +49,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Introduction.SetActive(true);
-        //StartCoroutine(enemyHostageCountWait());
+        interactionInputData.Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Interaction();
 
         if (Input.GetButtonDown("Cancel") && !isMenuOpen)
         {
@@ -73,14 +75,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //if (Input.GetButtonDown("Submit"))
-        //{
-        //    Introduction.SetActive(false);
-        //}
+        
 
         ammoCurrent.text = playerScript.currentAmmo.ToString();
         ammoMax.text = playerScript.ammoMax.ToString();
 
+    }
+
+    void Interaction()
+    {
+        interactionInputData.InteractedClicked = Input.GetButtonDown("Interact");
+        interactionInputData.Interactedreleased = Input.GetButtonUp("Interact");
     }
 
     public void curserLock()
