@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [Header("---Player Stuff---")]
     public GameObject player;
     public PlayerController playerScript;
+    public cameraControlls cameraControlls;
 
     public GameObject spawnPosition;
 

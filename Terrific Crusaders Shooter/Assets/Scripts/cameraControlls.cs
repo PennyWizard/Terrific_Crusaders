@@ -10,7 +10,7 @@ public class cameraControlls : MonoBehaviour
     [SerializeField] int lockVertMin;
     [SerializeField] int lockVertMax;
 
-    [SerializeField] bool invert;
+    public bool invert;
 
     float xRotation;
 

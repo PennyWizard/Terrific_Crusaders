@@ -262,6 +262,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 88120520517503848, guid: c7fd775a3dd1f0c4b9058598fede965a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c7fd775a3dd1f0c4b9058598fede965a, type: 3}
+--- !u!114 &359351978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8913967691876914657, guid: c7fd775a3dd1f0c4b9058598fede965a, type: 3}
+  m_PrefabInstance: {fileID: 359351977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab97b76a2b64894e890a65e65bbaea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &437667638
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +614,10 @@ PrefabInstance:
       propertyPath: hostageCurrent
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: cameraControlls
+      value: 
+      objectReference: {fileID: 359351978}
     - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: interactionInputData
       value: 

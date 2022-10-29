@@ -12,5 +12,9 @@ public class OptionsMenu : MonoBehaviour
         SFX.SetFloat("sfxVolume", volume);
     }
 
+    public void Invert(bool isInverted)
+    {
+        GameManager.instance.cameraControlls.invert = isInverted;
+    }
 
 }
