@@ -76,24 +76,25 @@ public class EnemyAI : MonoBehaviour, IDamage
 
              if (agent.enabled)
              {
-                animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
                 waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+                animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
                 Patrol();
-                if (waypointDistance < 0.1f)
+                if (waypointDistance < 1f)
                 {
                     increaceIndex();
                 }
-                 //if (playerInRange)
-                 //{
-                 //    playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
-                 //    angle = Vector3.Angle(playerDirection, transform.forward);
-                 //    canSeePlayer();
+                else if (playerInRange)
+                {
+                   playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
+                   angle = Vector3.Angle(playerDirection, transform.forward);
+                   canSeePlayer();
+                     if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
+                     {
+                        roam();
+                     }
 
-                 //}
-                 //if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
-                 //{
-                 //    roam();
-                 //}
+                }
+                
              }
 
         //}
