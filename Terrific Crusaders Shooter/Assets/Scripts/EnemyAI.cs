@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(0, 90)][SerializeField] int viewAngle;
     [SerializeField] bool burstEnemy;
     [Range(0, 1)][SerializeField] float enemyBurstSpeed;
+    [SerializeField]int pathingSpeed;
 
     [Header("---Roam info---")]
     [Range(0, 100)][SerializeField] int roamDistance;
@@ -59,37 +60,43 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        transform.LookAt(waypoints[waypointIndex].position);
         stoppingDistanceOrgin = agent.stoppingDistance;
         startingPosition = transform.position;
         patrolSpeed = agent.speed;
+        transform.LookAt(waypoints[waypointIndex].position);
         waypointIndex = 0;
-        roam();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!animator.GetBool("Dead"))
-        {
+        //if (!animator.GetBool("Dead"))
+        //{
 
              if (agent.enabled)
              {
-                 animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));   
-                 if (playerInRange)
-                 {
-                     playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
-                     angle = Vector3.Angle(playerDirection, transform.forward);
-                     canSeePlayer();
+                animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
+                waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+                Patrol();
+                if (waypointDistance < 0.1f)
+                {
+                    increaceIndex();
+                }
+                 //if (playerInRange)
+                 //{
+                 //    playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
+                 //    angle = Vector3.Angle(playerDirection, transform.forward);
+                 //    canSeePlayer();
 
-                 }
-                 if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
-                 {
-                     roam();
-                 }
+                 //}
+                 //if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
+                 //{
+                 //    roam();
+                 //}
              }
 
-        }
+        //}
     }
     public void takeDamage(int damage)
     {
@@ -254,11 +261,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     void Patrol()
     {
-        transform.Translate(Vector3.forward * patrolSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * pathingSpeed * Time.deltaTime);
     }
     void increaceIndex()
     {
-        waypointIndex = 0;
+        waypointIndex++;
         if (waypointIndex >= waypoints.Length)
         {
             waypointIndex = 0;
