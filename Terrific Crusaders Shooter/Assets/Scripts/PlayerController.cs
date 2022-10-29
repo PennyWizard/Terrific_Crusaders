@@ -156,8 +156,6 @@ public class PlayerController : MonoBehaviour, IDamage
 
             currentAmmo--;
 
-            aud.PlayOneShot(gunShootSound, playerShootAudVol);
-            
             RaycastHit hit;
 
 
@@ -170,6 +168,8 @@ public class PlayerController : MonoBehaviour, IDamage
 
                 
             }
+
+            aud.PlayOneShot(gunShootSound, playerShootAudVol);
 
             yield return new WaitForSeconds(shootRate);
             isShoot = false;
