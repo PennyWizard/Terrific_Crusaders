@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     float patrolSpeed;
     float waypointDistance;
 
-    int waypointIndex;
+    [SerializeField]int waypointIndex;
 
     void Start()
     {
@@ -94,7 +94,9 @@ public class EnemyAI : MonoBehaviour, IDamage
              
                  if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
                  {
-                    StartCoroutine(roam()); 
+                    
+                    StartCoroutine(roam());
+                    
                  }
                  
              
@@ -210,30 +212,35 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     void canSeePlayer()
     {
-        RaycastHit hit;
-        
-        if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
+        if (playerInRange)
         {
-            Debug.DrawRay(headPos.transform.position, playerDirection);
-
-            if (hit.collider.CompareTag("Player") && angle <= viewAngle && playerInRange)
+            
+            RaycastHit hit;
+            
+            if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
             {
-                agent.stoppingDistance = stoppingDistanceOrgin;
-                agent.SetDestination(GameManager.instance.player.transform.position);
-                if (agent.remainingDistance < agent.stoppingDistance)
+                Debug.DrawRay(headPos.transform.position, playerDirection);
+
+                if (hit.collider.CompareTag("Player") && angle <= viewAngle && playerInRange)
                 {
-                    facePlayer();
+                    agent.stoppingDistance = stoppingDistanceOrgin;
+                    agent.SetDestination(GameManager.instance.player.transform.position);
+                    if (agent.remainingDistance < agent.stoppingDistance)
+                    {
+                        facePlayer();
+                    }
+                    
+                    if (!isShooting)
+                    {
+                        StartCoroutine(shoot());
+                    }
+
                 }
-                
-                if (!isShooting)
-                {
-                    StartCoroutine(shoot());
-                }
+
 
             }
-
-
         }
+       
         
     }
     void OnTriggerEnter(Collider other)
