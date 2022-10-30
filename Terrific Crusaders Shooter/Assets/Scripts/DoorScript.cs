@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class DoorScript : InteractableBase
 {
-    
+    [SerializeField] bool isLocked;
 
     public override void OnInteract()
     {
-        if (GameManager.instance.playerScript.hasKey == true)
+        if (isLocked)
+        {
+            if (GameManager.instance.playerScript.hasKey == true)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
         {
             Destroy(gameObject);
         }
