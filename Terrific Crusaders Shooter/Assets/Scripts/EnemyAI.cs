@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     float patrolSpeed;
     float waypointDistance;
 
-    int waypointIndex;
+    [SerializeField]int waypointIndex;
 
     void Start()
     {
@@ -73,30 +73,34 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         //if (!animator.GetBool("Dead"))
         //{
+                 Patrol();
 
-             if (agent.enabled)
+             //if (agent.enabled && !playerInRange)
+             //{
+                 waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+                 animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
+                 if (waypointDistance < 1f)
+                 {
+                     increaceIndex();
+                 }      
+             //}
+           
+
+             if (agent.enabled && playerInRange)
              {
-                waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-                animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
-                Patrol();
-                if (waypointDistance < 1f)
-                {
-                    increaceIndex();
-                }
-                else if (playerInRange)
-                {
-                   playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
-                   angle = Vector3.Angle(playerDirection, transform.forward);
-                   canSeePlayer();
-                     if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position)
-                     {
-                        roam();
-                     }
-
-                }
-                
+                 playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
+                 angle = Vector3.Angle(playerDirection, transform.forward);
+                 canSeePlayer();
+             
+                 if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
+                 {
+                    
+                    StartCoroutine(roam());
+                    
+                 }
+                 
+             
              }
-
         //}
     }
     public void takeDamage(int damage)
@@ -122,24 +126,19 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     IEnumerator damageFeedback()
     {
-       
-        
+       animator.SetTrigger("Damage");
+       model.material.color = Color.red;
+       enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
+       agent.enabled = false;
 
-            animator.SetTrigger("Damage");
-            model.material.color = Color.red;
-            enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
-            agent.enabled = false;
+       yield return new WaitForSeconds(0.1f);
 
-            yield return new WaitForSeconds(0.1f);
-
-            model.material.color = Color.white;
+        model.material.color = Color.white;
         if (!animator.GetBool("Dead"))
         {
             agent.enabled = true;
             agent.SetDestination(GameManager.instance.player.transform.position);
         }
-          
-        
     }
     IEnumerator healFeedback()
     {
@@ -185,7 +184,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     
    
     
-    void roam()
+    IEnumerator roam()
     {
         agent.stoppingDistance = 0;
         agent.speed = patrolSpeed;
@@ -202,7 +201,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             agent.CalculatePath(hit.position, path);
             agent.SetPath(path);
         }
-
+        yield return new WaitForSeconds(1.5f);
     }
     void facePlayer()
     {
@@ -213,29 +212,35 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     void canSeePlayer()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
+        if (playerInRange)
         {
-            Debug.DrawRay(headPos.transform.position, playerDirection);
-
-            if (hit.collider.CompareTag("Player") && angle <= viewAngle && playerInRange)
+            
+            RaycastHit hit;
+            
+            if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
             {
-                agent.stoppingDistance = stoppingDistanceOrgin;
-                agent.SetDestination(GameManager.instance.player.transform.position);
-                if (agent.remainingDistance < agent.stoppingDistance)
+                Debug.DrawRay(headPos.transform.position, playerDirection);
+
+                if (hit.collider.CompareTag("Player") && angle <= viewAngle && playerInRange)
                 {
-                    facePlayer();
+                    agent.stoppingDistance = stoppingDistanceOrgin;
+                    agent.SetDestination(GameManager.instance.player.transform.position);
+                    if (agent.remainingDistance < agent.stoppingDistance)
+                    {
+                        facePlayer();
+                    }
+                    
+                    if (!isShooting)
+                    {
+                        StartCoroutine(shoot());
+                    }
+
                 }
-                
-                if (!isShooting)
-                {
-                    StartCoroutine(shoot());
-                }
+
 
             }
-
-
         }
+       
         
     }
     void OnTriggerEnter(Collider other)
