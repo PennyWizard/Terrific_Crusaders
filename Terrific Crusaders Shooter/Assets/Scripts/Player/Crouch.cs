@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
     CapsuleCollider playerCol;
+    CharacterController charactorCon;
     float originalHeight;
     public float reducedHeight;
 
@@ -12,6 +13,7 @@ public class Crouch : MonoBehaviour
     void Start()
     {
         playerCol = GetComponent<CapsuleCollider>();
+        charactorCon = GetComponent<CharacterController>();
         originalHeight = playerCol.height;
     }
 
@@ -31,10 +33,12 @@ public class Crouch : MonoBehaviour
     void GetDown()
     {
         playerCol.height = reducedHeight;
+        charactorCon.height = reducedHeight;
     }
 
     void GetUp()
     {
         playerCol.height = originalHeight;
+        charactorCon.height = originalHeight;
     }
 }
