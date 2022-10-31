@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         //if (!animator.GetBool("Dead"))
         //{
                  Patrol();
-               animator.SetFloat("Speed 0", Mathf.Lerp(animator.GetFloat("Speed 0"),agent.velocity.magnitude, Time.deltaTime * animationLerpSpeed));
+               animator.SetFloat("Speed 0", Mathf.Lerp(animator.GetFloat("Speed 0"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
 
              if (agent.enabled && !playerInRange && isPatroling)
              {
