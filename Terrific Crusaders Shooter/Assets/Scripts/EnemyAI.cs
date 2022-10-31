@@ -55,6 +55,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     float angle;
     float patrolSpeed;
     float waypointDistance;
+    bool isPatroling;
 
     [SerializeField]int waypointIndex;
 
@@ -65,7 +66,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         patrolSpeed = agent.speed;
         transform.LookAt(waypoints[waypointIndex].position);
         waypointIndex = 0;
-        
+        isPatroling = true;
+
     }
 
     // Update is called once per frame
@@ -75,24 +77,26 @@ public class EnemyAI : MonoBehaviour, IDamage
         //{
                  Patrol();
 
-             //if (agent.enabled && !playerInRange)
-             //{
-                 waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-                 animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
-                 if (waypointDistance < 1f)
-                 {
-                     increaceIndex();
-                 }      
-             //}
+             if (agent.enabled && !playerInRange && isPatroling)
+             {
+                agent.stoppingDistance = 0;
+               waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+               animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
+               if (waypointDistance < 0.1f)
+               {
+                   increaceIndex();
+               }      
+             }
            
 
              if (agent.enabled && playerInRange)
              {
+                agent.stoppingDistance = 3;
                  playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
                  angle = Vector3.Angle(playerDirection, transform.forward);
                  canSeePlayer();
              
-                 if (agent.remainingDistance < 0.1f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
+                 if (agent.remainingDistance < 0.2f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
                  {
                     
                     StartCoroutine(roam());
@@ -101,6 +105,8 @@ public class EnemyAI : MonoBehaviour, IDamage
                  
              
              }
+            else if (agent.enabled && !playerInRange)
+                agent.SetDestination(waypoints[waypointIndex].position);
         //}
     }
     public void takeDamage(int damage)
@@ -214,9 +220,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (playerInRange)
         {
-            
+
             RaycastHit hit;
-            
+
             if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
             {
                 Debug.DrawRay(headPos.transform.position, playerDirection);
@@ -229,7 +235,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                     {
                         facePlayer();
                     }
-                    
+
                     if (!isShooting)
                     {
                         StartCoroutine(shoot());
@@ -240,8 +246,9 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             }
         }
-       
-        
+     
+
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -267,7 +274,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     void Patrol()
     {
-        transform.Translate(Vector3.forward * pathingSpeed * Time.deltaTime);
+        agent.SetDestination(waypoints[waypointIndex].position);
     }
     void increaceIndex()
     {
@@ -276,6 +283,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             waypointIndex = 0;
         }
-        transform.LookAt(waypoints[waypointIndex].position);
+        //transform.LookAt(waypoints[waypointIndex].position);
+        agent.SetDestination(waypoints[waypointIndex].position);
     }
 }

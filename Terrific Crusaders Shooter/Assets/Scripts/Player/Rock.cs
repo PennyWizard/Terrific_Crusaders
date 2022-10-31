@@ -22,6 +22,7 @@ public class Rock : MonoBehaviour
     void Start()
     {
         readyToThrow = true;
+       
     }
 
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class Rock : MonoBehaviour
 
         Invoke(nameof(ResetThrow), throwCooldown);
 
-        //Destroy(projectile);
+        
     }
 
     void ResetThrow()
