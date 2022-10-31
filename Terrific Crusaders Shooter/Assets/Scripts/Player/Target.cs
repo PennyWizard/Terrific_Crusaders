@@ -14,4 +14,14 @@ public class Target : MonoBehaviour, IDamage
             Destroy(gameObject);
         }
     }
+
+   
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.instance.playerScript.takeDamage(1);
+        }
+    }
 }

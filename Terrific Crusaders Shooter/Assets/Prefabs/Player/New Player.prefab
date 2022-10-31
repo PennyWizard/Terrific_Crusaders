@@ -60,14 +60,14 @@ GameObject:
   - component: {fileID: 1547481797562438068}
   - component: {fileID: 6438241988649894606}
   - component: {fileID: 492024959685995506}
-  - component: {fileID: 526477400809763927}
+  - component: {fileID: 166152761}
   m_Layer: 0
   m_Name: Rock Hold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5851113854752840432
 Transform:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &526477400809763927
+--- !u!114 &166152761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,8 +162,8 @@ MonoBehaviour:
   attackPoint: {fileID: 5851113854752840432}
   rock: {fileID: 2812786058197138191, guid: d8a044febaf365443ad229b5327cd670, type: 3}
   throwCooldown: 1
-  throwForce: 50
-  throwUpwardForce: 1
+  throwForce: 45
+  throwUpwardForce: 0
 --- !u!1 &9005697370311666298
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c9126264b0b7d4398c2246717c39db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reducedHeight: 1.7
+  reducedHeight: 0.5
 --- !u!114 &7141009170436510708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -746,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca1c64f7c147fb0479f9ef03e264a372, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1c64f7c147fb0479f9ef03e264a372, type: 3}
