@@ -65,7 +65,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         patrolSpeed = agent.speed;
         transform.LookAt(waypoints[waypointIndex].position);
         waypointIndex = 0;
-        
+        agent.SetDestination(waypoints[waypointIndex].position);
+
     }
 
     // Update is called once per frame
@@ -73,7 +74,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         //if (!animator.GetBool("Dead"))
         //{
-                 Patrol();
+                 //Patrol();
 
              //if (agent.enabled && !playerInRange)
              //{
@@ -101,6 +102,8 @@ public class EnemyAI : MonoBehaviour, IDamage
                  
              
              }
+            else if (agent.enabled && !playerInRange)
+                agent.SetDestination(waypoints[waypointIndex].position);
         //}
     }
     public void takeDamage(int damage)
@@ -214,9 +217,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (playerInRange)
         {
-            
+
             RaycastHit hit;
-            
+
             if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
             {
                 Debug.DrawRay(headPos.transform.position, playerDirection);
@@ -229,7 +232,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                     {
                         facePlayer();
                     }
-                    
+
                     if (!isShooting)
                     {
                         StartCoroutine(shoot());
@@ -240,8 +243,9 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             }
         }
-       
-        
+     
+
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -276,6 +280,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             waypointIndex = 0;
         }
-        transform.LookAt(waypoints[waypointIndex].position);
+        //transform.LookAt(waypoints[waypointIndex].position);
+        agent.SetDestination(waypoints[waypointIndex].position);
     }
 }
