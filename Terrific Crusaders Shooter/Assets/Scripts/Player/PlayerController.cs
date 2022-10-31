@@ -18,40 +18,21 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(1, 20)] [SerializeField] int HP;
     public bool hasKey;
 
-    [Header("---Gun Stats---")]
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDist;
-    [SerializeField] int shootDmg;
-    [SerializeField] GameObject gunModel;
-    //[SerializeField] Animator gunAnimator;
-    [SerializeField] List<gunStats> gunStat = new List<gunStats>();
-
     [Header("---Audeo---")]
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] playerHurtAud;
     [Range(0, 1)] [SerializeField] float playerHurtAudVol;
-    [SerializeField] AudioClip gunShootSound;
-    [Range(0, 1)] [SerializeField] float playerShootAudVol;
     [SerializeField] AudioClip playerStepsAud;
     [Range(0, 1)] [SerializeField] float playerStepsAudVol;
     [SerializeField] AudioClip playerRespawnAud;
     [Range(0, 1)] [SerializeField] float playerRespawnAudVol;
-    [SerializeField] AudioClip playerReloadAud;
-    [Range(0, 1)] [SerializeField] float playerReloadAudVol;
-    [SerializeField] AudioClip gunEmptyAud;
-    [Range(0, 1)] [SerializeField] float gunEmptyAudVol;
 
     private Vector3 playerVelocity;
     private int timesJumped;
-    public int currentAmmo;
-    public int ammoMax;
-    //public float reloadTime = 0.000001f;
-    bool isShoot;
-    int selectedgun;
     int hpOringal;
     bool isSprinting;
     bool isPlayingSteps;
-    bool isReloading;
+    
     
 
     Vector3 move;
@@ -68,21 +49,6 @@ public class PlayerController : MonoBehaviour, IDamage
         movement();
         StartCoroutine(playSteps());
         sprint();
-        gunSelect();
-        ReloadGun();
-        
-
-        if (currentAmmo > 0)
-        {
-            StartCoroutine(shoot());
-        }
-        else
-        {
-            StartCoroutine(gunEmpty());
-        }
-       
-        
-            
         
     }
 
@@ -147,116 +113,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
     }
 
-    //
-    IEnumerator shoot()
-    {
-        if(Input.GetButton("Shoot") && !isShoot && !isReloading)
-        {
-            isShoot = true;
-
-            currentAmmo--;
-
-            RaycastHit hit;
-
-
-            if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)),out hit, shootDist))
-            {
-                if (hit.collider.GetComponent<IDamage>() != null)
-                {
-                    hit.collider.GetComponent<IDamage>().takeDamage(shootDmg);
-                }
-
-                
-            }
-
-            aud.PlayOneShot(gunShootSound, playerShootAudVol);
-
-            yield return new WaitForSeconds(shootRate);
-            isShoot = false;
-        }
-
-    }
-
-    IEnumerator gunEmpty()
-    {
-        if (Input.GetButton("Shoot") && !isShoot && !isReloading)
-        {
-            isShoot = true;
-
-            aud.PlayOneShot(gunEmptyAud, gunEmptyAudVol);
-
-            yield return new WaitForSeconds(shootRate);
-            isShoot = false;
-        }
-
-    }
-
-    void ReloadGun()
-    {
-        if (Input.GetButtonDown("Reload") && !isReloading)
-        {
-            isReloading = true;
-            aud.PlayOneShot(playerReloadAud, playerReloadAudVol);
-            currentAmmo = ammoMax;
-            isReloading = false;
-        }
-        
-    }
-
-    public void gunPickup(gunStats stats)
-    {
-        shootRate = stats.shootRate;
-        shootDist = stats.shootDist;
-        shootDmg = stats.shootDmg;
-        ammoMax = stats.ammoMax;
-        stats.currentAmmo = stats.ammoMax;
-        currentAmmo = stats.currentAmmo;
-        gunShootSound = stats.sound;
-        gunEmptyAud = stats.empty;
-
-        gunModel.GetComponent<MeshFilter>().sharedMesh = stats.gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-
-        gunStat.Add(stats);
-    }
-
-    public void gunSelect()
-    {
-        if (gunStat.Count > 1)
-        {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedgun < gunStat.Count - 1)
-            {
-                gunStat[selectedgun].currentAmmo = currentAmmo;
-                ++selectedgun;
-                changeGun();
-            }
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedgun > 0)
-            {
-                gunStat[selectedgun].currentAmmo = currentAmmo;
-                --selectedgun;
-                changeGun();
-            }
-        }
-    }
-
-    public void changeGun()
-    {
-        shootRate = gunStat[selectedgun].shootRate;
-        shootDist = gunStat[selectedgun].shootDist;
-        shootDmg = gunStat[selectedgun].shootDmg;
-        gunShootSound = gunStat[selectedgun].sound;
-        ammoMax = gunStat[selectedgun].ammoMax;
-        currentAmmo = gunStat[selectedgun].currentAmmo;
-
-        if (currentAmmo > ammoMax)
-        {
-            currentAmmo = ammoMax;
-        }
-
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedgun].gunModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedgun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-
-    }
+   
 
     public void takeDamage(int dmg)
     {

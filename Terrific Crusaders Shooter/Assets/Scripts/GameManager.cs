@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
 
         
 
-        ammoCurrent.text = playerScript.currentAmmo.ToString();
-        ammoMax.text = playerScript.ammoMax.ToString();
+        //ammoCurrent.text = playerScript.currentAmmo.ToString();
+        //ammoMax.text = playerScript.ammoMax.ToString();
 
     }
 
