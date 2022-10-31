@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9005697370524593095}
   - component: {fileID: 9005697370524593093}
+  - component: {fileID: -7742024269350884013}
   - component: {fileID: 7141009170436510708}
   - component: {fileID: 9005697370524593094}
   - component: {fileID: 9005697370524593090}
@@ -284,6 +285,7 @@ GameObject:
   - component: {fileID: 9005697370524593089}
   - component: {fileID: 526477401527506465}
   - component: {fileID: 526477402263876727}
+  - component: {fileID: 3611724635455633318}
   m_Layer: 0
   m_Name: New Player
   m_TagString: Player
@@ -327,11 +329,6 @@ MonoBehaviour:
   jumpsMax: 1
   HP: 20
   hasKey: 0
-  shootRate: 0.5
-  shootDist: 25
-  shootDmg: 0
-  gunModel: {fileID: 0}
-  gunStat: []
   aud: {fileID: 526477401527506465}
   playerHurtAud:
   - {fileID: 8300000, guid: 02af3547dde424348893f508d97bdd9c, type: 3}
@@ -345,6 +342,19 @@ MonoBehaviour:
   playerStepsAudVol: 0.02
   playerRespawnAud: {fileID: 8300000, guid: 4a7a7658efd38cb41831caf3d0a10b60, type: 3}
   playerRespawnAudVol: 0.455
+--- !u!114 &-7742024269350884013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005697370524593091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c9126264b0b7d4398c2246717c39db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reducedHeight: 1.7
 --- !u!114 &7141009170436510708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +572,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &3611724635455633318
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005697370524593091}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &526477401745769801
 PrefabInstance:
   m_ObjectHideFlags: 0
