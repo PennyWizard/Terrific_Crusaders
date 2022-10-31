@@ -76,12 +76,12 @@ public class EnemyAI : MonoBehaviour, IDamage
         //if (!animator.GetBool("Dead"))
         //{
                  Patrol();
+               animator.SetFloat("Speed 0", Mathf.Lerp(animator.GetFloat("Speed 0"),agent.velocity.magnitude, Time.deltaTime * animationLerpSpeed));
 
              if (agent.enabled && !playerInRange && isPatroling)
              {
                 agent.stoppingDistance = 0;
                waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-               animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
                if (waypointDistance < 0.1f)
                {
                    increaceIndex();
