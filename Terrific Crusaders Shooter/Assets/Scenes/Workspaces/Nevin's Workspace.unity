@@ -839,6 +839,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
+      propertyPath: HP
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
       propertyPath: shootDMG
       value: 1
       objectReference: {fileID: 0}
@@ -856,7 +860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
       propertyPath: shootRange
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
       propertyPath: enemyGunVol
@@ -870,6 +874,10 @@ PrefabInstance:
       propertyPath: shootPosition
       value: 
       objectReference: {fileID: 417125297}
+    - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
+      propertyPath: facePlayerSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
       propertyPath: animationLerpSpeed
       value: 1

@@ -59,6 +59,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool isPatroling;
     bool isChasing;
     bool isRoaming;
+    [SerializeField] bool x;
 
     [SerializeField]int waypointIndex;
 
@@ -76,57 +77,60 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if ((!isChasing||!isRoaming) && isPatroling)
+        if (agent.enabled && !playerInRange)
         {
-
+            if (isPatroling)
+            {
+            
                  Patrol();
                animator.SetFloat("Speed 0", Mathf.Lerp(animator.GetFloat("Speed 0"),agent.velocity.normalized.magnitude, Time.deltaTime * animationLerpSpeed));
-
-             if (agent.enabled && !playerInRange && isPatroling)
-             {
+            
+            
+             
                 agent.stoppingDistance = 0;
                waypointDistance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-               if (waypointDistance < 0.1f)
+               if (waypointDistance < 4f)
                {
                    increaceIndex();
                }      
-             }
+             
+            }
         }
            
 
-             if (agent.enabled && playerInRange)
-             {
-                 isPatroling = false;
-                 agent.stoppingDistance = 3;
-                 playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
-                 angle = Vector3.Angle(playerDirection, transform.forward);
-                 canSeePlayer();
-             
-                 if (agent.remainingDistance < 0.2f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
-                 {
-                    StartCoroutine(roam());
-
-
-                 }
-
-             }
-            else if (agent.enabled && !playerInRange)
+        else if (agent.enabled && playerInRange)
+        {
+            isPatroling = false;
+            agent.stoppingDistance = 3;
+            playerDirection = GameManager.instance.player.transform.position - headPos.transform.position;
+            angle = Vector3.Angle(playerDirection, transform.forward);
+            canSeePlayer();
+            
+            if (agent.remainingDistance < 0.2f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
             {
                 StartCoroutine(roam());
-                agent.SetDestination(waypoints[waypointIndex].position);
+
+
             }
+
+        }
+       
     }
     public void takeDamage(int damage)
     {
         if (damage > 0)
         {
             HP -= damage;
+            isPatroling = false;
+            isRoaming = false;
             StartCoroutine(damageFeedback());
+            isChasing = true;
 
         }
         if (HP <= 0)
         {
             //animator.SetBool("Dead", true);
+            Destroy(gameObject);
             agent.enabled = false;
             col.enabled = false;
            GameManager.instance.checkEnemyTotal();
@@ -134,10 +138,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     IEnumerator damageFeedback()
     {
+        //animator.SetTrigger("Damage");
         isPatroling = false;
-        isRoaming = false;
-     
-       //animator.SetTrigger("Damage");
        model.material.color = Color.red;
        //enemyAudio.PlayOneShot(enemyHurt[Random.Range(0, enemyHurt.Length - 1)], enemyHurtVol);
        agent.enabled = false;
@@ -148,8 +150,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         //if (!animator.GetBool("Dead"))
         //{
         agent.enabled = true;
-        isChasing = true;
-        agent.SetDestination(GameManager.instance.player.transform.position);
+        chasePlayer();
+
         //}
     }
     
@@ -204,9 +206,10 @@ public class EnemyAI : MonoBehaviour, IDamage
             agent.CalculatePath(hit.position, path);
             agent.SetPath(path);
         }
-        yield return new WaitForSeconds(5f);
-        isRoaming = false;
-        isPatroling=true;
+        yield return new WaitForSeconds(10f);
+        isPatroling = true;
+       
+        
     }
     void facePlayer()
     {
@@ -221,6 +224,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             isPatroling = false;
             isChasing = true;
+            chasePlayer();
             RaycastHit hit;
 
             if (Physics.Raycast(headPos.transform.position, playerDirection, out hit, sightDist))
@@ -286,5 +290,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
         //transform.LookAt(waypoints[waypointIndex].position);
         agent.SetDestination(waypoints[waypointIndex].position);
+    }
+    void chasePlayer()
+    {
+        
+        if (!playerInRange)
+        {
+            StartCoroutine(roam());
+        }
     }
 }
