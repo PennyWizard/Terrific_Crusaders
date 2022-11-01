@@ -150,13 +150,21 @@ PrefabInstance:
       propertyPath: cameraControlls
       value: 
       objectReference: {fileID: 2130711750}
-    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
-      propertyPath: interactionInputData
-      value: 
-      objectReference: {fileID: 11400000, guid: 7785f881bf5444148a564bfabd5f692a, type: 2}
-    - target: {fileID: 2557968217735140566, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+    - target: {fileID: 2200241869081982782, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200241869081982782, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200241869081982782, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200241869081982782, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3905510910591297555, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: m_Name
