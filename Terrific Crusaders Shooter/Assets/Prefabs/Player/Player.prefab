@@ -59,11 +59,7 @@ MonoBehaviour:
   gravityValue: 20
   jumpsMax: 1
   HP: 20
-  shootRate: 0.5
-  shootDist: 25
-  shootDmg: 0
-  gunModel: {fileID: 8607979444274536115}
-  gunStat: []
+  hasKey: 0
   aud: {fileID: 971516350}
   playerHurtAud:
   - {fileID: 8300000, guid: 02af3547dde424348893f508d97bdd9c, type: 3}
@@ -73,18 +69,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0b791eb697f96574f8397b18c11a2803, type: 3}
   - {fileID: 8300000, guid: c4d093c9354b4554191772c9ce4841a8, type: 3}
   playerHurtAudVol: 0.473
-  gunShootSound: {fileID: 0}
-  playerShootAudVol: 0.441
   playerStepsAud: {fileID: 8300000, guid: 0c5f4eaff60bb85499030e73dc899678, type: 3}
   playerStepsAudVol: 0.02
   playerRespawnAud: {fileID: 8300000, guid: 4a7a7658efd38cb41831caf3d0a10b60, type: 3}
   playerRespawnAudVol: 0.455
-  playerReloadAud: {fileID: 8300000, guid: 9d9ff7bbbfbe519418346b76cb8efc98, type: 3}
-  playerReloadAudVol: 0.352
-  gunEmptyAud: {fileID: 0}
-  gunEmptyAudVol: 0.82
-  currentAmmo: 0
-  ammoMax: 0
 --- !u!114 &7230417502530284651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +106,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.7
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}

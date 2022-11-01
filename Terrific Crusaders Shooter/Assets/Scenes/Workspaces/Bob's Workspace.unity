@@ -164,7 +164,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65133151}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -745,6 +745,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1656674457}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 8913967691985556213}
@@ -776,9 +780,17 @@ PrefabInstance:
       propertyPath: interactionInputData
       value: 
       objectReference: {fileID: 11400000, guid: 7785f881bf5444148a564bfabd5f692a, type: 2}
+    - target: {fileID: 2557968217735140566, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 3905510910591297555, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970533204320542224, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4931284190222016590, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: m_Pivot.x
@@ -923,6 +935,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 387714bb181400e448eddc16834511da, type: 3}
+--- !u!114 &1656674457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 526477400805741939, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+  m_PrefabInstance: {fileID: 526477402139932982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb16bc974e56de04fbf40cab5b55bc99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2059028473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1068,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 526477400805741950, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9005697370524593091, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
       propertyPath: m_Name
       value: New Player

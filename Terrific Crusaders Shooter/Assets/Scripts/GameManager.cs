@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public InteractionInputData interactionInputData;
     public Gun gun;
-    public Knife knife;
-    public Rock rock;
 
     [Header("---Player Stuff---")]
     public GameObject player;
