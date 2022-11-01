@@ -11,7 +11,7 @@ public class Knife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Shoot"))
+        if (Input.GetButtonDown("Shoot") && GameManager.instance.isPaused)
         {
             Shoot();
         }

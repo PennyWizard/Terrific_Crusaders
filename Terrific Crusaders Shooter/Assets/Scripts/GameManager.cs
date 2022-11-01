@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public InteractionInputData interactionInputData;
+    public Gun gun;
+    public Knife knife;
+    public Rock rock;
 
     [Header("---Player Stuff---")]
     public GameObject player;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         spawnPosition = GameObject.FindGameObjectWithTag("Spawn Position");
+
     }
 
     void Start()
@@ -67,19 +71,23 @@ public class GameManager : MonoBehaviour
             if (isPaused)
             {
                 curserLock();
+                Time.timeScale = 0f;
+                gun.isShoot = true;
                 resumButton.SetActive(true);
             }
             else
             {
                 curserUnlock();
+                Time.timeScale = 1f;
+                gun.isShoot = false;
                 resumButton.SetActive(false);
             }
         }
 
         
 
-        //ammoCurrent.text = playerScript.currentAmmo.ToString();
-        //ammoMax.text = playerScript.ammoMax.ToString();
+        ammoCurrent.text = gun.currentAmmo.ToString();
+        ammoMax.text = gun.ammoMax.ToString();
 
     }
 

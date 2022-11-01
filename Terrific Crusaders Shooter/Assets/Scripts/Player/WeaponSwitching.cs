@@ -17,42 +17,45 @@ public class WeaponSwitching : MonoBehaviour
     {
         int previousSelectedWeapon = selectedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (!GameManager.instance.isPaused)
         {
-            if (selectedWeapon >= transform.childCount - 1)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                if (selectedWeapon >= transform.childCount - 1)
+                {
+                    selectedWeapon = 0;
+                }
+                else
+                {
+                    selectedWeapon++;
+                }
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                if (selectedWeapon <= 0f)
+                {
+                    selectedWeapon = transform.childCount - 1;
+                }
+                else
+                {
+                    selectedWeapon--;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 selectedWeapon = 0;
             }
-            else
-            {
-                selectedWeapon++;
-            }
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0f)
-            {
-                selectedWeapon = transform.childCount - 1;
-            }
-            else
-            {
-                selectedWeapon--;
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            selectedWeapon = 0;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                selectedWeapon = 1;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            selectedWeapon = 1;
-        }
-
-        if (previousSelectedWeapon != selectedWeapon)
-        {
-            SelectWeapon();
+            if (previousSelectedWeapon != selectedWeapon)
+            {
+                SelectWeapon();
+            }
         }
 
 

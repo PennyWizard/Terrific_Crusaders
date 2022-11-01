@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     public int currentAmmo;
     public float shootRate;
 
-    bool isShoot;
+    public bool isShoot;
     bool isReloading;
 
     [Header("---Audeo---")]

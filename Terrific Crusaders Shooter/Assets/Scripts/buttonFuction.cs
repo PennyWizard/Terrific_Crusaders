@@ -11,6 +11,7 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.Menu.SetActive(false);
         GameManager.instance.isPaused = false;
         GameManager.instance.isMenuOpen = false;
+        GameManager.instance.gun.isShoot = false;
         GameManager.instance.respawnButton.SetActive(false);
     }
 
