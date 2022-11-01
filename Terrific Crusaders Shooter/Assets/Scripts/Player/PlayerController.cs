@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] int jumpsMax;
     [Range(1, 20)] [SerializeField] int HP;
     public bool hasKey;
+    public bool hasKey2;
 
     [Header("---Audeo---")]
     [SerializeField] AudioSource aud;

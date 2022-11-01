@@ -41,4 +41,9 @@ public class buttonFuction : MonoBehaviour
         
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
