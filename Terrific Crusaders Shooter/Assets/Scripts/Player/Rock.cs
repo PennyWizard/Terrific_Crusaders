@@ -28,7 +28,7 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Shoot") && readyToThrow)
+        if (Input.GetButtonDown("Shoot") && readyToThrow && !GameManager.instance.isPaused)
         {
             Throw ();
         }
