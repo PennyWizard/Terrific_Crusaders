@@ -108,7 +108,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             
             if (agent.remainingDistance < 0.2f && agent.destination != GameManager.instance.player.transform.position && !playerInRange)
             {
-              
+                StartCoroutine(roam());
 
 
             }
@@ -293,7 +293,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     void chasePlayer()
     {
-        x = agent.SetDestination(GameManager.instance.player.transform.position);
+        
         if (!playerInRange)
         {
             StartCoroutine(roam());
