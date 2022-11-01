@@ -465,7 +465,7 @@ AudioSource:
   m_GameObject: {fileID: 9005697370524593091}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 04fb33eaadf54d04dabc3224561c3d38, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 8be4392a6c6891d44af05cbcf42b6776, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -769,7 +769,7 @@ AudioSource:
   m_GameObject: {fileID: 832890750686556936}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 8be4392a6c6891d44af05cbcf42b6776, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -872,7 +872,7 @@ MonoBehaviour:
   range: 100
   ammoMax: 10
   currentAmmo: 10
-  shootRate: 1
+  shootRate: 0.3
   aud: {fileID: 526477400805741950}
   gunShootSound: {fileID: 8300000, guid: a6a9fa2c4c02a93419ad946151bca6ba, type: 3}
   playerShootAudVol: 1
