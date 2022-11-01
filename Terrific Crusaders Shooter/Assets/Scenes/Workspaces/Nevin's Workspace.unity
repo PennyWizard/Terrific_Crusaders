@@ -903,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
       propertyPath: enemyGunVol
-      value: 0.03
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 200768913221928872, guid: 4b2afeb47e87b8f4caa52d1d2833c74b, type: 3}
       propertyPath: pathingSpeed

@@ -11,7 +11,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] GameObject shootPosition;
     [SerializeField] GameObject headPos;
-    [SerializeField] GameObject bullet;
     [SerializeField] Animator animator;
     [SerializeField] int animationLerpSpeed;
     [SerializeField] Collider col;
@@ -164,14 +163,15 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
            RaycastHit hit;
 
-           animator.SetTrigger("Shoot");
+           
 
            if(Physics.Raycast(shootPosition.transform.position, playerDirection, out hit, sightDist))
            {
               for (int i = 0; i < 7; i++)
               {
                   enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
-                  
+                  animator.SetTrigger("Shoot");
+
                   if (hit.collider.CompareTag("Player"))
                   {
                       GameManager.instance.playerScript.takeDamage(shootDMG);
@@ -181,19 +181,6 @@ public class EnemyAI : MonoBehaviour, IDamage
            }
             yield return new WaitForSeconds(shootPause);
         }
-        else
-        {
-            animator.SetTrigger("Burst");
-            for (int i = 0; i < 3; i++)
-            {
-                enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
-                Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-                yield return new WaitForSeconds(enemyBurstSpeed);
-
-            }
-        }
-
-
         yield return new WaitForSeconds(rateOfFire);
         isShooting = false;
     }
