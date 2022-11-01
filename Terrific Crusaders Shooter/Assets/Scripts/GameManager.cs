@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     public bool isMenuOpen;
 
     public int enemyAmount;
-    public int hostageAmount = 1;
-    public int hostageCurrent;
+    public int hostageAmount = 0;
+    public int hostageCurrent = 0;
 
     //    // Start is called before the first frame update
     void Awake()
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Interaction();
+        enemyHostageCountWait();
 
         if (Input.GetButtonDown("Cancel") && !isMenuOpen)
         {
@@ -117,12 +118,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public IEnumerator enemyHostageCountWait()
+    public void enemyHostageCountWait()
     {
-        yield return new WaitForSeconds(0.1f);
-        enemyCountText.text = enemyAmount.ToString();
+        //yield return new WaitForSeconds(0.1f);
+        //enemyCountText.text = enemyAmount.ToString();
         hostageCountText.text = hostageAmount.ToString();
         hostageCurrentText.text = hostageCurrent.ToString();
+
+        if (hostageAmount != 0)
+        {
+            CheckNoHostage();
+        }
+    }
+
+    public void CheckNoHostage()
+    {
         if (hostageCurrent == hostageAmount)
         {
             GameManager.instance.youWinText.SetActive(true);
@@ -134,7 +144,7 @@ public class GameManager : MonoBehaviour
 
     public void updateText()
     {
-        StartCoroutine(enemyHostageCountWait());
+        enemyHostageCountWait();
     }
 
     public void checkEnemyTotal()
