@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 1620975116}
   - component: {fileID: 1620975115}
   - component: {fileID: 1620975114}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hangar door oustide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6436,7 +6436,7 @@ GameObject:
   - component: {fileID: 8034014324457170204}
   - component: {fileID: 8034014324458137564}
   - component: {fileID: 8034014324462229436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hangar door inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
