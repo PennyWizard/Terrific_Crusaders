@@ -162,13 +162,18 @@ public class EnemyAI : MonoBehaviour, IDamage
         isShooting = true;
         if (!burstEnemy)
         {
+            RaycastHit hit;
+
             animator.SetTrigger("Shoot");
-            for (int i = 0; i < 7; i++)
-            {
-                enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
-                Instantiate(bullet, shootPosition.transform.position, transform.rotation);
-                yield return new WaitForSeconds(rateOfFire);
-            }
+           if(Physics.Raycast(shootPosition.transform.position, playerDirection, out hit, sightDist))
+           {
+                for (int i = 0; i < 7; i++)
+                {
+                    enemyAudio.PlayOneShot(enemyShots, enemyGunVol);
+                    Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+                    yield return new WaitForSeconds(rateOfFire);
+                }
+           }
             yield return new WaitForSeconds(shootPause);
         }
         else
