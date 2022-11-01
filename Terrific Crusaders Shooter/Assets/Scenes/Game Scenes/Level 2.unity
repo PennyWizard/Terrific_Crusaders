@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 1785061116}
   - component: {fileID: 1785061115}
   - component: {fileID: 1785061114}
+  - component: {fileID: 1785061117}
   m_Layer: 0
   m_Name: Level 3 switch
   m_TagString: Untagged
@@ -916,6 +917,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785061112}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1785061117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785061112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470f0238df592be428daa91b407b62d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1790696956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9005697370524593091, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}

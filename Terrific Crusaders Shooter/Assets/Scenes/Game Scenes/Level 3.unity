@@ -130,6 +130,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1672371500}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1672371498}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1672371499}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: spawnPosition
+      value: 
+      objectReference: {fileID: 824464473}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: cameraControlls
+      value: 
+      objectReference: {fileID: 1672371501}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: interactionInputData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7785f881bf5444148a564bfabd5f692a, type: 2}
     - target: {fileID: 3905510910591297555, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: m_Name
       value: UI
@@ -542,6 +566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 387714bb181400e448eddc16834511da, type: 3}
+--- !u!1 &824464473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5633390817807738255, guid: 387714bb181400e448eddc16834511da, type: 3}
+  m_PrefabInstance: {fileID: 824464472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &940090838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,6 +922,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+--- !u!1 &1672371498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9005697370524593091, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+  m_PrefabInstance: {fileID: 1672371497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1672371499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9005697370524593093, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+  m_PrefabInstance: {fileID: 1672371497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672371498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f7bfc9194ea3b4b94de40fec1c8ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1672371500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 526477400805741939, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+  m_PrefabInstance: {fileID: 1672371497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb16bc974e56de04fbf40cab5b55bc99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1672371501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9005697370311666302, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+  m_PrefabInstance: {fileID: 1672371497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab97b76a2b64894e890a65e65bbaea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1848349496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23482,7 +23549,7 @@ Transform:
   - {fileID: 5344798147421584879}
   - {fileID: 5346557721528893167}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &5346354461377920775
 Transform:
@@ -33654,7 +33721,7 @@ Transform:
   - {fileID: 7207295970074297296}
   - {fileID: 7206926065104754844}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &7207043333033865938
 Transform:
