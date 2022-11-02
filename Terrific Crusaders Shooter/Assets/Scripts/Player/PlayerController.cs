@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(8, 15)] [SerializeField] float jumpHeight;
     [Range(15, 35)] [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
-    [Range(1, 20)] [SerializeField] int HP;
+    [Range(1, 20)] public int HP;
     public bool hasKey;
     public bool hasKey2;
 
