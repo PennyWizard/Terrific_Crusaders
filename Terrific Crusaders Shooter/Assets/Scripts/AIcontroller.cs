@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIcontroller : MonoBehaviour
+public class AIcontroller : MonoBehaviour, IHear
 {
     
     public NavMeshAgent navMeshAgent;
@@ -14,6 +14,7 @@ public class AIcontroller : MonoBehaviour
     public int damage;
     public float range;
     public GameObject shootPosition;
+    [SerializeField] float displacementFromDanger = 10f;
 
     public float viewRadius = 15;
     public float viewAngle = 90;
@@ -59,6 +60,7 @@ public class AIcontroller : MonoBehaviour
     void Update()
     {
         EnviromentView();
+        
 
         if (!m_IsPatrol)
         {
@@ -87,7 +89,7 @@ public class AIcontroller : MonoBehaviour
         }
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-            if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
+            if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2f)
             {
                 m_IsPatrol = true;
                 m_PlayerNear = false;
@@ -150,21 +152,24 @@ public class AIcontroller : MonoBehaviour
     {
         Debug.Log("Shooting");
 
-        yield return new WaitForSeconds(10f);
-
         playerDirection = GameManager.instance.player.transform.position - shootPosition.transform.position;
 
         RaycastHit hit;
+        yield return new WaitForSeconds(10f);
 
-        if (GameManager.instance.playerScript.HP > 0)
+        if (m_PlayerInRange)
         {
-            if (Physics.Raycast(shootPosition.transform.position, playerDirection, out hit, range))
+            if (GameManager.instance.playerScript.HP > 0)
             {
-                
-                GameManager.instance.playerScript.takeDamage(damage);
+                if (Physics.Raycast(shootPosition.transform.position, playerDirection, out hit, range))
+                {
+
+                    GameManager.instance.playerScript.takeDamage(damage);
+                }
             }
         }
 
+        
     }
 
     void CaughtPlayer()
@@ -260,6 +265,26 @@ public class AIcontroller : MonoBehaviour
         {
             CaughtPlayer();
         }
+    }
+
+    public void RespondToSound(Sound sound)
+    {
+        if (sound.soundType == Sound.SoundType.Intersting)
+        {
+            MoveTo(sound.pos);
+        }
+        else if (sound.soundType == Sound.SoundType.Danger)
+        {
+            Vector3 dir = (sound.pos - transform.position).normalized;
+            MoveTo(transform.position - (dir * displacementFromDanger));
+        }
+        Debug.Log("Heared Sound");
+    }
+
+    private void MoveTo(Vector3 pos)
+    {
+        navMeshAgent.SetDestination(pos);
+        navMeshAgent.isStopped = false;
     }
 
 }

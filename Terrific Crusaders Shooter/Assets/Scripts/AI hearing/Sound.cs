@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound : MonoBehaviour
+public class Sound 
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum SoundType {Default = -1, Intersting, Danger }
+
+    public Sound(Vector3 _pos, float _range)
     {
-        
+        pos = _pos;
+
+        range = _range;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SoundType soundType;
+
+    public readonly Vector3 pos;
+
+    public readonly float range;
+
 }
