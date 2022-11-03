@@ -32,12 +32,16 @@ public class Crouch : MonoBehaviour
 
     void GetDown()
     {
+        GameManager.instance.playerScript.isCruched = true;
+
         playerCol.height = reducedHeight;
         charactorCon.height = reducedHeight;
     }
 
     void GetUp()
     {
+        GameManager.instance.playerScript.isCruched = false;
+
         playerCol.height = originalHeight;
         charactorCon.height = originalHeight;
     }

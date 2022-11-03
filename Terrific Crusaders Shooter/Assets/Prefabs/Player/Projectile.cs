@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
             if (destoryOnCollide)
             {
-                Destroy(this);
+                Destroy(this, 5f);
             }
         }
     }

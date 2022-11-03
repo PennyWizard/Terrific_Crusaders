@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
     [Range(0, 1)] [SerializeField] float playerReloadAudVol;
     [SerializeField] AudioClip gunEmptyAud;
     [Range(0, 1)] [SerializeField] float gunEmptyAudVol;
+    public float soundRange;
 
     // Update is called once per frame
     void Update()
@@ -60,6 +61,7 @@ public class Gun : MonoBehaviour
             }
 
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
+            MakeASound(soundRange);
 
             yield return new WaitForSeconds(shootRate);
             isShoot = false;
@@ -91,5 +93,13 @@ public class Gun : MonoBehaviour
             isReloading = false;
         }
 
+    }
+
+    public void MakeASound(float range)
+    {
+        var sound = new Sound(transform.position, range);
+        sound.soundType = Sound.SoundType.Intersting;
+
+        Sounds.MakeSound(sound);
     }
 }

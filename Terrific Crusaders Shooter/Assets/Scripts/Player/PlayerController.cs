@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour, IDamage
 
     [Header("---Player Stats---")]
     [Range(1, 5)] [SerializeField] float playerSpeed;
+    float originalSpeed;
     [SerializeField] float sprintMod;
     [Range(8, 15)] [SerializeField] float jumpHeight;
     [Range(15, 35)] [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
+    public bool isCruched;
     [Range(1, 20)] public int HP;
     public bool hasKey;
     public bool hasKey2;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)] [SerializeField] float playerStepsAudVol;
     [SerializeField] AudioClip playerRespawnAud;
     [Range(0, 1)] [SerializeField] float playerRespawnAudVol;
+    public float soundRange;
 
     private Vector3 playerVelocity;
     private int timesJumped;
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private void Start()
     {
+        originalSpeed = playerSpeed;
         hpOringal = HP;
         Respawm();
         
@@ -82,14 +86,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void sprint()
     {
-        if (Input.GetButtonDown("Sprint"))
+        if (Input.GetButtonDown("Sprint") && !isCruched)
         {
             playerSpeed *= sprintMod;
+            MakeASound(soundRange);
             isSprinting = true;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
-            playerSpeed /= sprintMod;
+            playerSpeed = originalSpeed;
             isSprinting = false;
         }
     }
@@ -155,6 +160,14 @@ public class PlayerController : MonoBehaviour, IDamage
         transform.position = GameManager.instance.spawnPosition.transform.position;
 
         controller.enabled = true;
+    }
+
+    public void MakeASound(float range)
+    {
+        var sound = new Sound(transform.position, range);
+        sound.soundType = Sound.SoundType.Intersting;
+
+        Sounds.MakeSound(sound);
     }
 
 }
