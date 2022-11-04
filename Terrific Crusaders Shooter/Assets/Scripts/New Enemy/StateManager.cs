@@ -27,10 +27,13 @@ public class StateManager : MonoBehaviour, IHear
 
     [Header("Patrol")]
     public Transform[] waypoints;
+
     [Header("Chase")]
     public float shootRange;
     public bool isInRange;
+    public bool isShooting;
     public int Damage;
+    
 
     void Start()
     {
@@ -43,6 +46,7 @@ public class StateManager : MonoBehaviour, IHear
     void Update()
     {
         currentState.UpdateState(this);
+        StartCoroutine(FOVroutine());
         InRangeCheck();
     }
 
@@ -117,5 +121,30 @@ public class StateManager : MonoBehaviour, IHear
         Debug.Log("Heared Sound");
     }
 
+    public void ShootGun()
+    {
+        if (!isShooting && canSeePlayer)
+        {
+            StartCoroutine(Fire());
+        }
+        this.SwitchStates(chase);
+    }
     
+    IEnumerator Fire()
+    {
+        isShooting = true;
+
+        Vector3 directionToTarget = (player.transform.position - transform.position).normalized;
+        float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
+
+        if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+        {
+            GameManager.instance.playerScript.takeDamage(Damage);
+        }
+
+        yield return new WaitForSeconds(1f);
+        
+        Debug.Log("Bang Bang");
+        isShooting = false;
+    }
 }

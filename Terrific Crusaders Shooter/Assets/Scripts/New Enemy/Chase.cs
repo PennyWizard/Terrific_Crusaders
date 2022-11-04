@@ -26,7 +26,7 @@ public class Chase : State
             if (stateManager.isInRange)
             {
                 agent.SetDestination(stateManager.player.transform.position);
-                Shoot();
+                stateManager.ShootGun();
             }
             else
             {
@@ -39,9 +39,6 @@ public class Chase : State
         }
     }
 
-    void Shoot()
-    {
-        GameManager.instance.playerScript.takeDamage(damage);
-    }
+    
     
 }

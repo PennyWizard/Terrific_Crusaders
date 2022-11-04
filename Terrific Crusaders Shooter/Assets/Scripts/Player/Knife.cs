@@ -11,14 +11,15 @@ public class Knife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Shoot") && GameManager.instance.isPaused)
+        if (Input.GetButtonDown("Shoot") && !GameManager.instance.isPaused)
         {
-            Shoot();
+            Stab();
         }
     }
 
-    void Shoot()
+    void Stab()
     {
+        Debug.Log("Swing");
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, range))
@@ -26,6 +27,7 @@ public class Knife : MonoBehaviour
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(damage);
+                Debug.Log("Hit");
             }
 
 
