@@ -4561,9 +4561,9 @@ MonoBehaviour:
   hostageCurrentText: {fileID: 977896701542832700}
   isPaused: 0
   isMenuOpen: 0
-  enemyAmount: 1
-  hostageAmount: 1
-  hostageCurrent: 1
+  enemyAmount: 0
+  hostageAmount: 0
+  hostageCurrent: 0
 --- !u!1 &6333420031201277977
 GameObject:
   m_ObjectHideFlags: 0

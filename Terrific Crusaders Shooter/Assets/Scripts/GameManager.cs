@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public int enemyAmount;
     public int hostageAmount = 0;
     public int hostageCurrent = 0;
+    private int tempHostage = 5;
 
     //    // Start is called before the first frame update
     void Awake()
@@ -121,12 +122,17 @@ public class GameManager : MonoBehaviour
     public void enemyHostageCountWait()
     {
         
-        hostageCountText.text = hostageAmount.ToString();
-        hostageCurrentText.text = hostageCurrent.ToString();
+        
 
         if (hostageAmount != 0)
         {
+            hostageCountText.text = hostageAmount.ToString();
+            hostageCurrentText.text = hostageCurrent.ToString();
             CheckNoHostage();
+        }
+        else
+        {
+            hostageCountText.text = tempHostage.ToString();
         }
     }
 
