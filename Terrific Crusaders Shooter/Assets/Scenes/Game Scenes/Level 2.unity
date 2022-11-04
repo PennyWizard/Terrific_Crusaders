@@ -647,10 +647,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87181544}
+  - component: {fileID: 87181548}
   - component: {fileID: 87181547}
   - component: {fileID: 87181546}
   - component: {fileID: 87181545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,6 +737,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87181543}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &87181548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87181543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &105289741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,10 +3270,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 372973704}
+  - component: {fileID: 372973708}
   - component: {fileID: 372973707}
   - component: {fileID: 372973706}
   - component: {fileID: 372973705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3341,6 +3360,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372973703}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &372973708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372973703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &385317863
 GameObject:
   m_ObjectHideFlags: 0
@@ -5409,10 +5445,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543673099}
+  - component: {fileID: 543673103}
   - component: {fileID: 543673102}
   - component: {fileID: 543673101}
   - component: {fileID: 543673100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5498,6 +5535,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543673098}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &543673103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543673098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &553102889
 GameObject:
   m_ObjectHideFlags: 0
@@ -7407,10 +7461,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833425941}
+  - component: {fileID: 833425945}
   - component: {fileID: 833425944}
   - component: {fileID: 833425943}
   - component: {fileID: 833425942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7496,6 +7551,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833425940}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &833425945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833425940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &833757640
 GameObject:
   m_ObjectHideFlags: 0
@@ -7897,10 +7969,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865537146}
+  - component: {fileID: 865537150}
   - component: {fileID: 865537149}
   - component: {fileID: 865537148}
   - component: {fileID: 865537147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7986,6 +8059,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865537145}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &865537150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865537145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &873231355
 GameObject:
   m_ObjectHideFlags: 0
@@ -9962,10 +10052,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1027539324}
+  - component: {fileID: 1027539328}
   - component: {fileID: 1027539327}
   - component: {fileID: 1027539326}
   - component: {fileID: 1027539325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10051,6 +10142,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027539323}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &1027539328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027539323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &1029880637
 GameObject:
   m_ObjectHideFlags: 0
@@ -14528,10 +14636,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636533003}
+  - component: {fileID: 1636533007}
   - component: {fileID: 1636533006}
   - component: {fileID: 1636533005}
   - component: {fileID: 1636533004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14617,6 +14726,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636533002}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &1636533007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636533002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &1640766300
 GameObject:
   m_ObjectHideFlags: 0
@@ -18611,10 +18737,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059807690}
+  - component: {fileID: 2059807694}
   - component: {fileID: 2059807693}
   - component: {fileID: 2059807692}
   - component: {fileID: 2059807691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18700,6 +18827,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059807689}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &2059807694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059807689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &2061980908
 GameObject:
   m_ObjectHideFlags: 0
@@ -19134,10 +19278,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2137522068}
+  - component: {fileID: 2137522072}
   - component: {fileID: 2137522071}
   - component: {fileID: 2137522070}
   - component: {fileID: 2137522069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19223,6 +19368,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137522067}
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &2137522072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137522067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!1 &1146124855544663
 GameObject:
   m_ObjectHideFlags: 0
@@ -19473,10 +19635,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4546718816380065}
+  - component: {fileID: 64298015671448778}
   - component: {fileID: 33880340226556439}
   - component: {fileID: 23425426739861233}
   - component: {fileID: 64298015671448777}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Desert_Modular_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20907,6 +21070,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e9895ac863048f342ac809ec936fbcc2, type: 3}
+--- !u!114 &64298015671448778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523366993388355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 0
 --- !u!64 &64317613735911111
 MeshCollider:
   m_ObjectHideFlags: 0

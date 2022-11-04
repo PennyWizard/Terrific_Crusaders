@@ -337,6 +337,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: ebe7a37a91d562b41bd44db3c1dbbfa3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: ebe7a37a91d562b41bd44db3c1dbbfa3, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebe7a37a91d562b41bd44db3c1dbbfa3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -383,6 +391,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebe7a37a91d562b41bd44db3c1dbbfa3, type: 3}
+--- !u!1 &124668078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: ebe7a37a91d562b41bd44db3c1dbbfa3, type: 3}
+  m_PrefabInstance: {fileID: 124668077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &124668079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124668078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daf17ef9fdd5264095b8bc565541613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 0
+  holdInterat: 0
+  multipleUse: 0
+  isIneractable: 1
+  isLocked: 1
 --- !u!1 &280154698
 GameObject:
   m_ObjectHideFlags: 0
