@@ -143,9 +143,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130711751}
     - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: hostageAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: spawnPosition
       value: 
       objectReference: {fileID: 4412131718222882965}
+    - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+      propertyPath: hostageCurrent
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
       propertyPath: cameraControlls
       value: 
