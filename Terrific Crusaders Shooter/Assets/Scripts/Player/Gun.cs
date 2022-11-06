@@ -64,7 +64,7 @@ public class Gun : MonoBehaviour
             }
             
 
-            GameManager.instance.cameraShake.StartCoroutine(GameManager.instance.cameraShake.Shaking());
+            
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
             MakeASound(soundRange);
 

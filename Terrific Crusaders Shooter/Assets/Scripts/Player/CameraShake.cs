@@ -15,15 +15,15 @@ public class CameraShake : MonoBehaviour
     void Update()
     {
         
-        if (start)
+        if (Input.GetButton("Shoot"))
         {
-            start = false;
+            //start = false;
             StartCoroutine(Shaking());
         } 
     }
     public IEnumerator Shaking()
     {
-        Vector3 startPosition = GameManager.instance.player.transform.position;
+        Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
 
         while(elapsedTime < shakeDuration)
