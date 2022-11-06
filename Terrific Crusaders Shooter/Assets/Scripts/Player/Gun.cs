@@ -24,11 +24,14 @@ public class Gun : MonoBehaviour
     [Range(0, 1)] [SerializeField] float gunEmptyAudVol;
     public float soundRange;
 
+    
+
     // Update is called once per frame
     void Update()
     {
         if (currentAmmo > 0)
         {
+            
             StartCoroutine(shoot());
         }
         else
@@ -44,7 +47,7 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Shoot") && !isShoot && !isReloading)
         {
             isShoot = true;
-
+            
             currentAmmo--;
 
             RaycastHit hit;
@@ -59,9 +62,12 @@ public class Gun : MonoBehaviour
 
 
             }
+            
 
+            GameManager.instance.cameraShake.StartCoroutine(GameManager.instance.cameraShake.Shaking());
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
             MakeASound(soundRange);
+
 
             yield return new WaitForSeconds(shootRate);
             isShoot = false;

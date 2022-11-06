@@ -14,6 +14,8 @@ public class cameraControlls : MonoBehaviour
 
     float xRotation;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class cameraControlls : MonoBehaviour
         Cursor.visible = false;
 
     }
-
+   
     // Update is called once per frame
     void LateUpdate()
     {
@@ -42,5 +44,8 @@ public class cameraControlls : MonoBehaviour
 
         // rotate player
         transform.parent.Rotate(Vector3.up * mouseX);
+
+        
     }
+   
 }

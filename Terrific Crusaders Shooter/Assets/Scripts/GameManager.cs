@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerController playerScript;
     public cameraControlls cameraControlls;
+    public CameraShake cameraShake;
 
     public GameObject spawnPosition;
 
