@@ -23,6 +23,7 @@ public class Gun : MonoBehaviour
     [SerializeField] AudioClip gunEmptyAud;
     [Range(0, 1)] [SerializeField] float gunEmptyAudVol;
     public float soundRange;
+    [SerializeField]ParticleSystem muzzleFlash;
 
     
 
@@ -64,7 +65,7 @@ public class Gun : MonoBehaviour
             }
             
 
-            
+            muzzleFlash.Play();
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
             MakeASound(soundRange);
 
