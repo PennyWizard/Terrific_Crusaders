@@ -65,7 +65,7 @@ public class Gun : MonoBehaviour
             }
             
 
-            muzzleFlash.Play();
+            //muzzleFlash.Play();
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
             MakeASound(soundRange);
 

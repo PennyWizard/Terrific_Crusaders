@@ -13,7 +13,7 @@ public class cameraControlls : MonoBehaviour
     public bool invert;
 
     float xRotation;
-
+    float yRotation;
    
 
     // Start is called before the first frame update
@@ -31,19 +31,26 @@ public class cameraControlls : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensHort;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensVert;
 
-        if(invert)
+        if (invert)
+        {
             xRotation += mouseY;
+            yRotation -= mouseX;
+        }
         else
+        {
             xRotation -= mouseY;
+            yRotation += mouseX;
+        }
+            
 
         //clamp camera rotation
         xRotation = Mathf.Clamp(xRotation, lockVertMin, lockVertMax);
 
         // rotate the camera on the x-axis
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
         // rotate player
-        transform.parent.Rotate(Vector3.up * mouseX);
+        GameManager.instance.player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
 
         
     }
