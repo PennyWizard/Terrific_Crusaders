@@ -15,4 +15,18 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadGame()
+    {
+        int level = PlayerPrefs.GetInt("Level");
+
+        if (level != 0)
+        {
+            SceneManager.LoadScene(level);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
 }

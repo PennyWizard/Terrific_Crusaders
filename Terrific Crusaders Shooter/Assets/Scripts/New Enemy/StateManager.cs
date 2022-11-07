@@ -23,7 +23,7 @@ public class StateManager : MonoBehaviour, IHear
 
     [Header("Sound")]
     public Sound sound1;
-    private float displacementFromDanger = 10f;
+    //private float displacementFromDanger = 10f;
 
     [Header("Patrol")]
     public Transform[] waypoints;

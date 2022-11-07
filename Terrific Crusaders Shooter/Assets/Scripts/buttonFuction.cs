@@ -48,7 +48,8 @@ public class buttonFuction : MonoBehaviour
 
     public void SaveGame()
     {
-
+        Scene scene = SceneManager.GetActiveScene();
+        PlayerPrefs.SetInt("Level", (scene.buildIndex));
     }
 
 }
