@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hostage : MonoBehaviour
+public class Hostage : InteractableBase
 {
     private void Start()
     {
         GameManager.instance.hostageAmount++;
     }
-    private void OnTriggerEnter(Collider other)
+    public override void OnInteract()
     {
-        if (other.CompareTag("Player"))
-        {
-            GameManager.instance.hostageCurrent++;
-            Destroy(gameObject);
-            GameManager.instance.updateText();
-        }
-            
+        GameManager.instance.hostageCurrent++;
+        Destroy(gameObject);
+        GameManager.instance.updateText();
     }
 }
