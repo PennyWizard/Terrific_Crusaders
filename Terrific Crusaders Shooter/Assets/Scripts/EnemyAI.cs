@@ -57,8 +57,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     float waypointDistance;
 
     bool isPatroling;
-    bool isChasing;
-    bool isRoaming;
+    //bool isChasing;
+    //bool isRoaming;
     [SerializeField] bool x;
 
     [SerializeField]int waypointIndex;
@@ -120,11 +120,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (damage > 0)
         {
-            HP -= damage;
-            isPatroling = false;
-            isRoaming = false;
-            StartCoroutine(damageFeedback());
-            isChasing = true;
+            //HP -= damage;
+            //isPatroling = false;
+            //isRoaming = false;
+            //StartCoroutine(damageFeedback());
+            //isChasing = true;
 
         }
         if (HP <= 0)
@@ -187,9 +187,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     
     IEnumerator roam()
     {
-        isChasing = false;
-        isPatroling = false;
-        isRoaming = true;
+        //isChasing = false;
+        //isPatroling = false;
+        //isRoaming = true;
         Debug.Log("I am roaming");
         agent.stoppingDistance = 0;
         agent.speed = patrolSpeed;
@@ -223,7 +223,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (playerInRange)
         {
             isPatroling = false;
-            isChasing = true;
+            //isChasing = true;
             chasePlayer();
             RaycastHit hit;
 

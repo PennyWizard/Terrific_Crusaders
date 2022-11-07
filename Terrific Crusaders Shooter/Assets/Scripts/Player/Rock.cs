@@ -43,20 +43,11 @@ public class Rock : MonoBehaviour
 
         Vector3 forceDirection = cam.transform.forward;
 
-        RaycastHit hit;
         Vector3 forceToAdd = forceDirection * throwForce;
-        //if (Physics.Raycast(cam.position, cam.forward, out hit, 500f))
-        //{
-        //    forceToAdd *= hit.distance;
-        //    //forceDirection = (hit.point - attackPoint.position).normalized;
-
-        //}
-
-        //Vector3 forceToAdd = //forceDirection * throwForce + transform.up * throwUpwardForce;
+        
         rb.AddForce(forceToAdd, ForceMode.Impulse);
 
         Invoke(nameof(ResetThrow), throwCooldown);
-
         
     }
 
