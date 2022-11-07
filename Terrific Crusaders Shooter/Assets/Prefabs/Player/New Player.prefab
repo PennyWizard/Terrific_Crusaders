@@ -216,7 +216,6 @@ MonoBehaviour:
   rock: {fileID: 2812786058197138191, guid: d8a044febaf365443ad229b5327cd670, type: 3}
   throwCooldown: 1
   throwForce: 45
-  throwUpwardForce: 0
 --- !u!1 &9005697370311666298
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +693,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
