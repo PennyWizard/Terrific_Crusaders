@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Patrol : State
 {
     NavMeshAgent agent;
-    
+    public Animator animator;
     private int wayPointIndex;
     Vector3 target;
 
@@ -16,7 +16,7 @@ public class Patrol : State
         Debug.Log("Patroling");
         agent = stateManager.agent;
         UpdatDestination(stateManager);
-
+        animator = stateManager.animator;
     }
 
     public override void UpdateState(StateManager stateManager)
@@ -26,6 +26,7 @@ public class Patrol : State
         {
             if (Vector3.Distance(stateManager.transform.position, target) < 1f)
             {
+                animator.SetBool("seePlayer", false);
                 IterateWaypointIndex(stateManager);
                 UpdatDestination(stateManager);
             }

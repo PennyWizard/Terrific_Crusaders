@@ -8,7 +8,8 @@ public class Chase : State
     NavMeshAgent agent;
     float range;
     int damage;
-    
+    public Animator animator;
+
 
     public override void RunCurrentState(StateManager stateManager)
     {
@@ -17,12 +18,15 @@ public class Chase : State
         agent = stateManager.agent;
         range = stateManager.shootRange;
         damage = stateManager.Damage;
+        animator = stateManager.animator;
     }
 
     public override void UpdateState(StateManager stateManager)
     {
         if (stateManager.canSeePlayer)
         {
+            animator.SetBool("seePlayer", true);
+
             if (stateManager.isInRange)
             {
                 agent.SetDestination(stateManager.player.transform.position);
@@ -30,6 +34,7 @@ public class Chase : State
             }
             else
             {
+                
                 agent.SetDestination(stateManager.player.transform.position);
             }
         }
