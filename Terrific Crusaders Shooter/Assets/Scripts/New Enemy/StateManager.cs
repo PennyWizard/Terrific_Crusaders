@@ -11,6 +11,7 @@ public class StateManager : MonoBehaviour, IHear
     public Patrol patrol = new Patrol();
     public Chase chase = new Chase();
     public Investigate investigate = new Investigate();
+    public Animator animator;
     
 
     [Header("Field of View")]

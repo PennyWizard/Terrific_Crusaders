@@ -6,18 +6,21 @@ using UnityEngine.AI;
 public class Investigate : State
 {
     NavMeshAgent agent;
+    public Animator animator;
 
     public override void RunCurrentState(StateManager stateManager)
     {
         Debug.Log("Investigate");
         agent = stateManager.agent;
+        animator = stateManager.animator;
     }
 
 
     public override void UpdateState(StateManager stateManager)
     {
-        
+        animator.SetBool("hearSomething", true);
         Lookaround(stateManager);
+        
     }
 
     void Lookaround(StateManager stateManager)
@@ -27,10 +30,12 @@ public class Investigate : State
 
         if (agent.remainingDistance <= 1f  && !stateManager.canSeePlayer)
         {
+            animator.SetBool("hearSomething", false);
             stateManager.SwitchStates(stateManager.patrol);
         }
         else if (agent.remainingDistance <= 1f  && stateManager.canSeePlayer)
         {
+            animator.SetBool("hearSomething", false);
             stateManager.SwitchStates(stateManager.chase);
         }
     }
