@@ -17,7 +17,7 @@ public class DoorScript : InteractableBase
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
     }
 }
