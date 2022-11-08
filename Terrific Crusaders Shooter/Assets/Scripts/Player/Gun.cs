@@ -78,7 +78,7 @@ public class Gun : MonoBehaviour
             if(Physics.Raycast(tracerSpawn.position,transform.forward, out RaycastHit hit2, range)) {
                 tracer.emitting = true;
                 TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(tracerTrail, hit));
+                StartCoroutine(SpawnTrail(tracerTrail, hit2));
                 tracer.emitting = false;
 
             }
