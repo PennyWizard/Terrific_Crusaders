@@ -35,6 +35,7 @@ public class StateManager : MonoBehaviour, IHear
     public bool isInRange;
     public bool isShooting;
     public int Damage;
+    public GameObject shootPoint;
     
 
     void Start()
@@ -136,10 +137,10 @@ public class StateManager : MonoBehaviour, IHear
     {
         isShooting = true;
 
-        Vector3 directionToTarget = (player.transform.position - transform.position).normalized;
-        float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
+        Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
+        float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
 
-        if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+        if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
         {
             GameManager.instance.playerScript.takeDamage(Damage);
         }
