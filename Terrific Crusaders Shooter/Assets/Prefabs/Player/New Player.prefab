@@ -5192,7 +5192,7 @@ MonoBehaviour:
   gravityValue: 20
   jumpsMax: 1
   isCruched: 0
-  HP: 20
+  HP: 5
   hasKey: 0
   hasKey2: 0
   aud: {fileID: 526477401527506465}
