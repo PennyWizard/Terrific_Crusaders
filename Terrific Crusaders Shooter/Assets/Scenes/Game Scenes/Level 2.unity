@@ -38376,7 +38376,7 @@ GameObject:
   - component: {fileID: 8270880737523493447}
   - component: {fileID: 3613297886091554051}
   - component: {fileID: 8270880737523493448}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Hangar door inside (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
