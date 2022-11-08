@@ -17,17 +17,9 @@ public class Patrol : State
         animator = stateManager.animator;
         animator.SetBool("seePlayer", false);
 
-        if (stateManager.waypoints.Length <= 1)
-        {
-            stateManager.SwitchStates(stateManager.idle);
-        }
-        else
-        {
-            //Debug.Log("Patroling");
+        UpdatDestination(stateManager);
             
-            UpdatDestination(stateManager);
-            
-        }
+        
     }
 
     public override void UpdateState(StateManager stateManager)
@@ -35,12 +27,6 @@ public class Patrol : State
 
         if (!stateManager.canSeePlayer)
         {
-            if (stateManager.waypoints.Length <= 1)
-            {
-                stateManager.SwitchStates(stateManager.idle);
-            }
-            else
-            {
                 if (Vector3.Distance(stateManager.transform.position, target) < 1f)
                 {
                     animator.SetBool("seePlayer", false);
@@ -48,7 +34,7 @@ public class Patrol : State
                     IterateWaypointIndex(stateManager);
                     UpdatDestination(stateManager);
                 }
-            }
+            
         }
         else
         {

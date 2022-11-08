@@ -11,7 +11,6 @@ public class StateManager : MonoBehaviour, IHear
     public Patrol patrol = new Patrol();
     public Chase chase = new Chase();
     public Investigate investigate = new Investigate();
-    public Idle idle = new Idle();
     public Animator animator;
     
 
