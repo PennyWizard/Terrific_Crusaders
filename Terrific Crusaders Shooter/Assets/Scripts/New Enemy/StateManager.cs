@@ -11,6 +11,7 @@ public class StateManager : MonoBehaviour, IHear
     public Patrol patrol = new Patrol();
     public Chase chase = new Chase();
     public Investigate investigate = new Investigate();
+    public Idle idle = new Idle();
     public Animator animator;
     
 
@@ -21,6 +22,7 @@ public class StateManager : MonoBehaviour, IHear
     public GameObject player;
     public LayerMask playerMask;
     public LayerMask obstructionMask;
+
 
     [Header("Sound")]
     public Sound sound1;

@@ -19,13 +19,15 @@ public class Chase : State
         range = stateManager.shootRange;
         damage = stateManager.Damage;
         animator = stateManager.animator;
+
+        animator.SetBool("seePlayer", true);
     }
 
     public override void UpdateState(StateManager stateManager)
     {
         if (stateManager.canSeePlayer)
         {
-            animator.SetBool("seePlayer", true);
+            //animator.SetBool("seePlayer", true);
 
             if (stateManager.isInRange)
             {
@@ -40,6 +42,7 @@ public class Chase : State
         }
         else
         {
+            //animator.SetBool("seePlayer", false);
             stateManager.SwitchStates(stateManager.patrol);
         }
     }

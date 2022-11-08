@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] UnityEvent onCollideWith = new UnityEvent();
     [SerializeField] LayerMask collisionLayerMask = ~0;
-    [SerializeField] bool destoryOnCollide = false;
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -15,10 +15,9 @@ public class Projectile : MonoBehaviour
         {
             onCollideWith?.Invoke();
 
-            if (destoryOnCollide)
-            {
-                Destroy(this, 5f);
-            }
+            
+            Destroy(gameObject, 5f);
+            
         }
     }
 

@@ -13,10 +13,21 @@ public class Patrol : State
 
     public override void RunCurrentState(StateManager stateManager)
     {
-        Debug.Log("Patroling");
         agent = stateManager.agent;
-        UpdatDestination(stateManager);
         animator = stateManager.animator;
+        animator.SetBool("seePlayer", false);
+
+        if (stateManager.waypoints.Length <= 1)
+        {
+            stateManager.SwitchStates(stateManager.idle);
+        }
+        else
+        {
+            Debug.Log("Patroling");
+            
+            UpdatDestination(stateManager);
+            
+        }
     }
 
     public override void UpdateState(StateManager stateManager)
@@ -24,11 +35,19 @@ public class Patrol : State
 
         if (!stateManager.canSeePlayer)
         {
-            if (Vector3.Distance(stateManager.transform.position, target) < 1f)
+            if (stateManager.waypoints.Length <= 1)
             {
-                animator.SetBool("seePlayer", false);
-                IterateWaypointIndex(stateManager);
-                UpdatDestination(stateManager);
+                stateManager.SwitchStates(stateManager.idle);
+            }
+            else
+            {
+                if (Vector3.Distance(stateManager.transform.position, target) < 1f)
+                {
+                    animator.SetBool("seePlayer", false);
+
+                    IterateWaypointIndex(stateManager);
+                    UpdatDestination(stateManager);
+                }
             }
         }
         else

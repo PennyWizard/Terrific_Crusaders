@@ -13,12 +13,14 @@ public class Investigate : State
         Debug.Log("Investigate");
         agent = stateManager.agent;
         animator = stateManager.animator;
+
+        animator.SetBool("hearSomething", true);
     }
 
 
     public override void UpdateState(StateManager stateManager)
     {
-        animator.SetBool("hearSomething", true);
+        //animator.SetBool("hearSomething", true);
         Lookaround(stateManager);
         
     }
