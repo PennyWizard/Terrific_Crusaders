@@ -4129,6 +4129,10 @@ PrefabInstance:
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 450315557}
+    - target: {fileID: 526477400805741939, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+      propertyPath: gunShootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cad99936ae2bf474faecacaca3d0cfdf, type: 3}
     - target: {fileID: 526477401745671145, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
       propertyPath: m_Layer
       value: 6

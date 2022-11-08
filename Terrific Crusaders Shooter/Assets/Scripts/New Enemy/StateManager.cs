@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -36,7 +37,12 @@ public class StateManager : MonoBehaviour, IHear
     public bool isShooting;
     public int Damage;
     public GameObject shootPoint;
-    
+
+    [Header("---Juice--")]
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] TrailRenderer tracer;
+    [SerializeField] Transform tracerSpawn;
+
 
     void Start()
     {
@@ -121,7 +127,7 @@ public class StateManager : MonoBehaviour, IHear
             this.SwitchStates(investigate);
         }
         
-        Debug.Log("Heared Sound");
+        
     }
 
     public void ShootGun()
@@ -129,6 +135,7 @@ public class StateManager : MonoBehaviour, IHear
         if (!isShooting && canSeePlayer)
         {
             StartCoroutine(Fire());
+            muzzleFlash.Play();
         }
         this.SwitchStates(chase);
     }
@@ -139,15 +146,40 @@ public class StateManager : MonoBehaviour, IHear
 
         Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
         float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
+        
 
         if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
         {
             GameManager.instance.playerScript.takeDamage(Damage);
         }
+        if (Physics.Raycast(tracerSpawn.position, transform.forward, out RaycastHit hit2, shootRange))
+        {
+            tracer.emitting = true;
+            TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
+            StartCoroutine(SpawnTrail(tracerTrail, hit2));
+            tracer.emitting = false;
 
+        }
         yield return new WaitForSeconds(1f);
         
-        Debug.Log("Bang Bang");
+        
         isShooting = false;
+    }
+    private IEnumerator SpawnTrail(TrailRenderer tracerTrail, RaycastHit hit)
+    {
+        float time = 0;
+        Vector3 trailStartPosition = tracerTrail.transform.position;
+
+        while (time < 1)
+        {
+            tracerTrail.transform.position = Vector3.Lerp(trailStartPosition, hit.point, time);
+            time += Time.deltaTime / tracerTrail.time;
+
+            yield return null;
+        }
+        tracerTrail.transform.position = hit.point;
+        //Instantiate(shotHit,hit.point,Quaternion.LookRotation(hit.normal));
+
+        Destroy(tracerTrail.gameObject, tracerTrail.time);
     }
 }
