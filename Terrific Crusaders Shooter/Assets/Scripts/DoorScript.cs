@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorScript : InteractableBase
 {
     [SerializeField] bool isLocked;
+    [SerializeField] Animator animator;
 
     public override void OnInteract()
     {
@@ -17,7 +18,7 @@ public class DoorScript : InteractableBase
         }
         else
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            Destroy(gameObject);
         }
     }
 }
