@@ -42,7 +42,7 @@ public class Chase : State
         }
         else
         {
-            //animator.SetBool("seePlayer", false);
+            
             stateManager.SwitchStates(stateManager.patrol);
         }
     }
