@@ -23,7 +23,7 @@ public class Patrol : State
         }
         else
         {
-            Debug.Log("Patroling");
+            //Debug.Log("Patroling");
             
             UpdatDestination(stateManager);
             
@@ -60,14 +60,14 @@ public class Patrol : State
 
     void UpdatDestination(StateManager stateManager)
     {
-        Debug.Log("Moving");
+        //Debug.Log("Moving");
         target = stateManager.waypoints[wayPointIndex].position;
         agent.SetDestination(target);
     }
 
     void IterateWaypointIndex(StateManager stateManager)
     {
-        Debug.Log("Update WayPoint");
+        //Debug.Log("Update WayPoint");
         wayPointIndex++;
         if (wayPointIndex == stateManager.waypoints.Length)
         {

@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject resumButton;
     public GameObject respawnButton;
     public GameObject youWinText;
+    public GameObject youLoseText;
     public GameObject Introduction;
     public Text ammoCurrent;
     public Text ammoMax;
