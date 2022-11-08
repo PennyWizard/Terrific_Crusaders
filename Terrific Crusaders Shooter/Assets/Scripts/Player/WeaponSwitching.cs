@@ -52,6 +52,11 @@ public class WeaponSwitching : MonoBehaviour
                 selectedWeapon = 1;
             }
 
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                selectedWeapon = 2;
+            }
+
             if (previousSelectedWeapon != selectedWeapon)
             {
                 SelectWeapon();
