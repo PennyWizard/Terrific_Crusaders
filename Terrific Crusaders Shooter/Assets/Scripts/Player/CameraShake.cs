@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraShake : MonoBehaviour
 {
@@ -8,31 +9,36 @@ public class CameraShake : MonoBehaviour
     public float shakeDuration = 0.2f;
     public AnimationCurve curve;
     float strength;
+    Quaternion startPosition;
+
+
     private void Start()
     {
-        start = false;
+        
+        startPosition = transform.rotation;
     }
     void Update()
     {
         
         if (Input.GetButton("Shoot"))
         {
-            //start = false;
+            
             StartCoroutine(Shaking());
         } 
     }
     public IEnumerator Shaking()
     {
-        Vector3 startPosition = transform.position;
+        
+        
         float elapsedTime = 0f;
 
         while(elapsedTime < shakeDuration)
         {
             elapsedTime += Time.deltaTime;
             strength = curve.Evaluate(elapsedTime/shakeDuration);
-            transform.position = startPosition + Random.insideUnitSphere*strength;
+            transform.rotation = startPosition * Quaternion.Euler(Random.Range(0,strength), Random.Range(0, strength), Random.Range(0, strength));
             yield return null;
         }
-        transform.position = startPosition;
+        transform.rotation = startPosition;
     }
 }
