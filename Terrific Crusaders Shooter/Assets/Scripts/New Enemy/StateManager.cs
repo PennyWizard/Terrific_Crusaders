@@ -135,7 +135,7 @@ public class StateManager : MonoBehaviour, IHear
         if (!isShooting && canSeePlayer)
         {
             StartCoroutine(Fire());
-            muzzleFlash.Play();
+            
         }
         this.SwitchStates(chase);
     }
@@ -146,7 +146,7 @@ public class StateManager : MonoBehaviour, IHear
 
         Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
         float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
-        
+        muzzleFlash.Play();
 
         if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
         {
