@@ -272,8 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 9216238422731752876}
   animator: {fileID: 9216238422731752856}
-  radius: 50
-  angle: 270
+  radius: 30
+  angle: 200
   canSeePlayer: 0
   player: {fileID: 0}
   playerMask:
