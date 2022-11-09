@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -422.45496, y: -427.32}
-  m_SizeDelta: {x: 844.9099, y: 613.32}
+  m_AnchoredPosition: {x: -424.24, y: -427.32}
+  m_SizeDelta: {x: 970.44, y: 613.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80813014
 MonoBehaviour:
@@ -257,11 +257,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fun Assets : www.artstation.com/funassests
+  m_text: 'Fun Assets : artstation.com/funassests
 
-    Urbanity : www.urbanity.net/
+    Urbanity : urbanity.net/
 
-'
+    Polygon
+    Blacksmith : polygonblacksmith.wixsite.com
+
+    Kevin Iglesias : keviniglesias.com
+
+    Jake
+    Embleton : jakeembleton.com
+
+    SpitzSoft : jason-spitz.com'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -288,8 +296,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -602,7 +610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &282239636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6359,7 +6367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &8733726345411959984
 GameObject:
   m_ObjectHideFlags: 0
