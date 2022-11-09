@@ -269,7 +269,51 @@ MonoBehaviour:
     Jake
     Embleton : jakeembleton.com
 
-    SpitzSoft : jason-spitz.com'
+    SpitzSoft : jason-spitz.com
+
+    Next Level
+    3D : nextlevel3dstudio.artstation.com
+
+    NikiYani : nikiyani.github.io
+
+    Zhilnikov
+    : zhilnikov.com
+
+    SR Studios Kerela : behance.net/arjun22nov
+
+    Kobra Game
+    Studios : minhle99.wixsite.com/kobra-game-studios
+
+    Cobble Games : cobble.games
+
+    VIS
+    Games : vis-games.de
+
+    Gabies Assets : gabies.artstation.com
+
+    Storm Bringer
+    Studios : stormbringerstudios.com
+
+    Fumes Development : artstation.com/fumes_development
+
+    Creepy
+    Cat : blitz3dfr.free.fr
+
+    LowlyPoly : lowlypoly.com
+
+    Lukas Bobor : boborlukas.wixsite.com/portfolio
+
+    Fausto
+    D : faustodiaz70vc7.wixsite.com/faustodiaz
+
+    PULSAR BYTES : pulsarbytes.com
+
+    Noir
+    Project : shadownoir.com
+
+    Terresquall : terresquall.com
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -296,8 +340,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
