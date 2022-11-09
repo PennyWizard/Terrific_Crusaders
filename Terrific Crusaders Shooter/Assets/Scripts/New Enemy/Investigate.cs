@@ -10,7 +10,7 @@ public class Investigate : State
 
     public override void RunCurrentState(StateManager stateManager)
     {
-        Debug.Log("Investigate");
+        
         agent = stateManager.agent;
         animator = stateManager.animator;
 
@@ -27,7 +27,7 @@ public class Investigate : State
 
     void Lookaround(StateManager stateManager)
     {
-        Debug.Log("Looking");
+       
         agent.SetDestination(stateManager.sound1.pos);
 
         if (agent.remainingDistance <= 1f  && !stateManager.canSeePlayer)
