@@ -19,6 +19,7 @@ public class Target : MonoBehaviour, IDamage
     public void StaringUp(StateManager stateManager)
     {
         animator = stateManager.animator;
+        
     }
 
     public int health;
