@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1357644480}
   - component: {fileID: 1357644482}
   - component: {fileID: 1357644481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hit effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526477400442426490}
   - component: {fileID: 526477400442426491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4870,7 +4870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129909898887262004}
   - component: {fileID: 5598476358931134716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: 6438241988649894606}
   - component: {fileID: 492024959685995506}
   - component: {fileID: 166152761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock Hold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5027,7 +5027,7 @@ MonoBehaviour:
   attackPoint: {fileID: 5851113854752840432}
   rock: {fileID: 2812786058197138191, guid: d8a044febaf365443ad229b5327cd670, type: 3}
   throwCooldown: 1
-  throwForce: 45
+  throwForce: 500
 --- !u!1 &9005697370311666298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5040,7 @@ GameObject:
   - component: {fileID: 9005697370311666302}
   - component: {fileID: 9005697370311666296}
   - component: {fileID: 9005697370311666297}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5150,7 +5150,7 @@ GameObject:
   - component: {fileID: 526477401527506465}
   - component: {fileID: 526477402263876727}
   - component: {fileID: 3611724635455633318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5467,6 +5467,10 @@ PrefabInstance:
       value: M9_Knife
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3708c934c3e67ed4abc3e1d3fc384a1c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3708c934c3e67ed4abc3e1d3fc384a1c, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5610,6 +5614,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ca1c64f7c147fb0479f9ef03e264a372, type: 3}
       propertyPath: m_Name
       value: pistol4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca1c64f7c147fb0479f9ef03e264a372, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca1c64f7c147fb0479f9ef03e264a372, type: 3}
       propertyPath: m_IsActive
@@ -5768,6 +5776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tracer
       objectReference: {fileID: 0}
+    - target: {fileID: 5786535951902213152, guid: c0303d8c9b13f934ab8639fac941b0aa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8476819389695891472, guid: c0303d8c9b13f934ab8639fac941b0aa, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5829,6 +5841,10 @@ PrefabInstance:
     - target: {fileID: 945394459105076374, guid: 4692c080578fd47428564fbe1cb0c108, type: 3}
       propertyPath: m_Name
       value: Muzzle Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 945394459105076374, guid: 4692c080578fd47428564fbe1cb0c108, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8625025218907239749, guid: 4692c080578fd47428564fbe1cb0c108, type: 3}
       propertyPath: m_RootOrder
