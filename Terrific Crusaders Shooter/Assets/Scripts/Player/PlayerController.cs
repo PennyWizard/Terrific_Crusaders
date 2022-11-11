@@ -135,7 +135,6 @@ public class PlayerController : MonoBehaviour, IDamage
         {
             GameManager.instance.Menu.SetActive(true);
             GameManager.instance.youLoseText.SetActive(true);
-            GameManager.instance.respawnButton.SetActive(true);
             GameManager.instance.curserLock();
             GameManager.instance.isMenuOpen = true;
 

@@ -12,7 +12,6 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.isPaused = false;
         GameManager.instance.isMenuOpen = false;
         GameManager.instance.gun.isShoot = false;
-        GameManager.instance.respawnButton.SetActive(false);
     }
 
     public void restart()
@@ -22,23 +21,11 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.isMenuOpen = false;
         GameManager.instance.youWinText.SetActive(false);
         GameManager.instance.resumButton.SetActive(false);
-        GameManager.instance.respawnButton.SetActive(false);
     }
 
     public void quit()
     {
         Application.Quit();
-    }
-
-    public void respawn()
-    {
-        GameManager.instance.playerScript.Respawm();
-        GameManager.instance.curserUnlock();
-        GameManager.instance.Menu.SetActive(false);
-        GameManager.instance.isMenuOpen = false;
-        GameManager.instance.resumButton.SetActive(false);
-        GameManager.instance.respawnButton.SetActive(false);
-        
     }
 
     public void MainMenu()
