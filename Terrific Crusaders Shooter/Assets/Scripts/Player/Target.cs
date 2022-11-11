@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Target : MonoBehaviour, IDamage
 {
     Animator animator;
     public StateManager stateManager;
+    public bool hasKey;
+    public GameObject key;
+
 
     void Start()
     {
@@ -25,11 +29,27 @@ public class Target : MonoBehaviour, IDamage
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            if (hasKey)
+            {
+                Vector3 position = transform.position;
+                Instantiate(key, position, Quaternion.identity);
+            }
+
+            Death();
+            
         }
     }
 
-   
+    public void Death()
+    {
+        animator.SetTrigger("die");
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+
+        
+
+        Destroy(gameObject, 3f);
+
+    }
 
     private void OnTriggerStay(Collider other)
     {

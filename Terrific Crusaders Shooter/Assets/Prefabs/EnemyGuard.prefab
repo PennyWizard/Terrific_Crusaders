@@ -112,9 +112,9 @@ GameObject:
   - component: {fileID: 9216238422731752875}
   - component: {fileID: 9216238422731752872}
   - component: {fileID: 9216238422731752873}
+  - component: {fileID: 9216238422731752855}
   - component: {fileID: 9216238422731752876}
   - component: {fileID: 9216238422731752856}
-  - component: {fileID: 9216238422731752855}
   m_Layer: 7
   m_Name: EnemyGuard
   m_TagString: Untagged
@@ -215,7 +215,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateManager: {fileID: 0}
+  hasKey: 0
+  key: {fileID: 0}
   health: 2
+--- !u!114 &9216238422731752855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216238422731752854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b642e569f60f104186f9be258d6dc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 9216238422731752876}
+  animator: {fileID: 9216238422731752856}
+  radius: 30
+  angle: 200
+  canSeePlayer: 0
+  player: {fileID: 0}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  shootRange: 50
+  isInRange: 0
+  isShooting: 0
+  Damage: 1
+  shootPoint: {fileID: 7312362158906971504}
+  muzzleFlash: {fileID: 8348866257022434075, guid: 4692c080578fd47428564fbe1cb0c108, type: 3}
+  tracer: {fileID: 4619453486907621294}
+  tracerSpawn: {fileID: 4453920624045274838}
 --- !u!195 &9216238422731752876
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -258,41 +295,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9216238422731752855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9216238422731752854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b642e569f60f104186f9be258d6dc95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 9216238422731752876}
-  animator: {fileID: 9216238422731752856}
-  radius: 30
-  angle: 200
-  canSeePlayer: 0
-  player: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  shootRange: 50
-  isInRange: 0
-  isShooting: 0
-  Damage: 1
-  shootPoint: {fileID: 7312362158906971504}
-  muzzleFlash: {fileID: 8348866257022434075, guid: 4692c080578fd47428564fbe1cb0c108, type: 3}
-  tracer: {fileID: 4619453486907621294}
-  tracerSpawn: {fileID: 4453920624045274838}
 --- !u!1001 &1856094248141377458
 PrefabInstance:
   m_ObjectHideFlags: 0
