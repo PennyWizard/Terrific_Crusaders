@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             GameManager.instance.Menu.SetActive(true);
+            GameManager.instance.resumButton.SetActive(false);
             GameManager.instance.youLoseText.SetActive(true);
             GameManager.instance.curserLock();
             GameManager.instance.isMenuOpen = true;

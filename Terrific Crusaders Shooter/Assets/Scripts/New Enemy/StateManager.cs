@@ -146,9 +146,10 @@ public class StateManager : MonoBehaviour, IHear
 
         Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
         float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
+
         muzzleFlash.Play();
 
-        if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
+        if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask) && Vector3.Angle(transform.forward, directionToTarget) < 45)
         {
             GameManager.instance.playerScript.takeDamage(Damage);
         }
