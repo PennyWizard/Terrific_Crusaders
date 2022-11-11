@@ -8,6 +8,8 @@ TagManager:
   - Spawn Position
   - Key
   - Target
+  - Hostage
+  - Box
   layers:
   - Default
   - TransparentFX
