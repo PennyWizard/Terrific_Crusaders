@@ -23,4 +23,5 @@ public class Hostage : InteractableBase
 
         GameManager.instance.updateText();
     }
+
 }
