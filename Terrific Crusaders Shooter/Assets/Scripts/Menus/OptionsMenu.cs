@@ -14,12 +14,12 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetSFXVolume()
     {
-        SFX.SetFloat("sfxVolume", sfxSlider.value);
+        SFX.SetFloat("sfxVolume", Mathf.Log10(sfxSlider.value) * 20);
     }
 
     public void SetMusicVolume()
     {
-        music.SetFloat("musicVolume", musicSlider.value);
+        music.SetFloat("musicVolume", Mathf.Log10(musicSlider.value) * 20);
     }
 
     public void Invert(bool isInverted)
