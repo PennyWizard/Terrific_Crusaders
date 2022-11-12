@@ -5472,6 +5472,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+--- !u!114 &327747902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1609194562723251965, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+  m_PrefabInstance: {fileID: 327747901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9424759410f980049bbf808256f4fb00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &327788996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6893,6 +6904,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &440378848
@@ -15122,6 +15134,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &901788604
@@ -17521,6 +17534,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1044408139
@@ -20829,6 +20843,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1260123423
@@ -24644,6 +24659,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1512428480
@@ -26286,6 +26302,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!64 &1620975118
@@ -27010,6 +27027,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1655192223
@@ -27900,6 +27918,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1715993323
@@ -29105,6 +29124,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7141009170436510708, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+      propertyPath: prompt
+      value: 
+      objectReference: {fileID: 327747902}
     - target: {fileID: 9005697370311666298, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -31885,6 +31908,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1920288553
@@ -35059,6 +35083,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1001 &2096487248
@@ -35783,6 +35808,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!1 &1012192057014645
@@ -43596,6 +43622,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!95 &5518699155784770370
@@ -43634,6 +43661,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!95 &5518699155812738349
@@ -43672,6 +43700,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!95 &5518699156547503699
@@ -43710,6 +43739,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!95 &5518699156592106806
@@ -43748,6 +43778,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 0
   animator: {fileID: 0}
 --- !u!64 &6229741339266867718
@@ -47434,6 +47465,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Interact
   isLocked: 1
 --- !u!4 &9070263272231306600
 Transform:
