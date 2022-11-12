@@ -24,7 +24,7 @@ public class Knife : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, range))
         {
-            if (hit.collider.GetComponent<IDamage>() != null)
+            if (hit.collider.GetComponent<IDamage>() != null && !hit.collider.CompareTag("Player"))
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(damage);
                 Debug.Log("Hit");

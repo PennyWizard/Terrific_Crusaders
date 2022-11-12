@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour, IDamage
             GameManager.instance.youLoseText.SetActive(true);
             GameManager.instance.curserLock();
             GameManager.instance.isMenuOpen = true;
-
+            GameManager.instance.isPaused = true;
         }
     }
 

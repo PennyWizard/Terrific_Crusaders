@@ -9,6 +9,7 @@ public class Chase : State
     float range;
     int damage;
     public Animator animator;
+    Vector3 lastKnow;
 
 
     public override void RunCurrentState(StateManager stateManager)
@@ -32,18 +33,30 @@ public class Chase : State
             if (stateManager.isInRange)
             {
                 agent.SetDestination(stateManager.player.transform.position);
+                lastKnow = stateManager.player.transform.position;
                 stateManager.ShootGun();
             }
             else
             {
-                
                 agent.SetDestination(stateManager.player.transform.position);
+                lastKnow = stateManager.player.transform.position;
             }
         }
         else
         {
+            agent.SetDestination(lastKnow);
+
+            if (agent.remainingDistance <= 1f && !stateManager.canSeePlayer)
+            {
+                animator.SetBool("hearSomething", false);
+                stateManager.SwitchStates(stateManager.patrol);
+            }
+            else if (agent.remainingDistance <= 1f && stateManager.canSeePlayer)
+            {
+                animator.SetBool("hearSomething", false);
+                stateManager.SwitchStates(stateManager.chase);
+            }
             
-            stateManager.SwitchStates(stateManager.patrol);
         }
     }
 

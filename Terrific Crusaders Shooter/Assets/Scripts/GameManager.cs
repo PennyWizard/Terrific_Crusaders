@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
         {
             GameManager.instance.youWinText.SetActive(true);
             isMenuOpen = true;
+            isPaused = true;
             Menu.SetActive(true);
             curserLock();
         }

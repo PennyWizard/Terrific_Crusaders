@@ -30,12 +30,20 @@ public class Investigate : State
        
         agent.SetDestination(stateManager.sound1.pos);
 
-        if (agent.remainingDistance <= 1f  && !stateManager.canSeePlayer)
+        if (!stateManager.canSeePlayer)
         {
-            animator.SetBool("hearSomething", false);
-            stateManager.SwitchStates(stateManager.patrol);
+            if (agent.remainingDistance <= 1f && !stateManager.canSeePlayer) //
+            {
+                animator.SetBool("hearSomething", false);
+                stateManager.SwitchStates(stateManager.patrol);
+            }
+            else if (agent.remainingDistance <= 1f && stateManager.canSeePlayer) //
+            {
+                animator.SetBool("hearSomething", false);
+                stateManager.SwitchStates(stateManager.chase);
+            }
         }
-        else if (agent.remainingDistance <= 1f  && stateManager.canSeePlayer)
+        else
         {
             animator.SetBool("hearSomething", false);
             stateManager.SwitchStates(stateManager.chase);

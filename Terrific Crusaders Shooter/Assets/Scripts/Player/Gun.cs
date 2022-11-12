@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
             {
                 
 
-                if (hit.collider.GetComponent<IDamage>() != null)
+                if (hit.collider.GetComponent<IDamage>() != null && !hit.collider.CompareTag("Player"))
                 {
                     hit.collider.GetComponent<IDamage>().takeDamage(damage);
                     
