@@ -1181,6 +1181,7 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Free!
   agent: {fileID: 2834703047688378011}
   animator: {fileID: 5369815272069083108}
   waypoint: {fileID: 0}
