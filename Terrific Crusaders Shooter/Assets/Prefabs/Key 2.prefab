@@ -146,3 +146,4 @@ MonoBehaviour:
   holdInterat: 0
   multipleUse: 0
   isIneractable: 1
+  ToolTipMessage: Pick Up

@@ -8,6 +8,7 @@ public abstract class InteractableBase : MonoBehaviour, IInertatable
     public bool holdInterat;
     public bool multipleUse;
     public bool isIneractable;
+    public string ToolTipMessage = "Interact";
 
     public float HoldDuration => holdDuration;
 
@@ -16,6 +17,8 @@ public abstract class InteractableBase : MonoBehaviour, IInertatable
     public bool MutipleUse => multipleUse;
 
     public bool IsIteractalbe => isIneractable;
+
+    public string ToolTip => ToolTipMessage;
 
     public abstract void OnInteract();
 }

@@ -13,6 +13,8 @@ public interface IInertatable
 
     bool IsIteractalbe { get; }
 
+    string ToolTip { get; }
+
     void OnInteract();
 
 }
