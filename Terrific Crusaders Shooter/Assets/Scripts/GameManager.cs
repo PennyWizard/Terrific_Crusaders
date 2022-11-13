@@ -73,14 +73,14 @@ public class GameManager : MonoBehaviour
             if (isPaused)
             {
                 curserLock();
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
                 gun.isShoot = true;
                 resumButton.SetActive(true);
             }
             else
             {
                 curserUnlock();
-                Time.timeScale = 1f;
+                //Time.timeScale = 1f;
                 gun.isShoot = false;
                 resumButton.SetActive(false);
             }
@@ -101,14 +101,14 @@ public class GameManager : MonoBehaviour
 
     public void curserLock()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void curserUnlock()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
