@@ -10,6 +10,8 @@ public class cameraControlls : MonoBehaviour
     [SerializeField] int lockVertMin;
     [SerializeField] int lockVertMax;
 
+    public GameManager gameManager;
+
     public bool invert;
 
     float xRotation;
@@ -27,21 +29,8 @@ public class cameraControlls : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //get input
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensHort;
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensVert;
 
-        if (invert)
-        {
-            xRotation += mouseY;
-            yRotation -= mouseX;
-        }
-        else
-        {
-            xRotation -= mouseY;
-            yRotation += mouseX;
-        }
-            
+        input(gameManager);
 
         //clamp camera rotation
         xRotation = Mathf.Clamp(xRotation, lockVertMin, lockVertMax);
@@ -53,6 +42,27 @@ public class cameraControlls : MonoBehaviour
         GameManager.instance.player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
 
         
+    }
+
+    private void input(GameManager gameManager)
+    {
+        if (!gameManager.isPaused)
+        {
+            //get input
+            float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensHort;
+            float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensVert;
+
+            if (invert)
+            {
+                xRotation += mouseY;
+                yRotation -= mouseX;
+            }
+            else
+            {
+                xRotation -= mouseY;
+                yRotation += mouseX;
+            }
+        }
     }
    
 }
