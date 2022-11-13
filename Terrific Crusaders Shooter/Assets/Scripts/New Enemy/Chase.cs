@@ -10,7 +10,9 @@ public class Chase : State
     int damage;
     public Animator animator;
     Vector3 lastKnow;
-
+    public AudioSource source;
+    public AudioClip[] spoted;
+    public bool playing;
 
     public override void RunCurrentState(StateManager stateManager)
     {
@@ -22,13 +24,14 @@ public class Chase : State
         animator = stateManager.animator;
 
         animator.SetBool("seePlayer", true);
+        stateManager.playSound();
+
     }
 
     public override void UpdateState(StateManager stateManager)
     {
         if (stateManager.canSeePlayer)
         {
-            //animator.SetBool("seePlayer", true);
 
             if (stateManager.isInRange)
             {

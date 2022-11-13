@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class StateManager : MonoBehaviour, IHear
 {
@@ -13,7 +14,7 @@ public class StateManager : MonoBehaviour, IHear
     public Chase chase = new Chase();
     public Investigate investigate = new Investigate();
     public Animator animator;
-    
+
 
     [Header("Field of View")]
     public float radius;
@@ -37,12 +38,19 @@ public class StateManager : MonoBehaviour, IHear
     public bool isShooting;
     public int Damage;
     public GameObject shootPoint;
+    
 
     [Header("---Juice--")]
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] TrailRenderer tracer;
     [SerializeField] Transform tracerSpawn;
+    public AudioSource source;
+    public AudioClip[] spoted;
+    public AudioClip[] what;
+    public AudioClip[] allClear;
+    public AudioClip shot;
 
+    public bool isSoundPlaying;
 
     void Start()
     {
@@ -144,6 +152,8 @@ public class StateManager : MonoBehaviour, IHear
     {
         isShooting = true;
 
+        yield return new WaitForSeconds(2f);
+
         Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
         float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
 
@@ -151,7 +161,15 @@ public class StateManager : MonoBehaviour, IHear
 
         if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask) && Vector3.Angle(transform.forward, directionToTarget) < 45)
         {
-            GameManager.instance.playerScript.takeDamage(Damage);
+            source.PlayOneShot(shot);
+            int missShot = Random.Range(1, 4);
+
+            if (missShot == 1)
+            {
+                GameManager.instance.playerScript.takeDamage(Damage);
+            }
+                
+
         }
         if (Physics.Raycast(tracerSpawn.position, transform.forward, out RaycastHit hit2, shootRange))
         {
@@ -161,8 +179,6 @@ public class StateManager : MonoBehaviour, IHear
             tracer.emitting = false;
 
         }
-        yield return new WaitForSeconds(1f);
-        
         
         isShooting = false;
     }
@@ -182,5 +198,24 @@ public class StateManager : MonoBehaviour, IHear
         //Instantiate(shotHit,hit.point,Quaternion.LookRotation(hit.normal));
 
         Destroy(tracerTrail.gameObject, tracerTrail.time);
+    }
+
+    public void playSound()
+    {
+        if (!isSoundPlaying)
+        {
+            StartCoroutine(playingSound());
+        }
+    }
+
+    IEnumerator playingSound()
+    {
+        isSoundPlaying = true;
+
+        source.PlayOneShot(spoted[Random.Range(0, spoted.Length - 1)]);
+
+        yield return new WaitForSeconds(4f);
+
+        isSoundPlaying = false;
     }
 }

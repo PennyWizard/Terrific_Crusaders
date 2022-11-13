@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class Investigate : State
 {
     NavMeshAgent agent;
     public Animator animator;
+    public AudioSource source;
+    public AudioClip[] what;
 
     public override void RunCurrentState(StateManager stateManager)
     {
         
         agent = stateManager.agent;
         animator = stateManager.animator;
+        source = stateManager.source;
+        what = stateManager.what;
 
         animator.SetBool("hearSomething", true);
+        source.PlayOneShot(what[Random.Range(0, what.Length - 1)]);
     }
 
 

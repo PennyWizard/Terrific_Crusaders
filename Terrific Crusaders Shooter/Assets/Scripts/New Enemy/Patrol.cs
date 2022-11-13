@@ -9,6 +9,8 @@ public class Patrol : State
     public Animator animator;
     private int wayPointIndex;
     Vector3 target;
+    public AudioSource source;
+    public AudioClip[] allClear;
 
 
     public override void RunCurrentState(StateManager stateManager)
@@ -16,9 +18,11 @@ public class Patrol : State
         agent = stateManager.agent;
         animator = stateManager.animator;
         animator.SetBool("seePlayer", false);
+        source = stateManager.source;
+        allClear = stateManager.allClear;
 
         UpdatDestination(stateManager);
-            
+        source.PlayOneShot(allClear[Random.Range(0, allClear.Length - 1)]);    
         
     }
 
