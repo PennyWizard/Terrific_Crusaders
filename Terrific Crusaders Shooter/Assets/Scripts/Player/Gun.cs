@@ -33,6 +33,7 @@ public class Gun : MonoBehaviour
     [SerializeField] Transform tracerSpawn;
     [SerializeField] LayerMask hitLayer;
     
+    
 
     // Update is called once per frame
     void Update()
@@ -59,12 +60,24 @@ public class Gun : MonoBehaviour
             currentAmmo--;
 
             RaycastHit hit;
+            tracer.emitting = true;
+            if (Physics.Raycast(tracerSpawn.position, transform.forward, out RaycastHit hit2))
+            {
 
-            
+                TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
+
+                StartCoroutine(SpawnTrail(tracerTrail, hit2));
+
+
+            }
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, range))
             {
+               
+                //TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
+                //StartCoroutine(SpawnTrail(tracerTrail, hit));
                 
+
 
                 if (hit.collider.GetComponent<IDamage>() != null && !hit.collider.CompareTag("Player"))
                 {
@@ -74,15 +87,9 @@ public class Gun : MonoBehaviour
 
 
             }
-            
-            if(Physics.Raycast(tracerSpawn.position,transform.forward, out RaycastHit hit2, range)) {
-                tracer.emitting = true;
-                TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(tracerTrail, hit2));
-                tracer.emitting = false;
 
-            }
-          
+
+            tracer.emitting = false;
             muzzleFlash.Play();
             aud.PlayOneShot(gunShootSound, playerShootAudVol);
             MakeASound(soundRange);
@@ -134,8 +141,8 @@ public class Gun : MonoBehaviour
 
         while(time <1)
         {
-            tracerTrail.transform.position = Vector3.Lerp(trailStartPosition, hit.point, time);
             time += Time.deltaTime / tracerTrail.time;
+            tracerTrail.transform.position = Vector3.Lerp(trailStartPosition, hit.point, time);
 
             yield return null;
         }
