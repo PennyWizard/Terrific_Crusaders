@@ -35,9 +35,11 @@ public class Level3Countdown : MonoBehaviour
         {
             currentTime = 0;
             GameManager.instance.Menu.SetActive(true);
-            GameManager.instance.respawnButton.SetActive(true);
+            GameManager.instance.resumButton.SetActive(false);
+            GameManager.instance.youLoseText.SetActive(true);
             GameManager.instance.curserLock();
             GameManager.instance.isMenuOpen = true;
+            GameManager.instance.isPaused = true;
         }
     }
 

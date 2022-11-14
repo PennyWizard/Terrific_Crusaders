@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
             Menu.SetActive(true);
             curserLock();
         }
+        
     }
 
     public void updateText()

@@ -26118,6 +26118,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537274161}
   m_Mesh: {fileID: 4300002, guid: 96efa17088f028640895c4ce2a66a67c, type: 3}
+--- !u!114 &1545660777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+  m_PrefabInstance: {fileID: 327747901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cae5156b2869945aecac54f3a9929c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1549119557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5184c24a333b28a41976dbc07c8a0ce7, type: 3}
@@ -30156,6 +30167,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 9005697370311666302, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1545660777}
     - target: {fileID: 9005697370524593091, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
       propertyPath: m_Name
       value: New Player

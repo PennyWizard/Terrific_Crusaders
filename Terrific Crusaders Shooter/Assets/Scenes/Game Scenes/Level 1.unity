@@ -1065,6 +1065,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3908396a60421a498b00423ae9ee9df, type: 3}
+--- !u!114 &201059762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1181284300, guid: d44a5ce131e35b944a20ba4f2cd9c493, type: 3}
+  m_PrefabInstance: {fileID: 472176196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cae5156b2869945aecac54f3a9929c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &268666780 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 875064589198453155, guid: c3908396a60421a498b00423ae9ee9df, type: 3}
@@ -4456,6 +4467,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 9005697370311666302, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 201059762}
     - target: {fileID: 9005697370311666302, guid: 3f1cb755241953a419c8e257b12eafcf, type: 3}
       propertyPath: curve.m_Curve.Array.size
       value: 5
