@@ -63,7 +63,6 @@ public class StateManager : MonoBehaviour, IHear
     void Update()
     {
         currentState.UpdateState(this);
-        StartCoroutine(FOVroutine());
         InRangeCheck();
     }
 
