@@ -73,12 +73,6 @@ public class Gun : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, range))
             {
-               
-                //TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
-                //StartCoroutine(SpawnTrail(tracerTrail, hit));
-                
-
-
                 if (hit.collider.GetComponent<IDamage>() != null && !hit.collider.CompareTag("Player"))
                 {
                     hit.collider.GetComponent<IDamage>().takeDamage(damage);
@@ -103,7 +97,7 @@ public class Gun : MonoBehaviour
 
     IEnumerator gunEmpty()
     {
-        if (Input.GetButton("Shoot") && !isShoot && !isReloading)
+        if (Input.GetButton("Shoot") && !isShoot && !isReloading) 
         {
             isShoot = true;
 
@@ -117,7 +111,7 @@ public class Gun : MonoBehaviour
 
     void ReloadGun()
     {
-        if (Input.GetButtonDown("Reload") && !isReloading)
+        if (Input.GetButtonDown("Reload") && !isReloading & currentAmmo != ammoMax)
         {
             isReloading = true;
             aud.PlayOneShot(playerReloadAud, playerReloadAudVol);
