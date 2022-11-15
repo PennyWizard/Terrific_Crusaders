@@ -217,4 +217,9 @@ public class StateManager : MonoBehaviour, IHear
 
         isSoundPlaying = false;
     }
+
+    public void lookAtPlayer()
+    {
+        transform.LookAt(player.transform);
+    }
 }

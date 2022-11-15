@@ -32,15 +32,18 @@ public class Chase : State
     {
         if (stateManager.canSeePlayer)
         {
-
+            
             if (stateManager.isInRange)
             {
                 agent.SetDestination(stateManager.player.transform.position);
                 lastKnow = stateManager.player.transform.position;
+                stateManager.lookAtPlayer();
+                agent.isStopped = true;
                 stateManager.ShootGun();
             }
             else
             {
+                agent.isStopped = false;
                 agent.SetDestination(stateManager.player.transform.position);
                 lastKnow = stateManager.player.transform.position;
             }
@@ -48,6 +51,7 @@ public class Chase : State
         else
         {
             agent.SetDestination(lastKnow);
+            agent.isStopped = false;
 
             if (agent.remainingDistance <= 1f && !stateManager.canSeePlayer)
             {
