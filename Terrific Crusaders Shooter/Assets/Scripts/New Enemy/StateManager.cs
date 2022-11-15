@@ -63,7 +63,6 @@ public class StateManager : MonoBehaviour, IHear
     void Update()
     {
         currentState.UpdateState(this);
-        StartCoroutine(FOVroutine());
         InRangeCheck();
     }
 
@@ -217,5 +216,10 @@ public class StateManager : MonoBehaviour, IHear
         yield return new WaitForSeconds(4f);
 
         isSoundPlaying = false;
+    }
+
+    public void lookAtPlayer()
+    {
+        transform.LookAt(player.transform);
     }
 }

@@ -6,8 +6,10 @@ using UnityEngine.AI;
 public class Hostage : InteractableBase
 {
     public NavMeshAgent agent;
+    public GameManager gameManager;
     public Animator animator;
     public GameObject waypoint;
+    bool freed;
 
     private void Start()
     {
@@ -15,13 +17,20 @@ public class Hostage : InteractableBase
     }
     public override void OnInteract()
     {
-        
-        animator.SetBool("free", true);
-        agent.SetDestination(waypoint.transform.position);
 
-        GameManager.instance.hostageCurrent++;
+        if (!gameManager.isPaused)
+        {
+            if (!freed)
+            {
+                freed = true;
+                animator.SetBool("free", true);
+                agent.SetDestination(waypoint.transform.position);
 
-        GameManager.instance.updateText();
+                GameManager.instance.hostageCurrent++;
+
+                GameManager.instance.updateText();
+            }
+        }
     }
 
 }
