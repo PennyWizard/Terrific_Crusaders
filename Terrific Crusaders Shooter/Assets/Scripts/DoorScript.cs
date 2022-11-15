@@ -7,8 +7,6 @@ public class DoorScript : InteractableBase
     [SerializeField] bool isLocked;
     [SerializeField] Animator animator;
 
-    
-
     public override void OnInteract()
     {
         if (isLocked)
