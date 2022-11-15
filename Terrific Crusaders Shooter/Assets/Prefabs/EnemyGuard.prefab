@@ -348,6 +348,8 @@ MonoBehaviour:
   stateManager: {fileID: 0}
   hasKey: 0
   key: {fileID: 0}
+  isDead: 0
+  collider: {fileID: 9216238422731752872}
   health: 2
 --- !u!114 &9216238422731752855
 MonoBehaviour:
@@ -363,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 9216238422731752876}
   animator: {fileID: 9216238422731752856}
+  target1: {fileID: 9216238422731752873}
   radius: 30
   angle: 200
   canSeePlayer: 0
@@ -381,7 +384,6 @@ MonoBehaviour:
   isShooting: 0
   Damage: 1
   shootPoint: {fileID: 7312362158906971504}
-  missShot: 1
   muzzleFlash: {fileID: 8348866257022434075, guid: 4692c080578fd47428564fbe1cb0c108, type: 3}
   tracer: {fileID: 4619453486907621294}
   tracerSpawn: {fileID: 4453920624045274838}

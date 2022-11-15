@@ -9,6 +9,8 @@ public class Target : MonoBehaviour, IDamage
     public StateManager stateManager;
     public bool hasKey;
     public GameObject key;
+    public bool isDead;
+    public Collider collider;
 
 
     void Start()
@@ -25,20 +27,27 @@ public class Target : MonoBehaviour, IDamage
     public int health;
     public void takeDamage(int dmg)
     {
-        animator.SetTrigger("hit");
-        health -= dmg;
-
-        if (health <= 0)
+        if (!isDead)
         {
-            if (hasKey)
-            {
-                Vector3 position = transform.position;
-                Instantiate(key, position, Quaternion.identity);
-            }
+            animator.SetTrigger("hit");
+            health -= dmg;
 
-            Death();
-            
+            if (health <= 0)
+            {
+                collider.enabled = false;
+                isDead = true;
+
+                if (hasKey)
+                {
+                    Vector3 position = transform.position;
+                    Instantiate(key, position, Quaternion.identity);
+                }
+
+                Death();
+
+            }
         }
+
     }
 
     public void Death()
