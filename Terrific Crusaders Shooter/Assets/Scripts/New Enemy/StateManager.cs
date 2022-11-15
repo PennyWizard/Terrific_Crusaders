@@ -14,6 +14,7 @@ public class StateManager : MonoBehaviour, IHear
     public Chase chase = new Chase();
     public Investigate investigate = new Investigate();
     public Animator animator;
+    public Target target1;
 
 
     [Header("Field of View")]
@@ -139,7 +140,7 @@ public class StateManager : MonoBehaviour, IHear
 
     public void ShootGun()
     {
-        if (!isShooting && canSeePlayer)
+        if (!isShooting && canSeePlayer && !target1.isDead)
         {
             StartCoroutine(Fire());
             
@@ -149,37 +150,44 @@ public class StateManager : MonoBehaviour, IHear
     
     IEnumerator Fire()
     {
-        isShooting = true;
-
-        yield return new WaitForSeconds(2f);
-
-        Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
-        float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
-
-        muzzleFlash.Play();
-
-        if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask) && Vector3.Angle(transform.forward, directionToTarget) < 45)
+        if (!target1.isDead)
         {
-            source.PlayOneShot(shot);
-            int missShot = Random.Range(1, 4);
+            isShooting = true;
 
-            if (missShot == 1)
+            yield return new WaitForSeconds(2f);
+
+            Vector3 directionToTarget = (player.transform.position - shootPoint.transform.position).normalized;
+            float distanceToTarget = Vector3.Distance(shootPoint.transform.position, player.transform.position);
+
+            muzzleFlash.Play();
+
+            if (!Physics.Raycast(shootPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask) && Vector3.Angle(transform.forward, directionToTarget) < 45)
             {
-                GameManager.instance.playerScript.takeDamage(Damage);
+                if (!target1.isDead)
+                {
+                    source.PlayOneShot(shot);
+                }
+
+                int missShot = Random.Range(1, 4);
+
+                if (missShot == 1)
+                {
+                    GameManager.instance.playerScript.takeDamage(Damage);
+                }
+
+
             }
-                
+            if (Physics.Raycast(tracerSpawn.position, transform.forward, out RaycastHit hit2, shootRange))
+            {
+                tracer.emitting = true;
+                TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
+                StartCoroutine(SpawnTrail(tracerTrail, hit2));
+                tracer.emitting = false;
 
-        }
-        if (Physics.Raycast(tracerSpawn.position, transform.forward, out RaycastHit hit2, shootRange))
-        {
-            tracer.emitting = true;
-            TrailRenderer tracerTrail = Instantiate(tracer, tracerSpawn.position, Quaternion.identity);
-            StartCoroutine(SpawnTrail(tracerTrail, hit2));
-            tracer.emitting = false;
+            }
 
+            isShooting = false;
         }
-        
-        isShooting = false;
     }
     private IEnumerator SpawnTrail(TrailRenderer tracerTrail, RaycastHit hit)
     {

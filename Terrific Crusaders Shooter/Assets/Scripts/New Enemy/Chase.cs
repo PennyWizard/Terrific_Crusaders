@@ -13,6 +13,7 @@ public class Chase : State
     public AudioSource source;
     public AudioClip[] spoted;
     public bool playing;
+    public Target target;
 
     public override void RunCurrentState(StateManager stateManager)
     {
@@ -22,6 +23,7 @@ public class Chase : State
         range = stateManager.shootRange;
         damage = stateManager.Damage;
         animator = stateManager.animator;
+        target = stateManager.target1;
 
         animator.SetBool("seePlayer", true);
         stateManager.playSound();
@@ -33,7 +35,7 @@ public class Chase : State
         if (stateManager.canSeePlayer)
         {
             
-            if (stateManager.isInRange)
+            if (stateManager.isInRange && !target.isDead)
             {
                 agent.SetDestination(stateManager.player.transform.position);
                 lastKnow = stateManager.player.transform.position;
