@@ -6,7 +6,7 @@ public class KeyPickup : InteractableBase
 {
     public override void OnInteract()
     {
-        GameManager.instance.playerScript.hasKey = true;
         Destroy(gameObject);
+        GameManager.instance.playerScript.hasKey = true;
     }
 }

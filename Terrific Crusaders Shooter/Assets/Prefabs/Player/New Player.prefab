@@ -5026,6 +5026,7 @@ MonoBehaviour:
   sensVert: 300
   lockVertMin: -75
   lockVertMax: 45
+  gameManager: {fileID: 0}
   invert: 0
 --- !u!20 &9005697370311666296
 Camera:
@@ -5705,7 +5706,7 @@ MonoBehaviour:
   playerReloadAudVol: 1
   gunEmptyAud: {fileID: 8300000, guid: 834f1998b3487064ba5360aa8a8cc535, type: 3}
   gunEmptyAudVol: 1
-  soundRange: 0
+  soundRange: 200
   muzzleFlash: {fileID: 33332882715181260}
   shotHit: {fileID: 0}
   tracer: {fileID: 1999120891620386853}

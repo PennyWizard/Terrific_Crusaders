@@ -10,7 +10,7 @@ public class Target : MonoBehaviour, IDamage
     public bool hasKey;
     public GameObject key;
     public bool isDead;
-    public Collider collider;
+    //public Collider collider;
 
 
     void Start()
@@ -34,7 +34,7 @@ public class Target : MonoBehaviour, IDamage
 
             if (health <= 0)
             {
-                collider.enabled = false;
+                //collider.enabled = false;
                 isDead = true;
 
                 if (hasKey)
