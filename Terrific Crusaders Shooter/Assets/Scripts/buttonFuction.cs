@@ -19,7 +19,9 @@ public class buttonFuction : MonoBehaviour
         GameManager.instance.curserUnlock();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.isMenuOpen = false;
+        GameManager.instance.isPaused = false;
         GameManager.instance.youWinText.SetActive(false);
+        GameManager.instance.youLoseText.SetActive(false);
         GameManager.instance.resumButton.SetActive(false);
     }
 

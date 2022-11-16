@@ -1183,6 +1183,7 @@ MonoBehaviour:
   isIneractable: 1
   ToolTipMessage: Free!
   agent: {fileID: 2834703047688378011}
+  gameManager: {fileID: 0}
   animator: {fileID: 5369815272069083108}
   waypoint: {fileID: 0}
 --- !u!195 &2834703047688378011
