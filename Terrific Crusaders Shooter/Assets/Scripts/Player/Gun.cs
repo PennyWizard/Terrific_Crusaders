@@ -32,8 +32,11 @@ public class Gun : MonoBehaviour
     [SerializeField] TrailRenderer tracer;
     [SerializeField] Transform tracerSpawn;
     [SerializeField] LayerMask hitLayer;
-    
-    
+
+    private void OnEnable()
+    {
+        isShoot = false;
+    }
 
     // Update is called once per frame
     void Update()

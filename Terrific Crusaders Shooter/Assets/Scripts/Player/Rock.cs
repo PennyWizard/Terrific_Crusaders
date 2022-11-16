@@ -24,6 +24,10 @@ public class Rock : MonoBehaviour
         readyToThrow = true;
        
     }
+    private void OnEnable()
+    {
+        readyToThrow = true;
+    }
 
     // Update is called once per frame
     void Update()
